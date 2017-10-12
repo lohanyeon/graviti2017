@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <ul>
+      <li><router-link v-bind:to="{ name: 'Index' }">index</router-link></li>
+      <li><router-link v-bind:to="{ name: 'About' }">about</router-link></li>
+      <li><router-link v-bind:to="{ name: 'Work' }">work</router-link></li>
+      <li><router-link v-bind:to="{ name: 'WorkDetail' }">work_detail</router-link></li>
+      <li><router-link v-bind:to="{ name: 'Contact' }">contact</router-link></li>
+    </ul>
     <router-view/>
   </div>
 </template>
