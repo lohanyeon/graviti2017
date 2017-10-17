@@ -21,17 +21,17 @@
 @font-face {
 	 font-family: 'KlavikaBold';
 	 src: url(../font/KlavikaBold.otf)
-} 
+}
 
 @font-face {
 	 font-family: 'KlavikaMedCapsMedium';
 	 src: url(../font/KlavikaMedCapsMedium.otf)
-} 
+}
 
 @font-face {
 	 font-family: 'KlavikaLight';
 	 src: url(../font/klavikalight-osf-opentype.otf)
-} 
+}
 
 @font-face {
 	 font-family: 'KlavikaRegular';
@@ -46,7 +46,7 @@
        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
 }
- 
+
 @font-face{
     font-family:"NotoSansCJKkr-Light";
     src:url(../font/NotoSansCJKkr-Light.otf);
@@ -59,12 +59,12 @@
     font-family:"NanumBarunGothic";
     src:url(../font/NanumBarunGothic.eot);
     src:local(※), url(../font/NanumBarunGothic.woff) format(‘woff’)}
-    
-    
+
+
 
 @media only screen and (max-width:736px) {	/* mobile */
 	html, body {widht:100%; height:100%; margin: 0px; font-size: 10pt;}
-}    
+}
 @media only screen and (min-width:737px) {	/* pc */
 	html, body {widht:100%; height:100%; margin: 0px; font-size: 12pt;}
 }
@@ -110,7 +110,3 @@ body {font-family: NanumSquare, 나눔고딕, NanumGothic}
 	.row {clear: both;}
 	.clear {display: none;}
 }
-
-
-
-

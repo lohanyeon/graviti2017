@@ -1,18 +1,6 @@
 <template>
-  <!--<div id="app">
-    <ul>
-      <li><router-link v-bind:to="{ name: 'Index' }">index</router-link></li>
-      <li><router-link v-bind:to="{ name: 'About' }">about</router-link></li>
-      <li><router-link v-bind:to="{ name: 'Work' }">work</router-link></li>
-      <li><router-link v-bind:to="{ name: 'WorkDetail' }">work_detail</router-link></li>
-      <li><router-link v-bind:to="{ name: 'Contact' }">contact</router-link></li>
-    </ul>
-    <router-view/>
-  </div>-->
-
-  <!--- -->
   <div id="app">
-    
+
     <div class="gnb-btn"><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="메뉴"></a></div>
 
     <nav class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2">
@@ -30,8 +18,8 @@
     			<div class="menu">
     				<ul>
     					<li><span class="sup">01</span><span class="title"><router-link v-bind:to="{ name: 'About' }" onclick="closeGnb();">ABOUT</router-link></span></li>
-    					<li><span class="sup">02</span><span class="title"><router-link v-bind:to="{ name: 'Work' }">WORK</router-link></span></li>
-    					<li><span class="sup">03</span><span class="title"><router-link v-bind:to="{ name: 'Contact' }">CONTACT</router-link></span></li>
+    					<li><span class="sup">02</span><span class="title"><router-link v-bind:to="{ name: 'Work' }" onclick="closeGnb();">WORK</router-link></span></li>
+    					<li><span class="sup">03</span><span class="title"><router-link v-bind:to="{ name: 'Contact' }" onclick="closeGnb();">CONTACT</router-link></span></li>
     				</ul>
     			</div>
     			<div class="copy">

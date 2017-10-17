@@ -37,8 +37,6 @@ function closeGnb() {
 	var showRightPush = document.getElementById( 'showRightPush' );
 	var body = document.body;
 
-	console.log(showRightPush);
-
 	//classie.toggle( this, 'active' );
 	classie.toggle( body, 'graviti-menu-push-toleft' );
 	classie.toggle( menuRight, 'graviti-menu-open' );

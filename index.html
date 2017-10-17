@@ -20,13 +20,9 @@
 	<link rel="stylesheet" href="/static/v2017/css/component.css" />
 
 	<link rel="stylesheet" href="/static/v2017/css/gnb.css" />
-	<link rel="stylesheet" media="only screen and (max-width : 736px)" href="/static/v2017/css/index_mobile.css" />
-	<link rel="stylesheet" media="only screen and (min-width : 737px) and (max-width : 1024px)" href="/static/v2017/css/index_tablet.css" />
-	<link rel="stylesheet" media="only screen and (min-width : 1025px)" href="/static/v2017/css/index_pc.css" />
-
-  <link rel="stylesheet" media="only screen and (max-width : 736px)" href="/static/v2017/css/about_mobile.css" />
-	<link rel="stylesheet" media="only screen and (min-width : 737px) and (max-width : 1024px)" href="/static/v2017/css/about_tablet.css" />
-	<link rel="stylesheet" media="only screen and (min-width : 1025px)" href="/static/v2017/css/about_pc.css" />
+	<link rel="stylesheet" media="only screen and (max-width : 736px)" href="/static/v2017/css/mobile.css" />
+	<link rel="stylesheet" media="only screen and (min-width : 737px) and (max-width : 1024px)" href="/static/v2017/css/tablet.css" />
+	<link rel="stylesheet" media="only screen and (min-width : 1025px)" href="/static/v2017/css/pc.css" />
 
 	<script type="text/javascript" src="/static/v2017/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="/static/v2017/js/jquery-ui.min.js"></script>
@@ -41,6 +37,18 @@
 		    	console.log('horizental');
 		    }
 		});
+
+		$(document).ready(function() {
+			var orgImg = '';
+			$('.wrapper-work .content .title p:nth-child(1) a').mouseenter(function() {
+				orgImg = $(this).parent().next().find('a img').attr('src');
+				//console.log(orgImg + '--');
+				$(this).parent().next().find('a img').attr('src', '/static/v2017/images/btn_more_gallery.png');
+			}).mouseleave(function() {
+				$(this).parent().next().find('a img').attr('src', orgImg);
+			});
+		});
+
 	</script>
 </head>
   <body class="graviti-menu-push">
