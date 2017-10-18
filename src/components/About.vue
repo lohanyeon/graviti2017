@@ -7,7 +7,7 @@
 
     <header class="header">
     	<div class="hollow"></div>
-    	<div class="fl"><h1 class="logo"><a href="/"><img src="/static/v2017/images/logo_blue.png" alt=""></a></h1></div>
+    	<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Index' }"><img src="/static/v2017/images/logo_blue.png" alt=""></router-link></h1></div>
     	<aside class="fr">
     		<nav>
     			<ul>

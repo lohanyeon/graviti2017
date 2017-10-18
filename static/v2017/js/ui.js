@@ -5,7 +5,6 @@ window.onload = function() {
 		body = document.body;
 
 	showRightPush.onclick = function() {
-		console.log('t');
 		classie.toggle( this, 'active' );
 		classie.toggle( body, 'graviti-menu-push-toleft' );
 		classie.toggle( menuRight, 'graviti-menu-open' );
@@ -192,5 +191,71 @@ function setBodyHeight() {
 	if (windowHeight < docHeight) {
 		//$('.wrapper').css('width', windowWidth);
 		$('.wrapper').css('height', docHeight + 40);
+	}
+}
+
+/**
+* work 관련 js
+*/
+$(function() {
+	//my.morePortfolio();
+	s.gnb();
+});
+var my = {
+	morePortfolio:function() {
+		var none = $('.more-portfolio').css('display');
+		var h = $('body').height()
+		console.log(none);
+		if (none == 'none') {
+			$('.more-portfolio').insertAfter('.contents');
+			$('.more-portfolio').css('display', 'block');
+		}
+		$('html, body').animate({scrollTop : h}, 150);
+		this.setTextInfoHeight();
+	},
+	setTextInfoHeight:function() {
+		var h = $('.more-portfolio .text-info').height();
+		console.log(h);
+		//$('.more-portfolio .text-info').css('height', h+100);
+	}
+}
+
+var s = {
+	gnb:function() {
+		var $win = $(window);
+		var top = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+
+		/*사용자 설정 값 시작*/
+		var speed = 500; // 따라다닐 속도 : "slow", "normal", or "fast" or numeric(단위:msec)
+		var easing = 'linear'; // 따라다니는 방법 기본 두가지 linear, swing
+		var $layer = $('.cloud-gnb'); // 레이어 셀렉팅
+		var layerTopOffset = 0; // 레이어 높이 상한선, 단위:px
+		//$layer.css('position', 'relative').css('z-index', '1');
+		/*사용자 설정 값 끝*/
+
+		// 스크롤 바를 내린 상태에서 리프레시 했을 경우를 위해
+		if (top > 0 )
+			$win.scrollTop(layerTopOffset+top);
+		else
+			$win.scrollTop(0); //스크롤이벤트가 발생하면
+
+			//console.log($('.header').height(), $('.contents article').height(), $('.more-portfolio .text-info').height());
+
+		$(window).scroll(function() {
+			var h = $('.header').height() + $('.contents article').height() + $('.more-portfolio .text-info').height();
+
+			yPosition = $win.scrollTop() - h; //이부분을 조정해서 화면에 보이도록 맞추세요
+
+			//console.log($('.header').height(), $('.contents article').height(), $('.more-portfolio .text-info').height());
+			//console.log(yPosition, $win.scrollTop(), h);
+
+			if (yPosition < 0) {
+				yPosition = 0;
+				$layer.css('position', 'relative');
+			} else {
+				$layer.css('position', 'fixed').css('top', '0px').css('opacity', '0.9');
+			}
+			//$layer.animate({"top":yPosition }, {duration:speed, easing:easing, queue:false});
+		});
 	}
 }

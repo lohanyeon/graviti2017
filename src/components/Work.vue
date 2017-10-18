@@ -1,9 +1,9 @@
 <template id="">
   <div class="wrapper-work">
-    
+
   		<header class="header">
   			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><a href="/"><img src="/static/v2017/images/logo.png" alt=""></a></h1></div>
+  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Index' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
   			<aside class="fr">
   				<nav>
   					<ul>
@@ -22,8 +22,8 @@
   				<div class="content">
   					<p class="order">PROJECT1</p>
   					<div class="title">
-  						<p><a href="sub.jsp">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="sub.jsp"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
+  						<p><router-link v-bind:to="{ name: 'WorkDetail' }">2016 일진그룹 계열사 웹사이트 리뉴얼</router-link></p>
+  						<p><router-link v-bind:to="{ name: 'WorkDetail' }"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></router-link></p>
   					</div>
   				</div>
   				<div class="overlay gray"></div>

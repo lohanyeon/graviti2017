@@ -5,7 +5,7 @@
   		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
   		<header class="header">
   			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><a href="/"><img src="/static/v2017/images/logo.png" alt=""></a></h1></div>
+  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Index' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
   			<aside class="fr">
   				<nav>
   					<ul>
@@ -31,7 +31,7 @@
   								<p class="project_name_kor">일진계열사 웹사이트 통합 프로젝트</p>
   							</div>
   							<div class="detail">
-  								<a href="sub.jsp"><img src="/static/v2017/images/btn_more.png" alt="" /></a>
+  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
   							</div>
   						</div>
   						<div class="main_title">
@@ -41,7 +41,7 @@
   								<p class="project_name_kor">세아계열사  웹사이트 통합 프로젝트</p>
   							</div>
   							<div class="detail">
-  								<a href="sub.jsp"><img src="/static/v2017/images/btn_more.png" alt="" /></a>
+  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
   							</div>
   						</div>
   						<div class="main_title on">
@@ -51,7 +51,7 @@
   								<p class="project_name_kor">법무번인 화우 웹사이트 통합 프로젝트</p>
   							</div>
   							<div class="detail">
-  								<a href="sub.jsp"><img src="/static/v2017/images/btn_more.png" alt="" /></a>
+  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
   							</div>
   						</div>
   					</div>

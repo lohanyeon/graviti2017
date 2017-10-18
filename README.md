@@ -9,6 +9,12 @@ cd my-project
 npm install
 npm run dev
 
+## 개발중에 설치된 npm
+npm install vue2-google-maps
+npm install --save-dev expose-loader
+npm install --save jquery
+npm install --save jquery-ui
+
 ## Build Setup
 
 ``` bash
