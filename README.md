@@ -14,6 +14,7 @@ npm install vue2-google-maps
 npm install --save-dev expose-loader
 npm install --save jquery
 npm install --save jquery-ui
+npm install --save axios
 
 ## Build Setup
 

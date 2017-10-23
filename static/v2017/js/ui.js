@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 	/* 사이드 메뉴 show, hide */
 	$('#sidemenu').click(function() {
-		console.log($('.sidemenu').css('display'));
+		//console.log($('.sidemenu').css('display'));
 		$('.sidemenu').css({
 			top: 0,
 			left: $('.wrapper').width()

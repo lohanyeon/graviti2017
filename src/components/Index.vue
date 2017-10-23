@@ -94,3 +94,33 @@
   	</div>
 
 </template>
+
+<script type="text/javascript">
+  export default {
+    name: 'index',
+    data: function () {
+      return {
+        posts: []
+      }
+    },
+    computed: {
+      hasResult: function () {
+        return this.posts.length > 0
+      }
+    },
+    methods: {
+      listPortfolio: function () {
+        const baseURI = '/api'
+        this.$http.get(`${baseURI}/bbs/intranet/work.json.lib.php?action=get_work_history&mb_id=ykh&req_yyyy=2017`)
+          .then((result) => {
+            console.log(result.data)
+            this.posts = result.data
+          })
+      }
+    },
+    created: function () {
+      this.listPortfolio()
+      console.log('created')
+    }
+  }
+</script>
