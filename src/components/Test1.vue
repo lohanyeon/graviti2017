@@ -150,5 +150,4 @@
   .visual p {
     font-size: 30pt;
   }
-
 </style>
