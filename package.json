@@ -18,7 +18,9 @@
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
     "vue": "^2.4.2",
-    "vue-router": "^2.7.0"
+    "vue-router": "^2.7.0",
+    "vue2-google-maps": "^0.8.4",
+    "webpack": "^3.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
