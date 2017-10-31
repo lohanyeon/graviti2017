@@ -58,7 +58,7 @@
         var t = setInterval(function () {
           if (count < total) {
             if (tg.eq(count).hasClass('img')) {
-              tg.eq(count).show(0).delay(200).hide(0)
+              tg.eq(count).show().delay(200).hide(0)
             } else {
               tg.eq(count).show()
             }
@@ -73,7 +73,18 @@
         }, 3000)
       },
       mainVisual: function () {
-        console.log('main')
+        setTimeout(function () {
+          $('.visual').fadeIn(3000)
+        }, 3600)
+        setTimeout(function () {
+          console.log('go')
+          // Router.push('Main')
+          // this.$router.push({
+          //   path: `/Main`,
+          //   query: {}
+          // })
+          // location.href = '/Main'
+        }, 7000)
       }
     },
     created: function () {

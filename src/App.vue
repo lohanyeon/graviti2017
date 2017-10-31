@@ -8,7 +8,7 @@
       	<div class="header">
   	    	<div class="hollow"></div>
   	    	<div class="fl">
-  		    	<h1><router-link v-bind:to="{ name: 'Index' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="" /></router-link></h1>
+  		    	<h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="" /></router-link></h1>
   		    </div>
   		    <div class="fr">
   		    	<!-- <p><a href="#" id="hideRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="" /></a></p> -->
