@@ -20,11 +20,8 @@
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vue2-google-maps": "^0.8.4",
-<<<<<<< HEAD
-    "expose-loader": "^0.7.3"
-=======
+    "expose-loader": "^0.7.3",
     "webpack": "^3.8.1"
->>>>>>> 737623af106bb4490f6fabf6c35290b48976e070
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

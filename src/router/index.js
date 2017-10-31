@@ -5,11 +5,8 @@ import About from '@/components/About'
 import Work from '@/components/Work'
 import WorkDetail from '@/components/WorkDetail'
 import Contact from '@/components/Contact'
-<<<<<<< HEAD
 import Test1 from '@/components/Test1'
-=======
 import About01 from '@/components/About01'
->>>>>>> 737623af106bb4490f6fabf6c35290b48976e070
 
 Vue.use(Router)
 
@@ -42,15 +39,14 @@ export default new Router({
       component: Contact
     },
     {
-<<<<<<< HEAD
       path: '/test1',
       name: 'Test1',
       component: Test1
-=======
+    },
+    {
       path: '/about01',
       name: 'About01',
       component: About01
->>>>>>> 737623af106bb4490f6fabf6c35290b48976e070
     }
   ]
 })
