@@ -110,8 +110,8 @@
     },
     methods: {
       listPortfolio: function () {
-        const baseURI = '/api'
-        this.$http.get(`${baseURI}/bbs/intranet/work.json.lib.php?action=get_work_history&mb_id=ykh&req_yyyy=2017`)
+        const baseURI = '/apis'
+        this.$http.get(`${baseURI}/portfolios/api/portfolio/`)
           .then((result) => {
             console.log(result.data)
             this.posts = result.data
