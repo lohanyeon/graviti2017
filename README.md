@@ -16,6 +16,7 @@ npm install --save expose-loader
 npm install --save jquery
 npm install --save jquery-ui
 npm install --save axios
+npm install --save babel-polyfill
 
 ## Build Setup
 
