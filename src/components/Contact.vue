@@ -4,7 +4,7 @@
   		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
   		<header class="header">
   			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Index' }"><img src="/static/v2017/images/logo_blue.png" alt=""></router-link></h1></div>
+  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_blue.png" alt=""></router-link></h1></div>
   			<aside class="fr">
   				<nav>
   					<ul>
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+  import 'babel-polyfill'
   import * as VueGoogleMaps from 'vue2-google-maps'
   import Vue from 'vue'
 
