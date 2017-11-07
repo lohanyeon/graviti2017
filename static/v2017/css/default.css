@@ -151,7 +151,7 @@ a:hover {
 	pointer-events: none;
 }
 
-.icon-drop:before, 
+.icon-drop:before,
 .icon-arrow-left:before {
 	font-family: 'fontawesome';
 	position: absolute;
@@ -180,4 +180,3 @@ a:hover {
 .icon-arrow-left:before {
 	content: "\f060";
 }
-
