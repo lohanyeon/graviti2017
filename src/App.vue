@@ -1,9 +1,23 @@
 <template>
   <div id="app">
 
-    <div class="gnb-btn"><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="메뉴"></a></div>
+    <!-- <header>
+      <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
+      <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu.png" alt="메뉴"></a>
+    </header>
 
-    <nav class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2">
+    <footer>
+      <address>
+        Tel. 02.333.9230<br>
+        Cell. 010.5090.9788<br>
+        Fax. 02.333.8893
+      </address>
+      <p>서울특별시 마포구 동교로 107, 302호</p>
+    </footer> -->
+
+    <!-- <div class="gnb-btn" style="display:none;"><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="메뉴"></a></div>
+
+    <nav class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2" style="display:none;">
       <div class="gnb-wrapper">
       	<div class="header">
   	    	<div class="hollow"></div>
@@ -11,7 +25,7 @@
   		    	<h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="" /></router-link></h1>
   		    </div>
   		    <div class="fr">
-  		    	<!-- <p><a href="#" id="hideRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="" /></a></p> -->
+  		    	<p><a href="#" id="hideRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="" /></a></p>
   		    </div>
         </div>
     		<div class="contents">
@@ -57,7 +71,7 @@
     			</div>
     		</div>
       </div>
-    </nav>
+    </nav> -->
 
     <router-view/>
   </div>
@@ -68,14 +82,3 @@ export default {
   name: 'app'
 }
 </script>
-
-<style>
-#app {
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;*/
-}
-</style>
