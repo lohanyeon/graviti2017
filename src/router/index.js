@@ -6,6 +6,7 @@ import Work from '@/components/Work'
 import WorkDetail from '@/components/WorkDetail'
 import Contact from '@/components/Contact'
 import Test1 from '@/components/Test1'
+import Test2 from '@/components/Test2'
 import About01 from '@/components/About01'
 
 Vue.use(Router)
@@ -42,6 +43,11 @@ export default new Router({
       path: '/test1',
       name: 'Test1',
       component: Test1
+    },
+    {
+      path: '/test2',
+      name: 'Test2',
+      component: Test2
     },
     {
       path: '/about01',
