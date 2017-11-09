@@ -17,6 +17,7 @@ npm install --save jquery
 npm install --save jquery-ui
 npm install --save axios
 npm install --save babel-polyfill
+npm install --save gsap
 
 ## Build Setup
 

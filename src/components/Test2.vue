@@ -42,7 +42,8 @@
 <script>
   import $ from 'jQuery'
   // typical import
-  import {TweenMax, Power2} from 'gsap'
+  // import {TweenMax, Bounce} from 'gsap'
+  import {TimelineLite} from 'gsap'
 
   // or get to the parts that aren't included inside TweenMax (works as of 1.19.1):
   // import Draggable from "gsap/Draggable"
@@ -52,48 +53,68 @@
 
   export default {
     name: 'introApp',
+    computed: {
+    },
     methods: {
       hideMenu: function () {
         $('.gnb-btn').hide()
+        $('.vertical-grid p').hide()
+        $('.visual').hide()
       },
       typeText: function () {
-        var tg = $('.vertical-grid p')
-        tg.hide()
-        $('.visual').hide()
-        var total = tg.length
-        var count = 0
-        var t = setInterval(function () {
-          if (count < total) {
-            if (tg.eq(count).hasClass('img')) {
-              tg.eq(count).show().delay(200).hide(0)
-            } else {
-              tg.eq(count).show()
-            }
-            count++
-          } else {
-            tg.fadeOut()
-          }
-        }, 200)
-
-        setTimeout(function () {
-          clearInterval(t)
-        }, 3000)
+        // var top = $('.vertical-grid').height()
+        // var time = 1.5
+        // $('.vertical-grid').css({top: top * -1})
+        // $('.vertical-grid').each(function () {
+        //   TweenMax.to($(this), time, {top: 0})
+        //   time += 0.2
+        // })
+        // var leftPx = 800
+        // $('.vertical-grid p.txt').each(function () {
+        //   var left = $(this).position().left
+        //   TweenMax.fromTo($(this), 2
+        //     , {left: left - leftPx}
+        //     , {left: left, ease: Bounce.easeInOut}
+        //   )
+        //   leftPx += 1000
+        // })
+        // var rightPx = 7800
+        // $('.vertical-grid p.img').each(function () {
+        //   var right = $(this).position().left
+        //   TweenMax.fromTo($(this), 1.5
+        //     , {left: right + rightPx}
+        //     , {left: right, ease: Bounce.easeInOut}
+        //   )
+        //   rightPx -= 1000
+        // })
+        var time = 0.2
+        var tm = new TimelineLite()
+        $('.vertical-grid').each(function () {
+          var obj = $(this).children('.txt')
+          var objImg = $(this).children('.img')
+          $(obj).show()
+          $(objImg).show()
+          tm.fromTo($(obj), time
+            , {scaleX: 30, scaleY: 30}
+            , {scaleX: 1, scaleY: 1}
+          )
+          time += 0.1
+        })
       },
       mainVisual: function () {
-        setTimeout(function () {
-          $('.visual').fadeIn(3000)
-        }, 3600)
-        setTimeout(function () {
-          console.log('go')
-          // Router.push('Main')
-          // this.$router.push({
-          //   path: `/Main`,
-          //   query: {}
-          // })
-          // location.href = '/Main'
-        }, 7000)
-        var visual = $('.visual')
-        TweenMax.to(visual, 1, {width: 100, ease: Power2.easeOut})
+        // var showVisual = function () {
+        //   var visual = $('.visual')
+        //   $('.vertical-grid p').hide()
+        //   visual.fadeIn()
+        //   TweenMax.to(visual, 2, {width: 500})
+        // }
+        //
+        // var goNext = function () {
+        //   console.log('go next page')
+        // }
+        //
+        // setTimeout(showVisual, 4000)
+        // setTimeout(goNext, 6000)
       }
     },
     created: function () {
