@@ -15,10 +15,8 @@
       <p>서울특별시 마포구 동교로 107, 302호</p>
     </footer>
 
-    <!-- <div class="gnb-btn" style="display:none;"><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="메뉴"></a></div>
-
     <nav class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2" style="display:none;">
-      <div class="gnb-wrapper">
+      <!-- <div class="gnb-wrapper">
       	<div class="header">
   	    	<div class="hollow"></div>
   	    	<div class="fl">
@@ -70,8 +68,8 @@
     				</div>
     			</div>
     		</div>
-      </div>
-    </nav> -->
+      </div> -->
+    </nav>
 
     <router-view/>
   </div>

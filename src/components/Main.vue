@@ -2,21 +2,6 @@
 
   <div class="wrapper">
 
-  		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
-  		<header class="header">
-  			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
-  			<aside class="fr">
-  				<nav>
-  					<ul>
-  						<!-- <li><a href="#"><img src="/static/v2017/images/brochure_download.png" alt="브로셔 다운로드"></a></li>
-  						<li><a href="#"><img src="/static/v2017/images/project_request.png" alt="프로젝트 의뢰"></a></li> -->
-  						<!-- <li><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-  					</ul>
-  				</nav>
-  			</aside>
-  		</header>
-
   		<div class="contents">
   			<article>
   				<section class="name_area">
