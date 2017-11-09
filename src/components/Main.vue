@@ -64,6 +64,10 @@
   					</ul>
   				</section>
   			</article>
+
+        <ul id="v-list" v-if="hasResult">
+          <li v-for="post in posts" v-bind:key="post.pk">{{post.fields.project_kor_name}}</li>
+        </ul>
   		</div>
 
   		<footer class="footer">
@@ -97,7 +101,7 @@
 
 <script type="text/javascript">
   export default {
-    name: 'index',
+    name: 'mainApp',
     data: function () {
       return {
         posts: []
@@ -109,9 +113,11 @@
       }
     },
     methods: {
-      listPortfolio: function () {
-        const baseURI = '/apis'
+      listPortfolio () {
+        // const baseURI = '/apis'
+        const baseURI = 'http://new.graviti.co.kr'
         this.$http.get(`${baseURI}/portfolios/api/portfolio/`)
+        // this.$http.get(`${baseURI}`)
           .then((result) => {
             console.log(result.data)
             this.posts = result.data

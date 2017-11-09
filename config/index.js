@@ -19,6 +19,15 @@ module.exports = {
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
+    proxyTable: {
+      '/apis': {
+        target: 'http://new.graviti.co.kr',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/apis': ""
+        }
+      }
+    },
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`

@@ -22,6 +22,60 @@
 
 </template>
 
+<script>
+  import $ from 'jQuery'
+  import {TweenMax, Power4} from 'gsap'
+  import router from '../router/index'
+
+  export default {
+    name: 'introApp',
+    methods: {
+      hideMenu: function () {
+        $('header').hide()
+        $('footer').hide()
+        // $('.intro_grid span').hide()
+        $('.intro_grid span img').hide()
+      },
+      spanMove: function () {
+        var time = 0.2
+        var delayTime = time
+        // var tm = new TimelineLite()
+        var rightPosition = $(document).width()
+        $('.grid-line').each(function () {
+          $(this).show()
+          var obj = $(this).offset()
+          TweenMax.fromTo($(this), time
+            , {left: rightPosition}
+            , {left: obj.left, ease: Power4.easeOut}
+          ).delay(delayTime)
+          delayTime += 0.2
+        })
+      },
+      typeText: function () {
+        var showMent = function () {
+          $('.grid-line span img').hide()
+          // $('.ment').addClass('on')
+          $('.ment').fadeIn(3000)
+        }
+        var goIndex = function () {
+          console.log(router.currentRoute)
+          // router.push({path: '/work'})
+        }
+        $('.grid-line span img').fadeIn(3000)
+        setTimeout(showMent, 3000)
+        setTimeout(goIndex, 5000)
+      }
+    },
+    created: function () {
+    },
+    mounted () {
+      this.hideMenu()
+      this.spanMove()
+      this.typeText()
+    }
+  }
+</script>
+
 <style>
   .intro_wrap {width:100%; height:100%;}
   .intro_grid {position:relative; width:100%; height:100%;}

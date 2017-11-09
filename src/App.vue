@@ -1,9 +1,9 @@
 <template>
   <div id="app">
 
-    <!-- <header>
+    <header>
       <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
-      <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu.png" alt="메뉴"></a>
+      <a href="#" class="gnb_menu" id="showRightPush"><img src="/static/v2017/images/gnb_menu.png" alt="메뉴"></a>
     </header>
 
     <footer>
@@ -13,7 +13,7 @@
         Fax. 02.333.8893
       </address>
       <p>서울특별시 마포구 동교로 107, 302호</p>
-    </footer> -->
+    </footer>
 
     <!-- <div class="gnb-btn" style="display:none;"><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon_blue.png" alt="메뉴"></a></div>
 
