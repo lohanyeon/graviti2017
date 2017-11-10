@@ -24,7 +24,7 @@ header .gnb_menu {position:absolute; top:0; right:0; padding-right:3.1rem;}
 header .gnb_menu img.mobile {display:none;}
 
 /* sub header */
-.sub_header {position:relative; padding-top:3.1rem;}
+.sub_header {position:relative; padding-top:3.1rem; z-index:1;}
 .sub_header h1 {padding-left:3.1rem;}
 .sub_header .gnb_menu {position:absolute; top:3.1rem; right:0; padding-right:3.1rem; z-index:10;}
 
