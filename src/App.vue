@@ -32,15 +32,15 @@
       <div class="sub_main">
         <div class="sub_header">
           <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive" /></router-link></h1>
-          <a href="#" id="hideRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_back.png" alt="Back" /></a>
+          <a href="#" id="hideRightPush" onclick="closeGnb();" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_back.png" alt="Back" /></a>
         </div>
 
         <div class="sub_cont">
           <nav id="gnb">
             <ul>
-              <li><span>01</span> <router-link v-bind:to="{ name: 'About01' }">ABOUT</router-link></li>
-              <li><span>02</span> <router-link v-bind:to="{ name: 'Work01' }">WORK</router-link></li>
-              <li><span>03</span> <router-link v-bind:to="{ name: 'Contact01' }">CONTACT</router-link></li>
+              <li><span>01</span> <router-link v-bind:to="{ name: 'About' }" onclick="closeGnb();">ABOUT</router-link></li>
+              <li><span>02</span> <router-link v-bind:to="{ name: 'Work' }" onclick="closeGnb();">WORK</router-link></li>
+              <li><span>03</span> <router-link v-bind:to="{ name: 'Contact' }" onclick="closeGnb();">CONTACT</router-link></li>
             </ul>
           </nav>
           <article class="contR">

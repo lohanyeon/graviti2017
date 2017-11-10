@@ -1,185 +1,134 @@
 <template id="">
-  <div class="wrapper-work-detail">
+  <div class="wrapper work">
+    <header>
+      <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
+      <h2 class="portfolio">PORTFOLIO</h2>
+      <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu.png" alt="메뉴"></a>
+    </header>
 
-  		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
+    <section id="contentWrap">
+      <h3 class="skip">Portfolio</h3>
+      <!-- contents -->
+      <div class="contents section-work">
+        <!-- portfolio -->
+        <div class="portfolio-detail">
+          <div class="img pt0">
+            <img src="/static/v2017/images/portfolio_01-1.jpg" alt="">
+          </div>
+          <div class="info-box">
+            <div class="desc">
+              <dl>
+                <dt>세아그룹 웹사이트 리뉴얼 프로젝트</dt>
+                <dd>
+                  일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                  일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+                </dd>
+              </dl>
+              <p class="site"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
+            </div>
+            <div class="info">
+              info
+            </div>
+          </div>
+          <div class="img pt0">
+            <img src="/static/v2017/images/portfolio_01-2.jpg" alt="">
+          </div>
+          <div class="txt">
+            <dl class="t1">
+              <dt><img src="/static/v2017/images/work_txt_01.png" alt="Main Page"></dt>
+              <dd>
+                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+              </dd>
+            </dl>
+          </div>
+          <div class="img">
+            <img src="/static/v2017/images/portfolio_01-3.png" alt="">
+          </div>
+          <div class="img">
+            <img src="/static/v2017/images/portfolio_01-4.jpg" alt="">
+          </div>
+          <div class="txt">
+            <dl class="t2">
+              <dt><img src="/static/v2017/images/work_txt_02.png" alt="Graphic"></dt>
+              <dd>
+                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+              </dd>
+            </dl>
+          </div>
+          <div class="img">
+            <img src="/static/v2017/images/portfolio_01-5.png" alt="">
+          </div>
+          <div class="txt">
+            <dl class="t3">
+              <dt><img src="/static/v2017/images/work_txt_03.png" alt="Page"></dt>
+              <dd>
+                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+              </dd>
+            </dl>
+          </div>
+          <div class="img">
+            <img src="/static/v2017/images/portfolio_01-6.png" alt="">
+          </div>
+          <div class="img">
+            <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
+          </div>
+        </div>
+        <!-- //portfolio -->
 
-  		<header class="header">
-  			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
-  			<aside class="fr">
-  				<nav>
-  					<ul>
-  						<!-- <li><a href="#"><img src="/static/v2017/images/brochure_download.png" alt="브로셔 다운로드"></a></li>scroll 이동
-  						<li><a href="#"><img src="/static/v2017/images/project_request.png" alt="프로젝트 의뢰"></a></li> -->
-  						<!-- <li><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-  					</ul>
-  				</nav>
-  			</aside>
-  		</header>
+        <!-- other portfolio -->
+        <div class="other-portfolio">
+          <ul>
+            <li class="prev"><a href="#">이전 프로젝트</a></li>
+            <li class="next"><a href="#">다음 프로젝트</a></li>
+          </ul>
+        </div>
+        <!-- //other portfolio -->
+      </div>
+      <!-- //contents -->
 
-  		<div class="contents">
-  			<article>
-  				<section class="bottom-layer"></section>
-  				<section class="bottom-layer-contents">
-  					<div class="mrow">
-  						<div class="col-3 mcol-12">
-  							<div class="title">CLIENT <hr></div>
-  							<div class="content">일진 CNS</div>
-  						</div>
-  						<div class="col-9 mcol-12">
-  							<div>
-  								<div class="title">PROJECT <hr></div>
-  								<div class="more"><a href="javascript:my.morePortfolio();"><img src="/static/v2017/images/btn_portfolio_more.png" alt="" /></a></div>
-  							</div>
-  							<div class="content-kor">2016 일진그룹 계열사 웹사이트 통합 프로젝트</div>
-  							<div class="content-eng">ILJIN SUBSIDIARY WEBSITE RENEWAL</div>
-  						</div>
-  					</div>
-  				</section>
-  				<section class="bg">
-  					<ul>
-  						<li><img src="/static/v2017/images/main_visual01.jpg" alt=""></li>
-  					</ul>
-  				</section>
-  			</article>
-
-
-  			<article class="more-portfolio">
-  				<div class="text-info">
-  					<div class="col-8 mcol-12">
-  						<div class="detail-text">
-  							<p>
-  								일진 그룹의 브랜드 정체성의 확입을 목표로 온라인 통합 플랫폼을 구축하였습니다. <br />
-  								일진의 .CI에 부합되는 규칙을 찾아 [THE NEXT SETP]이라는 컨셉을 바탕으로 일진그룹의 브랜드<br/>아이덴티티를 강화한 웹사이트로 개편하였습니다.
-  								일진 그룹의 브랜드 정체성의 확입을 목표로 온라인 통합 플랫폼을 구축하였습니다. <br />
-  								일진의 .CI에 부합되는 규칙을 찾아 [THE NEXT SETP]이라는 컨셉을 바탕으로 일진그룹의 브랜드<br/>아이덴티티를 강화한 웹사이트로 개편하였습니다.
-  								일진 그룹의 브랜드 정체성의 확입을 목표로 온라인 통합 플랫폼을 구축하였습니다. <br />
-  								일진의 .CI에 부합되는 규칙을 찾아 [THE NEXT SETP]이라는 컨셉을 바탕으로 일진그룹의 브랜드<br/>아이덴티티를 강화한 웹사이트로 개편하였습니다.
-  								일진 그룹의 브랜드 정체성의 확입을 목표로 온라인 통합 플랫폼을 구축하였습니다.
-  							</p>
-  						</div>
-  					</div>
-  					<div class="col-4 mcol-12">
-  						<div class="address">
-  							<select name="">
-  								<option>WWW.ILJINELECTRIC.CO.KR</option>
-  							</select>
-  						</div>
-  					</div>
-  					<div class="row mrow"></div>
-  					<div class="col-3 mcol-6">
-  						<div class="producer">
-  							<div class="line"></div>
-  							<div class="text">
-  								<div class="title">제작사</div>
-  								<div class="content">그라비티인터렉티브</div>
-  							</div>
-  						</div>
-  					</div>
-  					<div class="col-3 mcol-6">
-  						<div class="period">
-  							<div class="line"></div>
-  							<div class="text">
-  								<div class="title">프로젝트 기간</div>
-  								<div class="content">2014.02 ~ 2015.03</div>
-  							</div>
-  						</div>
-  					</div>
-  					<div class="col-3 mcol-6">
-  						<div class="customer">
-  							<div class="line"></div>
-  							<div class="text">
-  								<div class="title">고객사</div>
-  								<div class="content">일진CNS</div>
-  							</div>
-  						</div>
-  					</div>
-  					<div class="col-3 mcol-6">
-  						<div class="range">
-  							<div class="line"></div>
-  							<div class="text">
-  								<div class="title">범위</div>
-  								<div class="content">모바일, 웹 접근성 적용</div>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-  				<div class="row mrow"></div>
-  				<div class="cloud-gnb">
-  					<div class="col-6 mcol-6">
-  						<div class="logo"><img src="/static/v2017/images/cloud_logo.jpg" alt="" /></div>
-  					</div>
-  					<div class="col-6 mcol-6">
-  						<ul>
-  							<li><img src="/static/v2017/images/cloud_twitter.jpg" alt="" /></li>
-  							<li><img src="/static/v2017/images/cloud_facebook.jpg" alt="" /></li>
-  							<li><img src="/static/v2017/images/cloud_in.jpg" alt="" /></li>
-  							<li><img src="/static/v2017/images/cloud_btn_prev.jpg" alt="" /></li>
-  							<li><img src="/static/v2017/images/cloud_btn_next.jpg" alt="" /></li>
-  							<li><a href="javascript:void(0);"><img src="/static/v2017/images/cloud_btn_close.jpg" alt="" /></a></li>
-  						</ul>
-  					</div>
-  				</div>
-  				<div class="row mrow"></div>
-  				<div class="portfolio">
-  					<div class="col-12 mcol-12">
-  						<div class="pf-main"><img src="/static/v2017/images/pf_main.jpg" alt="" /></div>
-  					</div>
-  					<div class="col-6 mcol-12">
-  						<div class="pf-sub"><img src="/static/v2017/images/pf_sub01.jpg" alt="" /></div>
-  					</div>
-  					<div class="col-6 mcol-12">
-  						<div class="pf-sub"><img src="/static/v2017/images/pf_sub02.jpg" alt="" /></div>
-  					</div>
-  					<div class="row mrow"></div>
-  					<div class="col-6 mcol-12">
-  						<div class="pf-sub"><img src="/static/v2017/images/pf_sub03.jpg" alt="" /></div>
-  					</div>
-  					<div class="col-6 mcol-12">
-  						<div class="pf-sub"><img src="/static/v2017/images/pf_sub04.jpg" alt="" /></div>
-  					</div>
-  					<div class="row mrow"></div>
-  					<div class="bg-margin"></div>
-  					<div class="row mrow"></div>
-  					<div class="col-12 mcol-12">
-  						<div class="pf-icon"><img src="/static/v2017/images/pf_icon.jpg" alt="" /></div>
-  					</div>
-  					<div class="row mrow"></div>
-  					<div class="col-12 mcol-12">
-  						<div class="pf-mobile"><img src="/static/v2017/images/pf_mobile.jpg" alt="" /></div>
-  					</div>
-  					<div class="col-6 mcol-12">
-  						<div class="prev">
-  							<div class="thumb"><img src="/static/v2017/images/main_visual01.jpg" alt="" /></div>
-  							<div class="content">
-  								<div class="btn"><a href="#"><img src="/static/v2017/images/pf_btn_prev.png" alt="" /></a></div>
-  								<div class="text">
-  									<p class="title-kor">2015세아제강 AMERICA<br/>웹사이트 구축 프로젝트</p>
-  									<p class="title-eng">SEAH AMERICA WEBSITE RENEWAL</p>
-  									<p class="client">CLIENT / SEAH CNS</p>
-  								</div>
-  							</div>
-  						</div>
-  					</div>
-  					<div class="col-6 mcol-12">
-  						<div class="next">
-  							<div class="thumb"><img src="/static/v2017/images/main_visual02.jpg" alt="" /></div>
-  							<div class="content">
-  								<div class="btn"><a href="#"><img src="/static/v2017/images/pf_btn_next.png" alt="" /></a></div>
-  								<div class="text">
-  									<p class="title-kor">2015세아제강 AMERICA<br/>웹사이트 구축 프로젝트</p>
-  									<p class="title-eng">SEAH AMERICA WEBSITE RENEWAL</p>
-  									<p class="client">CLIENT / SEAH CNS</p>
-  								</div>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-  			</article>
-  		</div>
-  	</div>
+      <!-- grid -->
+      <div class="work_grid">
+        <div class="grid-line"></div>
+        <div class="grid-line line2"></div>
+        <div class="grid-line line3"></div>
+        <div class="grid-line line4"></div>
+        <div class="grid-line line5"></div>
+        <div class="grid-line line6"></div>
+        <div class="grid-line line7"></div>
+      </div>
+      <!-- //grid -->
+    </section>
+  </div>
 </template>
 
-<script>
+<style>
+  .wrapper.work {position:relative; height:auto !important;}
+  .wrapper.work h2.portfolio {
+    width:186px; height:42px; line-height:42px;
+    color:#fff; font-size:1.188em; font-family:'Quantico'; font-weight: 400; text-align:center; letter-spacing:0.1em;
+    background-color:#00a1e9; margin:0 auto;
+  }
+  /*.portfolio-detail {margin:0 60px;}*/
+  .portfolio-detail .info-box {background-color:#fff; padding:80px 0 100px; margin:0 60px;}
+  .portfolio-detail .img {padding-top:115px; margin:0 60px;}
+  .portfolio-detail .img.pt0 {padding-top:0 !important;}
+  .portfolio-detail .img img {width:100%;}
+  .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
 
-</script>
+  .other-portfolio {margin:0 60px;}
+  .other-portfolio li {float:left; width:50%; background-color:#1d1d1d;}
+  .other-portfolio li.next {background-color:#292929;}
+  .other-portfolio li a {display:block; color:#fff; padding:20% 0;}
+
+  .work_grid {position:absolute; top:0; left:0; width:100%; height:1000%; z-index:-1;}
+  .work_grid .grid-line {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
+  .work_grid .grid-line.line2 {left:14.28%;}
+  .work_grid .grid-line.line3 {left:28.56%;}
+  .work_grid .grid-line.line4 {left:42.84%;}
+  .work_grid .grid-line.line5 {left:57.12%;}
+  .work_grid .grid-line.line6 {left:71.4%;}
+  .work_grid .grid-line.line7 {left:85.68%; background:none;}
+</style>

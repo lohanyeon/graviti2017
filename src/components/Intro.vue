@@ -1,6 +1,7 @@
 <template>
 
   <div class="intro_wrap">
+    <vue-topprogress ref="topProgress" color="#29d"></vue-topprogress>
     <!-- intro_grid -->
     <div class="intro_grid">
       <div class="grid-line"><span><img src="/static/v2017/images/intro_tit_g.png" alt="G"></span></div>
@@ -26,6 +27,7 @@
   import $ from 'jQuery'
   import {TweenMax, Power4} from 'gsap'
   import router from '../router/index'
+  import {vueTopprogress} from 'vue-top-progress'
 
   export default {
     name: 'introApp',
@@ -59,7 +61,8 @@
         }
         var goIndex = function () {
           console.log(router.currentRoute)
-          // router.push({path: '/work'})
+          // router.push({path: '/main'})
+          location.href = '/main'
         }
         $('.grid-line span img').fadeIn(3000)
         setTimeout(showMent, 3000)
@@ -69,9 +72,18 @@
     created: function () {
     },
     mounted () {
+      this.$refs.topProgress.start()
+
+      setTimeout(() => {
+        this.$refs.topProgress.done()
+      }, 4000)
+
       this.hideMenu()
       this.spanMove()
       this.typeText()
+    },
+    components: {
+      vueTopprogress
     }
   }
 </script>
