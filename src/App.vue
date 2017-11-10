@@ -2,8 +2,16 @@
   <div id="app">
 
     <header>
-      <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
-      <a href="#" class="gnb_menu" id="showRightPush"><img src="/static/v2017/images/gnb_menu.png" alt="메뉴"></a>
+      <h1>
+        <router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();">
+          <img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive" class="mobile">
+        </router-link>
+      </h1>
+      <a href="#" class="gnb_menu" id="showRightPush">
+        <img src="/static/v2017/images/gnb_menu.png" alt="메뉴">
+        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴" class="mobile">
+      </a>
     </header>
 
     <footer>
@@ -13,9 +21,54 @@
         Fax. 02.333.8893
       </address>
       <p>서울특별시 마포구 동교로 107, 302호</p>
+      <p class="copyright">© Copyright 2017</p>
+      <ul class="arrow">
+        <li class="arr_up"><a href="#"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
+        <li class="arr_down"><a href="#"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
+      </ul>
     </footer>
 
-    <nav class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2" style="display:none;">
+    <section class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2">
+      <div class="sub_main">
+        <div class="sub_header">
+          <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive" /></router-link></h1>
+          <a href="#" id="hideRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_back.png" alt="Back" /></a>
+        </div>
+
+        <div class="sub_cont">
+          <nav id="gnb">
+            <ul>
+              <li><span>01</span> <router-link v-bind:to="{ name: 'About01' }">ABOUT</router-link></li>
+              <li><span>02</span> <router-link v-bind:to="{ name: 'Work01' }">WORK</router-link></li>
+              <li><span>03</span> <router-link v-bind:to="{ name: 'Contact01' }">CONTACT</router-link></li>
+            </ul>
+          </nav>
+          <article class="contR">
+            <div class="on"> <img src="/static/v2017/images/sub_main_txt.png" alt="">
+              <!-- <p class="barcode"><img src="/static/v2017/images/sub_main_barcode.png" alt=""></p>
+              <div class="">
+
+              </div> -->
+            </div>
+            <div class="over">
+              <dl class="">
+                <dt>그라비티 인터렉티브(주)의 그래픽 모티브</dt>
+                <dd>선도적인 디지털사업자로서 아이덴티티를 확립한 GRAVITI의 문자 2진수를 그래픽으로 변형한 형태로서 GR을 대표하는 패턴</dd>
+              </dl>
+              <img src="/static/v2017/images/sub_main_txt_over.png" alt="">
+            </div>
+          </article>
+        </div>
+
+        <div class="sub_footer">
+          <address>
+            Tel. 02.333.9230<br>
+            Cell. 010.5090.9788<br>
+            Fax. 02.333.8893
+          </address>
+          <p>서울특별시 마포구 동교로 107, 302호</p>
+        </div>
+      </div>
       <!-- <div class="gnb-wrapper">
       	<div class="header">
   	    	<div class="hollow"></div>
@@ -69,7 +122,7 @@
     			</div>
     		</div>
       </div> -->
-    </nav>
+    </section>
 
     <router-view/>
   </div>

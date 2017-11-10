@@ -14,10 +14,10 @@
 }
 
 .graviti-menu a {
-	display: block;
+	/* display: block;
 	color: #fff;
 	font-size: 1.1em;
-	font-weight: 300;
+	font-weight: 300; */
 }
 
 .graviti-menu a:hover {

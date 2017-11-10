@@ -1,11 +1,21 @@
 @charset "utf-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 /* Spoqa Han Sans
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
 */
 
-/* Noto Sans 본고딕 */
+/* Noto Sans 본고딕
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Noto Sans Thin'), local('Noto Sans Thin'), local('Noto Sans Thin');
+    src: url("./font/NotoSansKR-Thin.eot");
+    src: url("./font/NotoSansKR-Thin.eot?#iefix") format('embedded-opentype'),
+    url("./font/NotoSansKR-Thin.woff") format('woff'),
+}
 @font-face {
     font-family: 'Noto Sans';
     font-style: normal;
@@ -23,7 +33,7 @@
     src: url("./font/NotoSansKR-Bold.eot");
     src: url("./font/NotoSansKR-Bold.eot?#iefix") format('embedded-opentype'),
     url("./font/NotoSansKR-Bold.woff") format('woff');
-}
+} */
 
 /* Quantico */
 @font-face {
@@ -63,4 +73,16 @@
        url('./font/rajdhani-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
        url('./font/rajdhani-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('./font/rajdhani-v7-latin-regular.svg#Rajdhani') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./font/rajdhani-v7-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Rajdhani SemiBold'), local('Rajdhani-SemiBold'),
+       url('./font/rajdhani-v7-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./font/rajdhani-v7-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./font/rajdhani-v7-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('./font/rajdhani-v7-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./font/rajdhani-v7-latin-500.svg#Rajdhani') format('svg'); /* Legacy iOS */
 }
