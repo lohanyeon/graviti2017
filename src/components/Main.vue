@@ -1,23 +1,73 @@
 <template id="">
 
-  <div class="wrapper">
+  <div class="wrapper main">
 
-  		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
-  		<header class="header">
-  			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
-  			<aside class="fr">
-  				<nav>
-  					<ul>
-  						<!-- <li><a href="#"><img src="/static/v2017/images/brochure_download.png" alt="브로셔 다운로드"></a></li>
-  						<li><a href="#"><img src="/static/v2017/images/project_request.png" alt="프로젝트 의뢰"></a></li> -->
-  						<!-- <li><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-  					</ul>
-  				</nav>
-  			</aside>
-  		</header>
+    <section class="contents">
+      <!-- mainVisual -->
+      <div id="mainVisual">
+        <div class="visual">
+          <ul>
+            <li class="on"><img src="/static/v2017/images/main_visual_01-1.jpg" alt=""></li>
+            <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
+            <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li>
+          </ul>
+        </div>
+        <div class="ment">
+          <ul>
+            <li class="on">
+              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
+              <div class="title">
+                <p class="year">2017</p>
+                <dl>
+                  <dt>
+                    <p>ILJIN <span>DISPLAY</span> </p><p>WEBSITE</p>
+                  </dt>
+                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
+                </dl>
+                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+              </div>
+            </li>
+            <li>
+              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
+              <div class="title">
+                <p class="year">2017</p>
+                <dl>
+                  <dt>ILJIN <br>DISPLAY <br>WEBSITE</dt>
+                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
+                </dl>
+                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+              </div>
+            </li>
+            <li>
+              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
+              <div class="title">
+                <p class="year">2017</p>
+                <dl>
+                  <dt>ILJIN <br>DISPLAY <br>WEBSITE</dt>
+                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
+                </dl>
+                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- //mainVisual -->
 
-  		<div class="contents">
+      <!-- grid -->
+      <div class="intro_grid">
+        <div class="grid-line"><span><img src="/static/v2017/images/intro_tit_g.png" alt="G"></span></div>
+        <div class="grid-line line2"><span><img src="/static/v2017/images/intro_tit_r.png" alt="R"></span></div>
+        <div class="grid-line line3"><span><img src="/static/v2017/images/intro_tit_a.png" alt="A"></span></div>
+        <div class="grid-line line4"><span><img src="/static/v2017/images/intro_tit_v.png" alt="V`"></span></div>
+        <div class="grid-line line5"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
+        <div class="grid-line line6"><span><img src="/static/v2017/images/intro_tit_t.png" alt="T"></span></div>
+        <div class="grid-line line7"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
+      </div>
+      <!-- //grid -->
+    </section>
+
+  	<!-- <div class="contents">
   			<article>
   				<section class="name_area">
   					<div class="main">
@@ -64,40 +114,18 @@
   					</ul>
   				</section>
   			</article>
-  		</div>
 
-  		<footer class="footer">
-  			<div class="text">
-  				<div class="fl">
-  					<div class="address">
-  						<ul>
-  							<li>TEL. 02.333.9230</li>
-  							<li>CELL. 010.5090.9788</li>
-  							<li>FAX. 02.333.8893</li>
-  							<li>서울특별시 마포구 동교로 107, 302호</li>
-  						</ul>
-  					</div>
-  				</div>
-  				<div class="fr">
-  					<div class="copyright">
-  						<ul>
-  							<li>&nbsp;</li>
-  							<li>&nbsp;</li>
-  							<li><a href="#"><img src="/static/v2017/images/arrow_top.png" alt=""></a></li>
-  							<li>@COPYRIGHT2017<span><a href="#"><img src="/static/v2017/images/arrow_bottom.png" alt=""></a></span></li>
-  						</ul>
-  					</div>
-  				</div>
-  			</div>
-  		</footer>
-
-  	</div>
+        <ul id="v-list" v-if="hasResult">
+          <li v-for="post in posts" v-bind:key="post.pk">{{post.fields.project_kor_name}}</li>
+        </ul>
+  	</div> -->
+  </div>
 
 </template>
 
 <script type="text/javascript">
   export default {
-    name: 'index',
+    name: 'mainApp',
     data: function () {
       return {
         posts: []
@@ -109,9 +137,11 @@
       }
     },
     methods: {
-      listPortfolio: function () {
-        const baseURI = '/apis'
+      listPortfolio () {
+        // const baseURI = '/apis'
+        const baseURI = 'http://new.graviti.co.kr'
         this.$http.get(`${baseURI}/portfolios/api/portfolio/`)
+        // this.$http.get(`${baseURI}`)
           .then((result) => {
             console.log(result.data)
             this.posts = result.data

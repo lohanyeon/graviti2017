@@ -6,15 +6,19 @@ import Work from '@/components/Work'
 import WorkDetail from '@/components/WorkDetail'
 import Contact from '@/components/Contact'
 import Test1 from '@/components/Test1'
-import About01 from '@/components/About01'
+import Test2 from '@/components/Test2'
 import Intro from '@/components/Intro'
-import Work01 from '@/components/Work01'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      name: 'Intro',
+      component: Intro
+    },
     {
       path: '/main',
       name: 'Main',
@@ -31,7 +35,7 @@ export default new Router({
       component: Work
     },
     {
-      path: '/work_detail',
+      path: '/work/:id',
       name: 'WorkDetail',
       component: WorkDetail
     },
@@ -46,19 +50,9 @@ export default new Router({
       component: Test1
     },
     {
-      path: '/about01',
-      name: 'About01',
-      component: About01
-    },
-    {
-      path: '/intro',
-      name: 'Intro',
-      component: Intro
-    },
-    {
-      path: '/work01',
-      name: 'Work01',
-      component: Work01
+      path: '/test2',
+      name: 'Test2',
+      component: Test2
     }
   ]
 })

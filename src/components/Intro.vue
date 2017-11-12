@@ -1,6 +1,7 @@
 <template>
 
   <div class="intro_wrap">
+    <vue-topprogress ref="topProgress" color="#29d"></vue-topprogress>
     <!-- intro_grid -->
     <div class="intro_grid">
       <div class="grid-line"><span><img src="/static/v2017/images/intro_tit_g.png" alt="G"></span></div>
@@ -21,6 +22,72 @@
   </div>
 
 </template>
+
+<script>
+  import $ from 'jQuery'
+  import {TweenMax, Power4} from 'gsap'
+  import router from '../router/index'
+  import {vueTopprogress} from 'vue-top-progress'
+  // import Main from '@/components/Main'
+
+  export default {
+    name: 'introApp',
+    methods: {
+      hideMenu: function () {
+        $('header').hide()
+        $('footer').hide()
+        // $('.intro_grid span').hide()
+        $('.intro_grid span img').hide()
+      },
+      spanMove: function () {
+        var time = 0.2
+        var delayTime = time
+        // var tm = new TimelineLite()
+        var rightPosition = $(document).width()
+        $('.grid-line').each(function () {
+          $(this).show()
+          var obj = $(this).offset()
+          TweenMax.fromTo($(this), time
+            , {left: rightPosition}
+            , {left: obj.left, ease: Power4.easeOut}
+          ).delay(delayTime)
+          delayTime += 0.2
+        })
+      },
+      typeText: function () {
+        var showMent = function () {
+          $('.grid-line span img').hide()
+          // $('.ment').addClass('on')
+          $('.ment').fadeIn(3000)
+        }
+        var goIndex = function () {
+          console.log(router.currentRoute)
+          // router.push({path: 'main', name: 'Main', component: Main})
+          location.href = '/main'
+        }
+        $('.grid-line span img').fadeIn(3000)
+        setTimeout(showMent, 3000)
+        setTimeout(goIndex, 5000)
+      }
+    },
+    created: function () {
+    },
+    mounted () {
+      this.$refs.topProgress.start()
+
+      setTimeout(() => {
+        this.$refs.topProgress.done()
+      }, 4000)
+
+      this.hideMenu()
+      this.spanMove()
+      this.typeText()
+    },
+    components: {
+      vueTopprogress
+    }
+  }
+</script>
 
 <style>
   .intro_wrap {width:100%; height:100%;}
