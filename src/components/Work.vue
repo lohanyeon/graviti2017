@@ -1,22 +1,26 @@
 <template id="">
-  <div class="wrapper-work">
-
-  		<header class="header">
-  			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo.png" alt=""></router-link></h1></div>
-  			<aside class="fr">
-  				<nav>
-  					<ul>
-  						<li><a href="javascript:;"><img src="/static/v2017/images/btn_web.png" alt="브로셔 다운로드"></a></li>
-  						<li><a href="javascript:;"><img src="/static/v2017/images/btn_mobile.png" alt="프로젝트 의뢰"></a></li>
-  						<li><a href="javascript:;"><img src="/static/v2017/images/btn_video.png" alt="프로젝트 의뢰"></a></li>
-  						<!-- <li><a href="javascript:;" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-  					</ul>
-  				</nav>
-  			</aside>
+  <div class="wrapper work work-list">
+  		<header class="sub_header">
+        <h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt=""></router-link></h1>
+        <ul class="group">
+          <li class="web on"><a href="">WEB</a></li>
+          <li class="mobile"><a href="">MOBILE</a></li>
+          <li class="video"><a href="">VIDEO</a></li>
+        </ul>
+        <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
   		</header>
 
-  		<section id="gallery-layout">
+      <!-- work contents -->
+      <section class="contents">
+        <div class="box-wrap">
+          <div class="">
+
+          </div>
+        </div>
+      </section>
+      <!-- //work contents -->
+
+  		<!-- <section id="gallery-layout">
   			<div class="gallery-content">
   				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_01.jpg" alt="" /></div>
   				<div class="content">
@@ -116,7 +120,7 @@
   				</div>
   				<div class="overlay gray"></div>
   			</div>
-  		</section>
+  		</section> -->
 
   	</div>
 </template>
@@ -125,6 +129,25 @@
 
 </script>
 
-<style scoped>
+<style>
+  .wrapper.work header .group {text-align:center;}
+  .wrapper.work header .group li {display:inline-block; margin:0 3px;}
+  .wrapper.work header .group li a {
+    display:inline-block; height:42px; line-height:42px;
+    color:#0fa7ea; font-size:11px; font-family:'Quantico'; font-weight:400; text-align:center;
+    padding:0 52px 0 15px;
+  }
+  .wrapper.work header .group li.on a, .wrapper.work header .group li.over a {color:#fff;}
+  .wrapper.work header .group li.web {margin-left:75px;}
+  .wrapper.work header .group li.web a {background:url('/static/v2017/images/icon_group_web.png') 52px center no-repeat;}
+  .wrapper.work header .group li.mobile a {background:url('/static/v2017/images/icon_group_mobile.png') 64px center no-repeat; padding-right:40px;}
+  .wrapper.work header .group li.video a {background:url('/static/v2017/images/icon_group_video.png') 58px center no-repeat; padding-right:45px;}
+  .wrapper.work header .group li.web.on a, .wrapper.work header .group li.web.over a {background:#00a1e9 url('/static/v2017/images/icon_group_web_on.png') 52px center no-repeat;}
+  .wrapper.work header .group li.mobile.on a, .wrapper.work header .group li.mobile.over a {background:#00a1e9 url('/static/v2017/images/icon_group_mobile_on.png') 64px center no-repeat;}
+  .wrapper.work header .group li.video.on a, .wrapper.work header .group li.video.over a {background:#00a1e9 url('/static/v2017/images/icon_group_video_on.png') 58px center no-repeat;}
 
+  /* mobile */
+  @media all and (max-width:767px) {
+    .wrapper.work header .group {display:none;}
+  }
 </style>

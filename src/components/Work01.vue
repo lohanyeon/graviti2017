@@ -6,7 +6,7 @@
       <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
     </header>
 
-    <section id="contentWrap">
+    <section id="contentWrap" class="work-detail">
       <h3 class="skip">Portfolio</h3>
       <!-- contents -->
       <div class="contents section-work">

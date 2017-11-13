@@ -259,3 +259,24 @@ var s = {
 		});
 	}
 }
+
+
+$(function(){
+	/* sub main over */
+	$(".sub_cont .contR a.btn_over").mouseover(function(){
+		$(".sub_cont .contR .on").css("display","none");
+		$(".sub_cont .contR .over").css("display","block");
+	});
+	$(".sub_cont .contR .over").mouseleave(function(){
+		$(".sub_cont .contR .over").css("display","none");
+		$(".sub_cont .contR .on").css("display","block");
+	});
+
+	/* work list over */
+	$(".wrapper.work header .group li a").mouseover(function(){
+		$(this).parent().addClass("over");
+	});
+	$(".wrapper.work header .group li a").mouseleave(function(){
+		$(this).parent().removeClass("over");
+	});
+});
