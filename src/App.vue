@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <header>
+    <header class="main_header">
       <h1>
         <router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();">
           <img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive">
@@ -44,18 +44,27 @@
             </ul>
           </nav>
           <article class="contR">
-            <div class="on"> <img src="/static/v2017/images/sub_main_txt.png" alt="">
-              <!-- <p class="barcode"><img src="/static/v2017/images/sub_main_barcode.png" alt=""></p>
-              <div class="">
-
-              </div> -->
+            <div class="on"> <!-- <img src="/static/v2017/images/sub_main_txt.png" alt=""> -->
+              <p class="barcode"><img src="/static/v2017/images/sub_main_barcode.png" alt=""></p>
+              <div class="txt">
+                <dl>
+                  <dt>DIGITAL Agency</dt>
+                  <dd>e-Service Strategy &amp; Contents <br>Responsive Web (N-devices) <br>Mobile (Native & Hybrid App) <br>Next Web Technology</dd>
+                </dl>
+                <dl>
+                  <dt>MEDIA LAB.</dt>
+                  <dd>New Media Creative <br>Media Fagade / Motion Art <br>Biz video &amp; Interview Reel<br> 3D effect, Character</dd>
+                </dl>
+              </div>
+              <a href="#" class="btn_over">OVER</a>
             </div>
             <div class="over">
-              <dl class="">
+              <dl>
                 <dt>그라비티 인터렉티브(주)의 그래픽 모티브</dt>
                 <dd>선도적인 디지털사업자로서 아이덴티티를 확립한 GRAVITI의 문자 2진수를 그래픽으로 변형한 형태로서 GR을 대표하는 패턴</dd>
               </dl>
-              <img src="/static/v2017/images/sub_main_txt_over.png" alt="">
+              <p class="mt40"><img src="/static/v2017/images/sub_main_ci.png" alt="GRAVITI 그래픽 모티브"></p>
+              <!-- <img src="/static/v2017/images/sub_main_txt_over.png" alt=""> -->
             </div>
           </article>
         </div>
