@@ -1,52 +1,29 @@
 <template id="">
 
   <div class="wrapper main">
+    <vue-topprogress ref="topProgress"></vue-topprogress>
 
     <section class="contents">
       <!-- mainVisual -->
       <div id="mainVisual">
         <div class="visual">
           <ul>
-            <li class="on"><img src="/static/v2017/images/main_visual_01-1.jpg" alt=""></li>
-            <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
-            <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li>
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk"><img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"></li>
+            <!-- <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
+            <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li> -->
           </ul>
         </div>
         <div class="ment">
           <ul>
-            <li class="on">
-              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
+            <li v-bind:class="{on: key===0}" v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
+              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
               <div class="title">
-                <p class="year">2017</p>
+                <p class="year">{{portfolio.making_year}}</p>
                 <dl>
-                  <dt>
-                    <p>ILJIN <span>DISPLAY</span> </p><p>WEBSITE</p>
-                  </dt>
-                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
+                  <dt v-html="portfolio.fields.project_eng_name"></dt>
+                  <dd>{{portfolio.fields.project_kor_name}}</dd>
                 </dl>
-                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
-              </div>
-            </li>
-            <li>
-              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
-              <div class="title">
-                <p class="year">2017</p>
-                <dl>
-                  <dt>ILJIN <br>DISPLAY <br>WEBSITE</dt>
-                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
-                </dl>
-                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
-              </div>
-            </li>
-            <li>
-              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt=""></p>
-              <div class="title">
-                <p class="year">2017</p>
-                <dl>
-                  <dt>ILJIN <br>DISPLAY <br>WEBSITE</dt>
-                  <dd>일진그룹 계열사 웹사이트 통합 프로젝트</dd>
-                </dl>
-                <a href="#" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+                <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
               </div>
             </li>
           </ul>
@@ -66,91 +43,93 @@
       </div>
       <!-- //grid -->
     </section>
-
-  	<!-- <div class="contents">
-  			<article>
-  				<section class="name_area">
-  					<div class="main">
-  						<div class="main_barcode">
-  							<img src="/static/v2017/images/barcode.png" alt="" />
-  						</div>
-  						<div class="main_title">
-  							<div class="text">
-  								<p class="year">2016</p>
-  								<p class="project_name_eng">ILJIN<br /> SUBSIDIARY<br /> WEBSITE</p>
-  								<p class="project_name_kor">일진계열사 웹사이트 통합 프로젝트</p>
-  							</div>
-  							<div class="detail">
-  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
-  							</div>
-  						</div>
-  						<div class="main_title">
-  							<div class="text">
-  								<p class="year">2016</p>
-  								<p class="project_name_eng">SEAH<br />AMERICA<br />WEBSITE</p>
-  								<p class="project_name_kor">세아계열사  웹사이트 통합 프로젝트</p>
-  							</div>
-  							<div class="detail">
-  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
-  							</div>
-  						</div>
-  						<div class="main_title on">
-  							<div class="text">
-  								<p class="year">2016</p>
-  								<p class="project_name_eng">LAW FIRM<br />YOON & YANG<br />WEBSITE</p>
-  								<p class="project_name_kor">법무번인 화우 웹사이트 통합 프로젝트</p>
-  							</div>
-  							<div class="detail">
-  								<router-link v-bind:to="{ name: 'WorkDetail' }" onclick="s.gnb();"><img src="/static/v2017/images/btn_more.png" alt="" /></router-link>
-  							</div>
-  						</div>
-  					</div>
-  				</section>
-  				<section class="bg" id="slider">
-  					<ul>
-  						<li><img src="/static/v2017/images/main_visual03.jpg" alt=""></li>
-  						<li><img src="/static/v2017/images/main_visual02.jpg" alt=""></li>
-  						<li><img src="/static/v2017/images/main_visual01.jpg" alt=""></li>
-  					</ul>
-  				</section>
-  			</article>
-
-        <ul id="v-list" v-if="hasResult">
-          <li v-for="post in posts" v-bind:key="post.pk">{{post.fields.project_kor_name}}</li>
-        </ul>
-  	</div> -->
   </div>
 
 </template>
 
 <script type="text/javascript">
+  import {vueTopprogress} from 'vue-top-progress'
+  import $ from 'jQuery'
+  import {TweenMax, Power4} from 'gsap'
+
   export default {
     name: 'mainApp',
     data: function () {
       return {
-        posts: []
+        portfolios: []
       }
     },
     computed: {
       hasResult: function () {
-        return this.posts.length > 0
+        return this.portfolios.length > 0
       }
     },
     methods: {
-      listPortfolio () {
+      setListPortfolio () {
         // const baseURI = '/apis'
         const baseURI = 'http://new.graviti.co.kr'
-        this.$http.get(`${baseURI}/portfolios/api/portfolio/`)
+        // const baseURI = 'http://localhost:3000'
+        this.$http.get(`${baseURI}/portfolios/api/main/portfolio/`)
         // this.$http.get(`${baseURI}`)
           .then((result) => {
-            console.log(result.data)
-            this.posts = result.data
+            // console.log(result.data)
+            this.portfolios = result.data
+            this.$refs.topProgress.done()
+          })
+          .catch(function (e) {
+            console.log(e)
+            // this.$refs.topProgress.fail()
           })
       }
     },
-    created: function () {
-      this.listPortfolio()
-      console.log('created')
+    created () {
+    },
+    mounted () {
+      // do something after mounting vue instance
+      this.$refs.topProgress.start()
+      this.setListPortfolio()
+    },
+    components: {
+      vueTopprogress
     }
+  }
+
+  var rollingBgImage = function () {
+    var time = 1.3
+    var delay = 0
+    var count = 0
+    var total = $('.visual ul li').length
+    var h = $('.wrapper').height()
+    var objCurr = null
+    var objPrev = null
+    $('.visual ul li').css({position: 'absolute'})
+    $('.visual ul li').each(function () {
+      if (count === 0) {
+        objPrev = $('.visual ul li').eq(total - 1)
+      } else {
+        objPrev = $(this).prev()
+      }
+      objCurr = $(this)
+      $(objCurr).css({top: h * -1})
+      console.log(objCurr, objPrev)
+      $(objCurr).addClass('on')
+      TweenMax.fromTo($(objCurr), time
+        , {top: h * -1}
+        , {top: 0, ease: Power4.easeOut}
+      ).delay(delay)
+
+      $(objPrev).css({top: 0})
+      $(objPrev).addClass('on')
+      TweenMax.fromTo($(objPrev), time
+        , {top: 0}
+        , {top: h, ease: Power4.easeOut}
+      ).delay(delay)
+      delay += 5
+      count++
+    })
+  }
+
+  window.onload = function () {
+    rollingBgImage()
   }
 </script>

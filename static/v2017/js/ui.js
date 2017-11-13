@@ -47,9 +47,9 @@ $(document).ready(function() {
 
 	setBodyHeight();
 
-	initMoveDown();
+	// initMoveDown();
 
-	autoRolling();
+	// autoRolling();
 
 	/* 사이드 메뉴 show, hide */
 	$('#sidemenu').click(function() {
@@ -86,101 +86,101 @@ $(document).ready(function() {
 
 });
 
-function autoRolling() {
-	setInterval(moveDown, 5000);
-}
-
-function moveUp() {
-
-	changeText('up');
-
-	//백그라운드 이미지 상하 롤링
-	var count = $('#slider ul').find('li').length;
-	$('#slider ul').append($('#slider ul').find('li').eq(0)).promise().done(function() {
-    	$('#slider ul li').eq(count-1).css({
-    		top: $('.wrapper').height()
-    	}).stop().animate({
-    		top: 0
-    	}, 500, 'easeOutQuint', function() {
-    	});
-	});
-}
-
-function moveDown() {
-
-	//clearText();
-	changeText('down');
-
-	var count = $('#slider ul').find('li').length;
-	//$('#slider ul').prepend($('#slider ul').find('li').eq(count-1));
-
-
-	var orgLiIdx = count-2;
-	$('#slider ul').append($('#slider ul').find('li').eq(orgLiIdx)).promise().done(function() {
-		$('#slider ul li').eq(count-1).css({
-    		top: $('.wrapper').height() * -1
-    	}).stop().animate({
-    		top: 0
-    	}, 500, 'easeOutQuint').promise().done(function() {
-    		$('#slider ul').prepend($('#slider ul').find('li').eq(orgLiIdx));
-    	});
-	});
-
-}
-
-function initMoveDown() {
-	changeText('init');
-
-	var count = $('#slider ul').find('li').length;
-
-	$('#slider ul li').eq(count-1).css({
-		top: $('.wrapper').height() * -1
-	}).stop().animate({
-		top: 0
-	}, 500, 'easeOutQuint').promise().done(function() {
-	});
-}
-
-function changeText(key) {
-	//왼쪽 바코드
-	$('.main .main_barcode').css({
-		left: $('.main .main_barcode').width() * -1
-	}).stop().animate({
-		left: 0
-	}, 1000, 'easeOutQuint');
-
-	//오른쪽 프로젝트명 텍스트
-	var txtCount = $('.main .main_title').length;
-	var currIdx = 0;
-	$('.main .main_title').each(function(idx) {
-		if ($(this).hasClass('on'))
-			currIdx = idx;
-	});
-	$('.main .main_title').eq(currIdx).removeClass('on');
-	if (key == 'up') {
-		currIdx = (txtCount-1) == currIdx ? 0 : currIdx+1;
-	} else if (key == 'down') {
-		//currIdx = (txtCount-1) == currIdx ? 1 : currIdx-1;
-		if ((txtCount-1) == currIdx) {
-			currIdx = 1;
-		} else {
-			if (currIdx == 0) {
-				currIdx = txtCount-1;
-			} else {
-				currIdx = currIdx-1;
-			}
-		}
-	} else if (key == 'init') {
-		currIdx = currIdx;
-	}
-
-	$('.main .main_title').eq(currIdx).addClass('on');
-	$('.main .main_title').eq(currIdx).css({
-		left: $('.main .main_title').eq(currIdx).width()
-	}).stop().animate({
-		left: 0
-	}, 1000, 'easeOutQuint');
-}
+// function autoRolling() {
+// 	setInterval(moveDown, 5000);
+// }
+//
+// function moveUp() {
+//
+// 	changeText('up');
+//
+// 	//백그라운드 이미지 상하 롤링
+// 	var count = $('#mainVisual .visual ul').find('li').length;
+// 	$('#mainVisual .visual ul').append($('#mainVisual .visual ul').find('li').eq(0)).promise().done(function() {
+//     	$('#mainVisual .visual ul li').eq(count-1).css({
+//     		top: $('.wrapper').height()
+//     	}).stop().animate({
+//     		top: 0
+//     	}, 500, 'easeOutQuint', function() {
+//     	});
+// 	});
+// }
+//
+// function moveDown() {
+//
+// 	//clearText();
+// 	changeText('down');
+//
+// 	var count = $('#mainVisual .visual ul').find('li').length;
+// 	//$('#slider ul').prepend($('#slider ul').find('li').eq(count-1));
+//
+//
+// 	var orgLiIdx = count-2;
+// 	$('#mainVisual .visual ul').append($('#mainVisual .visual ul').find('li').eq(orgLiIdx)).promise().done(function() {
+// 		$('#mainVisual .visual ul li').eq(count-1).css({
+//     		top: $('.wrapper').height() * -1
+//     	}).stop().animate({
+//     		top: 0
+//     	}, 500, 'easeOutQuint').promise().done(function() {
+//     		$('#mainVisual .visual ul').prepend($('#mainVisual .visual ul').find('li').eq(orgLiIdx));
+//     	});
+// 	});
+//
+// }
+//
+// function initMoveDown() {
+// 	changeText('init');
+//
+// 	var count = $('#mainVisual .visual ul').find('li').length;
+//
+// 	$('#mainVisual .visual ul li').eq(count-1).css({
+// 		top: $('.wrapper').height() * -1
+// 	}).stop().animate({
+// 		top: 0
+// 	}, 500, 'easeOutQuint').promise().done(function() {
+// 	});
+// }
+//
+// function changeText(key) {
+// 	//왼쪽 바코드
+// 	$('.main .main_barcode').css({
+// 		left: $('.main .main_barcode').width() * -1
+// 	}).stop().animate({
+// 		left: 0
+// 	}, 1000, 'easeOutQuint');
+//
+// 	//오른쪽 프로젝트명 텍스트
+// 	var txtCount = $('.main .main_title').length;
+// 	var currIdx = 0;
+// 	$('.main .main_title').each(function(idx) {
+// 		if ($(this).hasClass('on'))
+// 			currIdx = idx;
+// 	});
+// 	$('.main .main_title').eq(currIdx).removeClass('on');
+// 	if (key == 'up') {
+// 		currIdx = (txtCount-1) == currIdx ? 0 : currIdx+1;
+// 	} else if (key == 'down') {
+// 		//currIdx = (txtCount-1) == currIdx ? 1 : currIdx-1;
+// 		if ((txtCount-1) == currIdx) {
+// 			currIdx = 1;
+// 		} else {
+// 			if (currIdx == 0) {
+// 				currIdx = txtCount-1;
+// 			} else {
+// 				currIdx = currIdx-1;
+// 			}
+// 		}
+// 	} else if (key == 'init') {
+// 		currIdx = currIdx;
+// 	}
+//
+// 	$('.main .main_title').eq(currIdx).addClass('on');
+// 	$('.main .main_title').eq(currIdx).css({
+// 		left: $('.main .main_title').eq(currIdx).width()
+// 	}).stop().animate({
+// 		left: 0
+// 	}, 1000, 'easeOutQuint');
+// }
 
 function setBodyHeight() {
 
