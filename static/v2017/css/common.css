@@ -15,38 +15,51 @@ html, body {
 .rajdhani {font-family:'Rajdhani';}
 
 /* main header */
-.main_header {position:absolute; top:0; left:0; width:100%; margin-top:3.1rem; z-index:10;}
-.main_header h1 {position:absolute; top:0; left:0; padding-left:3.1rem;}
+.main_header {position:absolute; top:0; left:0; width:100%; margin-top:60px; z-index:10;}
+.main_header h1 {position:absolute; top:0; left:0; padding-left:60px;}
 .main_header h1 img {vertical-align:top;}
 .main_header h1 img.mobile {display:none;}
-.main_header .gnb_menu {position:absolute; top:0; right:0; padding-right:3.1rem;}
+.main_header .gnb_menu {position:absolute; top:0; right:0; padding-right:60px;}
 .main_header .gnb_menu img.mobile {display:none;}
 /* sub header */
-.sub_header {position:relative; padding:3.1rem 0 40px; z-index:1;}
-.sub_header:after {content:""; display:block; clear:both;}
-.sub_header h1 {position:absolute; top:3.1rem; left:3.1rem;}
-.sub_header .gnb_menu {position:absolute; top:3.1rem; right:3.1rem; z-index:10;}
+.sub_header {position:relative; height:40px; padding:60px 0 40px; z-index:1;}
+.sub_header h1 {position:absolute; top:60px; left:60px;}
+.sub_header h1 img {vertical-align:top;}
+.sub_header .gnb_menu {position:absolute; top:60px; right:60px; z-index:10;}
 
 /* contents */
 #contentWrap {position:absolute; width:100%; overflow:hidden;}
-.box-wrap {width:calc(100% -3rem);}
+.box-wrap {width:calc(100% -60px);}
 
 /* footer */
-footer {position:absolute; left:0; bottom:3.1rem; width:100%; z-index:10;}
-footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; padding-left:3rem;}
+footer {position:absolute; left:0; bottom:60px; width:100%; z-index:10;}
+footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; padding-left:60px;}
 footer p {color:#fff; font-size:13px; letter-spacing:-0.025em; padding-left:3rem; margin-top:10px;}
 footer .copyright {position:absolute; right:6em; bottom:0; font-family:'Rajdhani'; font-size:14px; font-style:normal; line-height:1; padding-left::0;  margin-top:0;}
-footer .arrow {position:absolute; right:3.1rem; bottom:0;}
+footer .arrow {position:absolute; right:60px; bottom:0;}
 footer .arrow li {width:16px; height:9px; margin-top:25px;}
 footer .arrow li a {display:block; width:16px; height:9px;}
 footer .arrow li a img {width:16px; height:9px; vertical-align:top;}
 footer .arrow li a img.mobile {display:none;}
-.sub_footer {position:absolute; left:0; bottom:3.1rem; width:100%;}
-.sub_footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; padding-left:3rem;}
-.sub_footer p {color:#fff; font-size:13px; letter-spacing:-0.025em; padding-left:3rem; margin-top:10px;}
+.sub_footer {position:absolute; left:0; bottom:60px; width:100%;}
+.sub_footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; padding-left:60px;}
+.sub_footer p {color:#fff; font-size:13px; letter-spacing:-0.025em; padding-left:60px; margin-top:10px;}
 
 /* tablet */
 @media all and (max-width:1024px) {
+  .main_header {margin-top:40px;}
+  .main_header h1 {padding-left:40px;}
+  .main_header .gnb_menu {padding-right:40px;}
+  .sub_header {padding:40px 0 28px;}
+  .sub_header h1 {top:40px; left:40px;}
+  .sub_header .gnb_menu {top:40px; right:40px;}
+  footer {bottom:40px;}
+  footer .arrow {right:40px;}
+  footer address {padding-left:40px;}
+  footer .arrow {right:40px;}
+  .sub_footer {bottom:40px;}
+  .sub_footer address {padding-left:40px;}
+  .sub_footer p {padding-left:40px;}
 }
 
 /* mobile */
@@ -59,8 +72,8 @@ footer .arrow li a img.mobile {display:none;}
   .main_header .gnb_menu img {display:none;}
   .main_header .gnb_menu img.mobile {display:block;}
   .sub_header {padding-top:2rem;}
+  .sub_header h1 {top:2rem; left:2rem;}
   .sub_header .gnb_menu {top:2rem;}
-
   footer {bottom:2rem;}
   footer address {color:#242424; font-size:14px; padding-left:2rem;}
   footer p {color:#242424; font-size:12px; padding-left:2rem;}
