@@ -3,12 +3,41 @@
   <div class="wrapper main">
     <vue-topprogress ref="topProgress"></vue-topprogress>
 
+    <header class="main_header">
+      <h1>
+        <router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();">
+          <img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive" class="mobile">
+        </router-link>
+      </h1>
+      <a href="#" class="gnb_menu" id="showRightPush">
+        <img src="/static/v2017/images/gnb_menu.png" alt="메뉴">
+        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴" class="mobile">
+      </a>
+    </header>
+
+    <footer>
+      <address>
+        Tel. 02.333.9230<br>
+        Cell. 010.5090.9788<br>
+        Fax. 02.333.8893
+      </address>
+      <p>서울특별시 마포구 동교로 107, 302호</p>
+      <p class="copyright">© Copyright 2017</p>
+      <ul class="arrow">
+        <li class="arr_up"><a href="javascript: main.prevItem()"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
+        <li class="arr_down"><a href="javascript: main.nextItem()"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
+      </ul>
+    </footer>
+
     <section class="contents">
       <!-- mainVisual -->
       <div id="mainVisual">
         <div class="visual">
           <ul>
-            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk"><img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"></li>
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
+              <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'">
+            </li>
             <!-- <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
             <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li> -->
           </ul>
@@ -49,8 +78,6 @@
 
 <script type="text/javascript">
   import {vueTopprogress} from 'vue-top-progress'
-  import $ from 'jQuery'
-  import {TweenMax, Power4} from 'gsap'
 
   export default {
     name: 'mainApp',
@@ -92,44 +119,5 @@
     components: {
       vueTopprogress
     }
-  }
-
-  var rollingBgImage = function () {
-    var time = 1.3
-    var delay = 0
-    var count = 0
-    var total = $('.visual ul li').length
-    var h = $('.wrapper').height()
-    var objCurr = null
-    var objPrev = null
-    $('.visual ul li').css({position: 'absolute'})
-    $('.visual ul li').each(function () {
-      if (count === 0) {
-        objPrev = $('.visual ul li').eq(total - 1)
-      } else {
-        objPrev = $(this).prev()
-      }
-      objCurr = $(this)
-      $(objCurr).css({top: h * -1})
-      console.log(objCurr, objPrev)
-      $(objCurr).addClass('on')
-      TweenMax.fromTo($(objCurr), time
-        , {top: h * -1}
-        , {top: 0, ease: Power4.easeOut}
-      ).delay(delay)
-
-      $(objPrev).css({top: 0})
-      $(objPrev).addClass('on')
-      TweenMax.fromTo($(objPrev), time
-        , {top: 0}
-        , {top: h, ease: Power4.easeOut}
-      ).delay(delay)
-      delay += 5
-      count++
-    })
-  }
-
-  window.onload = function () {
-    rollingBgImage()
   }
 </script>

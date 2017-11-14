@@ -47,10 +47,6 @@ $(document).ready(function() {
 
 	setBodyHeight();
 
-	// initMoveDown();
-
-	// autoRolling();
-
 	/* 사이드 메뉴 show, hide */
 	$('#sidemenu').click(function() {
 		//console.log($('.sidemenu').css('display'));
@@ -85,102 +81,6 @@ $(document).ready(function() {
 	});
 
 });
-
-// function autoRolling() {
-// 	setInterval(moveDown, 5000);
-// }
-//
-// function moveUp() {
-//
-// 	changeText('up');
-//
-// 	//백그라운드 이미지 상하 롤링
-// 	var count = $('#mainVisual .visual ul').find('li').length;
-// 	$('#mainVisual .visual ul').append($('#mainVisual .visual ul').find('li').eq(0)).promise().done(function() {
-//     	$('#mainVisual .visual ul li').eq(count-1).css({
-//     		top: $('.wrapper').height()
-//     	}).stop().animate({
-//     		top: 0
-//     	}, 500, 'easeOutQuint', function() {
-//     	});
-// 	});
-// }
-//
-// function moveDown() {
-//
-// 	//clearText();
-// 	changeText('down');
-//
-// 	var count = $('#mainVisual .visual ul').find('li').length;
-// 	//$('#slider ul').prepend($('#slider ul').find('li').eq(count-1));
-//
-//
-// 	var orgLiIdx = count-2;
-// 	$('#mainVisual .visual ul').append($('#mainVisual .visual ul').find('li').eq(orgLiIdx)).promise().done(function() {
-// 		$('#mainVisual .visual ul li').eq(count-1).css({
-//     		top: $('.wrapper').height() * -1
-//     	}).stop().animate({
-//     		top: 0
-//     	}, 500, 'easeOutQuint').promise().done(function() {
-//     		$('#mainVisual .visual ul').prepend($('#mainVisual .visual ul').find('li').eq(orgLiIdx));
-//     	});
-// 	});
-//
-// }
-//
-// function initMoveDown() {
-// 	changeText('init');
-//
-// 	var count = $('#mainVisual .visual ul').find('li').length;
-//
-// 	$('#mainVisual .visual ul li').eq(count-1).css({
-// 		top: $('.wrapper').height() * -1
-// 	}).stop().animate({
-// 		top: 0
-// 	}, 500, 'easeOutQuint').promise().done(function() {
-// 	});
-// }
-//
-// function changeText(key) {
-// 	//왼쪽 바코드
-// 	$('.main .main_barcode').css({
-// 		left: $('.main .main_barcode').width() * -1
-// 	}).stop().animate({
-// 		left: 0
-// 	}, 1000, 'easeOutQuint');
-//
-// 	//오른쪽 프로젝트명 텍스트
-// 	var txtCount = $('.main .main_title').length;
-// 	var currIdx = 0;
-// 	$('.main .main_title').each(function(idx) {
-// 		if ($(this).hasClass('on'))
-// 			currIdx = idx;
-// 	});
-// 	$('.main .main_title').eq(currIdx).removeClass('on');
-// 	if (key == 'up') {
-// 		currIdx = (txtCount-1) == currIdx ? 0 : currIdx+1;
-// 	} else if (key == 'down') {
-// 		//currIdx = (txtCount-1) == currIdx ? 1 : currIdx-1;
-// 		if ((txtCount-1) == currIdx) {
-// 			currIdx = 1;
-// 		} else {
-// 			if (currIdx == 0) {
-// 				currIdx = txtCount-1;
-// 			} else {
-// 				currIdx = currIdx-1;
-// 			}
-// 		}
-// 	} else if (key == 'init') {
-// 		currIdx = currIdx;
-// 	}
-//
-// 	$('.main .main_title').eq(currIdx).addClass('on');
-// 	$('.main .main_title').eq(currIdx).css({
-// 		left: $('.main .main_title').eq(currIdx).width()
-// 	}).stop().animate({
-// 		left: 0
-// 	}, 1000, 'easeOutQuint');
-// }
 
 function setBodyHeight() {
 
@@ -280,3 +180,46 @@ $(function(){
 		$(this).parent().removeClass("over");
 	});
 });
+
+var main = {
+	slider: function () {
+		var h = $(window).height()
+		$('#mainVisual .visual ul li').each(function () {
+			$(this).height(h)
+		})
+		$('.visual').vTicker('init', {
+			speed: 400,
+			pause: 4000,
+			showItems: 1,
+			height: h,
+			mousePause: false
+		});
+	},
+	nextItem: function () {
+		$('#mainVisual .visual').vTicker('next', {animate: true});
+	},
+	prevItem: function () {
+		$('#mainVisual .visual').vTicker('prev', {animate: true});
+	},
+	changeText: function () {
+		var len = $('#mainVisual .ment ul li').length
+		var count = 1;
+
+		var change = function () {
+			$('#mainVisual .ment ul li').removeClass('on')
+			$('#mainVisual .ment ul li').eq(count).addClass('on')
+			if (count >= len) {
+				count = 0
+			} else {
+				count ++
+			}
+		}
+
+		setInterval(change, 4000)
+	}
+}
+
+window.onload = function () {
+	main.slider();
+	main.changeText();
+}
