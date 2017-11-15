@@ -24,14 +24,9 @@ window.onload = function() {
 		$('.more-portfolio').css('display', 'none');
 	};
 
-<<<<<<< HEAD
 	// if ($('#mainVisual').length > 0) {
 	// 	main.slider();
 	// }
-=======
-	main.slider();
-	main.changeText();
->>>>>>> eb14ec019edc5d15ae3647ec8053399f389ce0b8
 }
 
 function disableOther( button ) {
@@ -207,13 +202,11 @@ var main = {
 	},
 	nextItem: function () {
 		$('#mainVisual .visual').vTicker('next', {animate: true});
-<<<<<<< HEAD
 		// $('#mainVisual .visual').vTicker('pause', true);
 	},
 	prevItem: function () {
 		$('#mainVisual .visual').vTicker('prev', {animate: true});
 		// $('#mainVisual .visual').vTicker('pause', false);
-=======
 	},
 	prevItem: function () {
 		$('#mainVisual .visual').vTicker('prev', {animate: true});
@@ -233,6 +226,5 @@ var main = {
 		}
 
 		setInterval(change, 4000)
->>>>>>> eb14ec019edc5d15ae3647ec8053399f389ce0b8
 	}
 }
