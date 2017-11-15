@@ -23,6 +23,9 @@ window.onload = function() {
 		$('.copy-over').css('display', 'none');
 		$('.more-portfolio').css('display', 'none');
 	};
+
+	main.slider();
+	main.changeText();
 }
 
 function disableOther( button ) {
@@ -217,9 +220,4 @@ var main = {
 
 		setInterval(change, 4000)
 	}
-}
-
-window.onload = function () {
-	main.slider();
-	main.changeText();
 }
