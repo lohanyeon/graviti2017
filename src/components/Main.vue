@@ -37,7 +37,7 @@
           <ul>
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
               <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'">
-              <div class="ment">
+              <div class="ment-text">
                 <div>
                   <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
                   <div class="title">
@@ -46,13 +46,11 @@
                       <dt v-html="portfolio.fields.project_eng_name"></dt>
                       <dd>{{portfolio.fields.project_kor_name}}</dd>
                     </dl>
-                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></a>
                   </div>
                 </div>
               </div>
             </li>
-            <!-- <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
-            <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li> -->
           </ul>
         </div>
       </div>
