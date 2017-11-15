@@ -25,8 +25,8 @@
       <p>서울특별시 마포구 동교로 107, 302호</p>
       <p class="copyright">© Copyright 2017</p>
       <ul class="arrow">
-        <li class="arr_up"><a href="javascript: main.prevItem()"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
-        <li class="arr_down"><a href="javascript: main.nextItem()"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
+        <li class="arr_up"><a href="#"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
+        <li class="arr_down"><a href="#"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
       </ul>
     </footer>
 
@@ -34,7 +34,7 @@
       <!-- mainVisual -->
       <div id="mainVisual">
         <div class="visual">
-          <ul>
+          <ul style="position:absolute;">
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
               <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'">
               <div class="ment-text">
@@ -75,13 +75,17 @@
 </template>
 
 <script type="text/javascript">
+  import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
+  import classie from 'desandro-classie'
+  import {TweenMax, Power4} from 'gsap'
 
   export default {
     name: 'mainApp',
     data: function () {
       return {
-        portfolios: []
+        portfolios: [],
+        intervalId: ''
       }
     },
     computed: {
@@ -90,6 +94,63 @@
       }
     },
     methods: {
+      visual (v) {
+        var visual = function () {
+          var top = $(window).height() * -1
+          var target = $('#mainVisual .visual ul')
+          var obj = $('#mainVisual .visual ul li').eq(0)
+          var nextObj = $('#mainVisual .visual ul li').eq(0).clone()
+
+          target.append(obj)
+          $('#mainVisual .visual ul li').eq(0).after(nextObj)
+
+          TweenMax.fromTo(target, 1,
+             {top: top},
+             {top: 0, onComplete: complete, ease: Power4.easeOut}
+          )
+        }
+        var complete = function () {
+          $('#mainVisual .visual ul li').eq(1).remove()
+        }
+        if (v === 'init') {
+          this.intervalId = setInterval(visual, 4000)
+        } else if (v === 'up') {
+
+        } else if (v === 'down') {
+          // visual()
+        }
+      },
+      updown () {
+        $('footer .arr_down a').unbind().bind('click', function () {
+          var top = $(window).height() * -1
+          var target = $('#mainVisual .visual ul')
+          var obj = $('#mainVisual .visual ul li').eq(0)
+          var nextObj = $('#mainVisual .visual ul li').eq(0).clone()
+
+          target.append(obj)
+          $('#mainVisual .visual ul li').eq(0).after(nextObj)
+
+          var complete = function () {
+            $('#mainVisual .visual ul li').eq(1).remove()
+          }
+
+          TweenMax.fromTo(target, 1,
+             {top: top},
+             {top: 0, onComplete: complete, ease: Power4.easeOut}
+          )
+        })
+      },
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      },
       setListPortfolio () {
         // const baseURI = '/apis'
         const baseURI = 'http://new.graviti.co.kr'
@@ -111,8 +172,14 @@
     },
     mounted () {
       // do something after mounting vue instance
-      this.$refs.topProgress.start()
+      // this.$refs.topProgress.start()
+      this.visual('init')
+      this.updown()
+      this.gnb()
       this.setListPortfolio()
+    },
+    beforeDestroy () {
+      clearInterval(this.intervalId)
     },
     components: {
       vueTopprogress

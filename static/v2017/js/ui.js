@@ -12,19 +12,21 @@ window.onload = function() {
 
 		/* console.log(this);
 		console.log($(this).find('img').attr('src')); */
-		if ($(this).attr('class') == 'active') {
-			$(this).find('img').attr('src','/static/v2017/images/menu_icon_blue.png');
-		} else {
-			$(this).find('img').attr('src','/static/v2017/images/menu_icon.png');
-			$(this).find('img').attr('src','/static/v2017/images/menu_icon_blue.png');
-		}
+		// if ($(this).attr('class') == 'active') {
+		// 	$(this).find('img').attr('src','/static/v2017/images/menu_icon_blue.png');
+		// } else {
+		// 	$(this).find('img').attr('src','/static/v2017/images/menu_icon.png');
+		// 	$(this).find('img').attr('src','/static/v2017/images/menu_icon_blue.png');
+		// }
 
 		//$('.copy').css('display', 'block');
 		$('.copy-over').css('display', 'none');
 		$('.more-portfolio').css('display', 'none');
 	};
 
-	main.slider();
+	// if ($('#mainVisual').length > 0) {
+	// 	main.slider();
+	// }
 }
 
 function disableOther( button ) {
@@ -198,11 +200,11 @@ var main = {
 		});
 	},
 	nextItem: function () {
-		// $('#mainVisual .visual').vTicker('next', {animate: true});
-		$('#mainVisual .visual').vTicker('pause', true);
+		$('#mainVisual .visual').vTicker('next', {animate: true});
+		// $('#mainVisual .visual').vTicker('pause', true);
 	},
 	prevItem: function () {
-		// $('#mainVisual .visual').vTicker('prev', {animate: true});
-		$('#mainVisual .visual').vTicker('pause', false);
+		$('#mainVisual .visual').vTicker('prev', {animate: true});
+		// $('#mainVisual .visual').vTicker('pause', false);
 	}
 }

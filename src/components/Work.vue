@@ -7,7 +7,7 @@
           <li class="mobile"><a href="">MOBILE</a></li>
           <li class="video"><a href="">VIDEO</a></li>
         </ul>
-        <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+        <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
   		</header>
 
       <!-- work contents -->
@@ -24,11 +24,11 @@
               </div>
           		<div class="dim">
                 <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2} }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
           		</div>
           	</li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
                 	<p class="thum"><img src="/static/v2017/images/work_thum_02.jpg"/></p>
                   <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
@@ -36,11 +36,11 @@
               </div>
           		<div class="dim">
                 <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
           		</div>
           	</li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">세아그룹 ‘장인정신’ 영상 제작</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_03.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
@@ -48,11 +48,11 @@
               </div>
               <div class="dim">
                 <p class="tit">세아그룹 ‘장인정신’ 영상 제작</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_04.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
@@ -60,11 +60,11 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">법무법인 화우 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_05.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
@@ -72,11 +72,11 @@
               </div>
               <div class="dim">
                 <p class="tit">법무법인 화우 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">화천기계 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_06.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
@@ -84,11 +84,11 @@
               </div>
               <div class="dim">
                 <p class="tit">화천기계 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_07.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
@@ -96,11 +96,11 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">KT CS 웹사이트 리뉴얼</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_08.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
@@ -108,11 +108,11 @@
               </div>
               <div class="dim">
                 <p class="tit">KT CS 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_09.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
@@ -120,11 +120,11 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_10.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
@@ -132,11 +132,11 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_11.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
@@ -144,11 +144,11 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li><li>
               <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_12.jpg" alt=""></p>
                   <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
@@ -156,116 +156,13 @@
               </div>
               <div class="dim">
                 <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
               </div>
             </li>
           </ul>
         </article>
       </section>
       <!-- //work contents -->
-
-  		<!-- <section id="gallery-layout">
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_01.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><router-link v-bind:to="{ name: 'WorkDetail' }">2016 일진그룹 계열사 웹사이트 리뉴얼</router-link></p>
-  						<p><router-link v-bind:to="{ name: 'WorkDetail' }"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></router-link></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_02.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="sub.jsp">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="sub.jsp"><img src="/static/v2017/images/icon_mobile.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_mobile.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_03.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_video.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_video.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_04.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_05.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_06.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_07.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_08.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  			<div class="gallery-content">
-  				<div class="gallery-img"><img src="/static/v2017/images/thumbnail_09.jpg" alt="" /></div>
-  				<div class="content">
-  					<p class="order">PROJECT1</p>
-  					<div class="title">
-  						<p><a href="javascript:;">2016 일진그룹 계열사 웹사이트 리뉴얼</a></p>
-  						<p><a href="javascript:;"><img src="/static/v2017/images/icon_web.png" alt="" onmouseover="this.src='/static/v2017/images/btn_more_gallery.png'" onmouseout="this.src='/static/v2017/images/icon_web.png'" /></a></p>
-  					</div>
-  				</div>
-  				<div class="overlay gray"></div>
-  			</div>
-  		</section> -->
-
   	</div>
 </template>
 
@@ -295,3 +192,27 @@
     .wrapper.work header .group {display:none;}
   }
 </style>
+
+<script type="text/javascript">
+  import classie from 'desandro-classie'
+
+  export default {
+    name: 'workListApp',
+    methods: {
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      }
+    },
+    mounted () {
+      this.gnb()
+    }
+  }
+</script>
