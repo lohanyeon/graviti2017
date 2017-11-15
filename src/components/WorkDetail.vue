@@ -14,6 +14,13 @@
         <div class="portfolio-detail">
           <div class="img pt0">
             <img src="/static/v2017/images/portfolio_01-1.jpg" alt="">
+            <div class="tit">
+              <p class="year">2013</p>
+              <dl>
+                <dt>SEAH GROUP <br>WEBSITE</dt>
+                <dd>세아그룹 웹사이트 리뉴얼 프로젝트</dd>
+              </dl>
+            </div>
           </div>
           <div class="info-box">
             <div class="desc">
@@ -27,7 +34,22 @@
               <p class="site"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
             </div>
             <div class="info">
-              info
+              <dl>
+                <dt>제작사</dt>
+                <dd>그라비티인터랙티브</dd>
+              </dl>
+              <dl>
+                <dt>프로젝트 기간</dt>
+                <dd>2014.02 ~ 2015.03</dd>
+              </dl>
+              <dl>
+                <dt>고객사</dt>
+                <dd>세아홀딩스</dd>
+              </dl>
+              <dl>
+                <dt>범위</dt>
+                <dd>반응형웹</dd>
+              </dl>
             </div>
           </div>
           <div class="img pt0">
@@ -81,8 +103,20 @@
         <!-- other portfolio -->
         <div class="other-portfolio">
           <ul>
-            <li class="prev"><a href="#">이전 프로젝트</a></li>
-            <li class="next"><a href="#">다음 프로젝트</a></li>
+            <li class="prev">
+              <a href="#">
+                <p class="p-name">세아제강 AMERICA <br>웹사이트 구축 프로젝트</p>
+                <p class="p-en">Seah America website renewal</p>
+                <p class="p-client">Client / ILJIN CNS</p>
+              </a>
+            </li>
+            <li class="next">
+              <a href="#">
+                <p class="p-name">법무법인 화우 <br>웹사이트 구축 프로젝트</p>
+                <p class="p-en">YOON &amp; YANG website renewal</p>
+                <p class="p-client">Client / YOON &amp; YANG</p>
+              </a>
+            </li>
           </ul>
         </div>
         <!-- //other portfolio -->
@@ -124,14 +158,33 @@
     background-color:#00a1e9; margin:0 auto;
   }
   /*.portfolio-detail {margin:0 60px;}*/
-  .portfolio-detail .info-box {background-color:#fff; padding:80px 0 100px; margin:0 60px;}
-  .portfolio-detail .img {padding-top:115px; margin:0 60px;}
+  .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
+  .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
+  .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
+  .portfolio-detail .info-box .desc dl dt {font-size:34px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
+  .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; line-height:1.4; margin-top:25px;}
+  .portfolio-detail .info-box .desc .site {font-size:13px; margin-top:40px;}
+  .portfolio-detail .info-box .desc .site .url {display:inline-block; color:#fff; height:33px; line-height:33px; padding:0 14px; background-color:#1d1d1d;}
+  .portfolio-detail .info-box .desc .site a {display:inline-block; height:31px; line-height:31px; padding:0 20px; margin-left:-1xp; border:1px solid #e9eef3;}
+  .portfolio-detail .info-box .info {float:left; width:43%;}
+  .portfolio-detail .info-box .info dl {float:left; width:49.5%; margin-bottom:50px; border-left:1px solid #e9eef3;}
+  .portfolio-detail .info-box .info dl dt {color:#00a1e9; font-weight:500; padding-left:10%;}
+  .portfolio-detail .info-box .info dl dd {font-weight:300; padding-left:10%; margin-top:10px;}
+  .portfolio-detail .img {position:relative; padding-top:115px; margin:0 60px;}
   .portfolio-detail .img.pt0 {padding-top:0 !important;}
   .portfolio-detail .img img {width:100%;}
+  .portfolio-detail .img .tit {position:absolute; top:28%; left:10%; color:#fff;}
+  .portfolio-detail .img .tit .year {font-family:'Rajdhani'; font-size:1.1vw; letter-spacing:0.1em;}
+  .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:4vw; font-weight:700; line-height:1em; margin-top:1.5%;}
+  .portfolio-detail .img .tit dl dd {font-size:1.2vw; margin-top:5%;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
+  .portfolio-detail .txt dl:after {content:""; display:block; clear:both;}
+  .portfolio-detail .txt dl dt {float:left; width:33%;}
+  .portfolio-detail .txt dl dt img {max-width:100%;}
+  .portfolio-detail .txt dl dd {float:left; width:63%; font-size:20px; font-weight:300; line-height:1.3; margin:40px 0 0 4%;}
 
-  .other-portfolio {margin:0 60px;}
-  .other-portfolio li {float:left; width:50%; background-color:#1d1d1d;}
+  .other-portfolio {max-height:400px; margin:0 60px;}
+  .other-portfolio li {float:left; width:50%; max-height:400px; background-color:#1d1d1d;}
   .other-portfolio li.next {background-color:#292929;}
   .other-portfolio li a {display:block; color:#fff; padding:20% 0;}
 
@@ -143,4 +196,63 @@
   .work_grid .grid-line.line5 {left:57.12%;}
   .work_grid .grid-line.line6 {left:71.4%;}
   .work_grid .grid-line.line7 {left:85.68%; background:none;}
+
+  @media all and (max-width:1300px) {
+    .portfolio-detail .txt dl dt {width:42%;}
+    .portfolio-detail .txt dl dd {width:54%;margin:40px 0 0 4%;}
+  }
+
+  /* tablet */
+  @media all and (max-width:1024px) {
+    .portfolio-detail .info-box {padding:45px 14.28% 50px;}
+    .portfolio-detail .info-box .desc {width:68%;}
+    .portfolio-detail .info-box .desc dl dt {font-size:24px;}
+    .portfolio-detail .info-box .desc dl dd {font-size:16px;}
+    .portfolio-detail .info-box .info {width:25%;}
+    .portfolio-detail .info-box .info dl {width:99%; margin-bottom:30px;}
+    .portfolio-detail .info-box .info dl:nth-child(4) {margin-bottom:0;}
+    .portfolio-detail .info-box .info dl dt {font-size:14px;}
+    .portfolio-detail .info-box .info dl dd {font-size:14px;}
+    .portfolio-detail .img {margin:0 40px;}
+    .portfolio-detail .img .tit {top:26%;}
+    .portfolio-detail .img .tit .year {font-size:1.3vw;}
+    .portfolio-detail .img .tit dl dt {font-size:5vw; margin-top:2%;}
+    .portfolio-detail .img .tit dl dd {font-size:1.5vw;}
+    .portfolio-detail .txt {padding-top:45px;}
+    .portfolio-detail .txt dl dt {width:33%;}
+    .portfolio-detail .txt dl dd {width:63%; font-size:16px; margin:3.8% 0 0 4%;}
+
+    .other-portfolio {margin:0 40px;}
+  }
+
+  /* mobile */
+  @media all and (max-width:767px) {
+    .wrapper.work h2.portfolio {display:none;}
+    .portfolio-detail .info-box {padding:6% 10% 6%;}
+    .portfolio-detail .info-box .desc {width:100%; padding:0;}
+    .portfolio-detail .info-box .desc dl dt {font-size:20px;}
+    .portfolio-detail .info-box .desc dl dd {font-size:13px; margin-top:10px;}
+    .portfolio-detail .info-box .desc .site {font-size:12px; margin-top:20px;}
+    .portfolio-detail .info-box .desc .site .url {height:23px; line-height:23px; padding:0 14px;}
+    .portfolio-detail .info-box .desc .site a {height:21px; line-height:21px; padding:0 20px;}
+    .portfolio-detail .info-box .info {width:100%; margin-top:25px;}
+    .portfolio-detail .info-box .info dl {width:49.5%; margin-bottom:30px;}
+    .portfolio-detail .info-box .info dl:nth-child(3), .portfolio-detail .info-box .info dl:nth-child(4) {margin-bottom:0;}
+    .portfolio-detail .info-box .info dl dt {font-size:12px;}
+    .portfolio-detail .info-box .info dl dd {font-size:12px; margin-top:5px;}
+    .portfolio-detail .img {margin:0 4%;}
+    .work_grid {display:none;}
+
+    .portfolio-detail .img {padding-top:8%;}
+    .portfolio-detail .img .tit {top:24%; left:7%;;}
+    .portfolio-detail .img .tit .year {font-size:1.8vw;}
+    .portfolio-detail .img .tit dl dt {font-size:5.5vw;}
+    .portfolio-detail .img .tit dl dd {font-size:2vw;}
+    .portfolio-detail .txt {padding-top:8%;}
+    .portfolio-detail .txt dl dt {width:100%; text-align:center;}
+    .portfolio-detail .txt dl dt img {width:35%;}
+    .portfolio-detail .txt dl dd {width:100%; font-size:13px; margin:4% 0 0 0;}
+
+    .other-portfolio {margin:0 4%;}
+  }
 </style>

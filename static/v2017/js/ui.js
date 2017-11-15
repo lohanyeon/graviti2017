@@ -25,6 +25,7 @@ window.onload = function() {
 	};
 
 	main.slider();
+	main.changeText();
 }
 
 function disableOther( button ) {
@@ -181,6 +182,7 @@ $(function(){
 	$(".wrapper.work header .group li a").mouseleave(function(){
 		$(this).parent().removeClass("over");
 	});
+
 });
 
 var main = {
@@ -198,11 +200,25 @@ var main = {
 		});
 	},
 	nextItem: function () {
-		// $('#mainVisual .visual').vTicker('next', {animate: true});
-		$('#mainVisual .visual').vTicker('pause', true);
+		$('#mainVisual .visual').vTicker('next', {animate: true});
 	},
 	prevItem: function () {
-		// $('#mainVisual .visual').vTicker('prev', {animate: true});
-		$('#mainVisual .visual').vTicker('pause', false);
+		$('#mainVisual .visual').vTicker('prev', {animate: true});
+	},
+	changeText: function () {
+		var len = $('#mainVisual .ment ul li').length
+		var count = 1;
+
+		var change = function () {
+			$('#mainVisual .ment ul li').removeClass('on')
+			$('#mainVisual .ment ul li').eq(count).addClass('on')
+			if (count >= len) {
+				count = 0
+			} else {
+				count ++
+			}
+		}
+
+		setInterval(change, 4000)
 	}
 }

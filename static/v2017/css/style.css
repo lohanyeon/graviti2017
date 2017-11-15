@@ -104,7 +104,7 @@
   #mainVisual .ment-text .title dl dd {font-size:3.5vw;}
   #gnb li a {font-size:9vw;}
   #gnb li span {font-size:12px;}
-
+  .work-list-wrap {padding:0 4% 40px;}
   .work-list-wrap .w-list li {width:100%;}
 }
 @media all and (max-width:640px) {
