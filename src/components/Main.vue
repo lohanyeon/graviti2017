@@ -37,24 +37,22 @@
           <ul>
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
               <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'">
+              <div class="ment">
+                <div>
+                  <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
+                  <div class="title">
+                    <p class="year">{{portfolio.making_year}}</p>
+                    <dl>
+                      <dt v-html="portfolio.fields.project_eng_name"></dt>
+                      <dd>{{portfolio.fields.project_kor_name}}</dd>
+                    </dl>
+                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
             </li>
             <!-- <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
             <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li> -->
-          </ul>
-        </div>
-        <div class="ment">
-          <ul>
-            <li v-bind:class="{on: key===0}" v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
-              <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
-              <div class="title">
-                <p class="year">{{portfolio.making_year}}</p>
-                <dl>
-                  <dt v-html="portfolio.fields.project_eng_name"></dt>
-                  <dd>{{portfolio.fields.project_kor_name}}</dd>
-                </dl>
-                <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
