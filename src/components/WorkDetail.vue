@@ -104,6 +104,18 @@
   </div>
 </template>
 
+<script type="text/javascript">
+  export default {
+    name: 'work-detail',
+    methods: {
+
+    },
+    created () {
+      console.log(this.$route.params.id)
+    }
+  }
+</script>
+
 <style>
   .wrapper.work {position:relative; height:auto !important;}
   .wrapper.work h2.portfolio {

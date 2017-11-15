@@ -46,7 +46,7 @@
                       <dt v-html="portfolio.fields.project_eng_name"></dt>
                       <dd>{{portfolio.fields.project_kor_name}}</dd>
                     </dl>
-                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
+                    <router-link :to="{ name: 'WorkDetail', params: { id: portfolio.pk }}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
                   </div>
                 </div>
               </div>
