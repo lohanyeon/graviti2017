@@ -46,11 +46,13 @@
                       <dt v-html="portfolio.fields.project_eng_name"></dt>
                       <dd>{{portfolio.fields.project_kor_name}}</dd>
                     </dl>
-                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></a>
+                    <a v-bind:href="'/work/' + portfolio.pk" class="more"><img src="/static/v2017/images/btn_main_more.png" alt=""></a>
                   </div>
                 </div>
               </div>
             </li>
+            <!-- <li><img src="/static/v2017/images/main_visual_02.jpg" alt=""></li>
+            <li><img src="/static/v2017/images/main_visual_03.jpg" alt=""></li> -->
           </ul>
         </div>
       </div>

@@ -13,26 +13,31 @@
       <!-- work contents -->
       <section class="contents">
         <article class="work-list-wrap">
-          <ul class="list">
-            <li>
-              <div>
-                <router-link v-bind:to="{ name: 'WorkDetail' }">
-                  <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_01.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                  <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
-                  <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li>
+          <div class="test-list">
+        		<a href="">
+              <img src="/static/v2017/images/work_thum_01.jpg"/>
+              <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
+              <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
+            </a>
+        		<div class="thumb">
+              <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
+              <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+        		</div>
+        	</div>
+          <div class="test-list">
+        		<img src="/static/v2017/images/work_thum_02.jpg"/>
+            <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
+        		<div class="thumb">
+              <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
+              <router-link v-bind:to="{ name: 'WorkDetail' }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+        		</div>
+        	</div>
+          <ul>
             <li>
               <div>
                 <router-link v-bind:to="{ name: 'WorkDetail' }">
                   <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
                   <p class="thum"><img src="/static/v2017/images/work_thum_02.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
                 </router-link>
               </div>
               <div class="dim">
