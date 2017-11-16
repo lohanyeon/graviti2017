@@ -23,10 +23,10 @@
         Fax. 02.333.8893
       </address>
       <p>서울특별시 마포구 동교로 107, 302호</p>
-      <p class="copyright">© Copyright 2017</p>
+      <p class="copyright"><a href="#" v-on:click="visual('pause')" style="color:#FFF">© Copyright</a> <a href="#" v-on:click="visual('resume')" style="color:#FFF">2017</a></p>
       <ul class="arrow">
-        <li class="arr_up"><a href="#"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
-        <li class="arr_down"><a href="#"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
+        <li class="arr_up"><a href="#" v-on:click="visual('up')"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
+        <li class="arr_down"><a href="#" v-on:click="visual('down')"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>
       </ul>
     </footer>
 
@@ -79,13 +79,15 @@
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
   import {TweenMax, Power4} from 'gsap'
+  require('vticker/vticker')
 
   export default {
     name: 'mainApp',
     data: function () {
       return {
         portfolios: [],
-        intervalId: ''
+        intervalId: '',
+        isProcess: ''
       }
     },
     computed: {
@@ -95,7 +97,7 @@
     },
     methods: {
       visual (v) {
-        var visual = function () {
+        var down = function () {
           var top = $(window).height() * -1
           var target = $('#mainVisual .visual ul')
           var obj = $('#mainVisual .visual ul li').eq(0)
@@ -106,39 +108,71 @@
 
           TweenMax.fromTo(target, 1,
              {top: top},
-             {top: 0, onComplete: complete, ease: Power4.easeOut}
+             {top: 0, onComplete: completeDown, ease: Power4.easeOut}
           )
         }
-        var complete = function () {
+        var up = function () {
+          var top = $(window).height() * -1
+          var target = $('#mainVisual .visual ul')
+          var len = $('#mainVisual .visual ul li').length
+          var obj = $('#mainVisual .visual ul li').eq(len - 1)
+
+          $('#mainVisual .visual ul li').eq(0).after(obj)
+
+          var t = $('#mainVisual .visual ul li').eq(0).clone()
+          $('#mainVisual .visual ul li').eq(1).after(t)
+
+          TweenMax.fromTo(target, 1,
+             {top: 0},
+             {top: top, onComplete: completeUp, ease: Power4.easeOut}
+          )
+        }
+        var completeDown = function () {
           $('#mainVisual .visual ul li').eq(1).remove()
         }
-        if (v === 'init') {
-          this.intervalId = setInterval(visual, 4000)
-        } else if (v === 'up') {
-
-        } else if (v === 'down') {
-          // visual()
+        var completeUp = function () {
+          // $('#mainVisual .visual ul').css({top: 0})
+          $('#mainVisual .visual ul li').eq(0).remove()
+          $('#mainVisual .visual ul').css({top: 0})
         }
-      },
-      updown () {
-        $('footer .arr_down a').unbind().bind('click', function () {
-          var top = $(window).height() * -1
-          var target = $('#mainVisual .visual ul')
-          var obj = $('#mainVisual .visual ul li').eq(0)
-          var nextObj = $('#mainVisual .visual ul li').eq(0).clone()
+        var disabledYN = function (v) {
+          $('.arr_up').attr('disabled', v)
+          $('.arr_down').attr('disabled', v)
+        }
 
-          target.append(obj)
-          $('#mainVisual .visual ul li').eq(0).after(nextObj)
+        if (v === 'init') {
+          this.intervalId = setInterval(down, 4000)
+        } else if (v === 'up') {
+          this.isProcess = $('.arr_up').attr('disabled')
 
-          var complete = function () {
-            $('#mainVisual .visual ul li').eq(1).remove()
+          disabledYN(true)
+          if (this.isProcess !== 'disabled') {
+            up()
+            clearInterval(this.intervalId)
+            this.intervalId = setInterval(up, 4000)
+
+            setTimeout(function () {
+              disabledYN(false)
+            }, 1000)
           }
+        } else if (v === 'down') {
+          this.isProcess = $('.arr_down').attr('disabled')
 
-          TweenMax.fromTo(target, 1,
-             {top: top},
-             {top: 0, onComplete: complete, ease: Power4.easeOut}
-          )
-        })
+          disabledYN(true)
+          if (this.isProcess !== 'disabled') {
+            down()
+            clearInterval(this.intervalId)
+            this.intervalId = setInterval(down, 4000)
+
+            setTimeout(function () {
+              disabledYN(false)
+            }, 1000)
+          }
+        } else if (v === 'pause') {
+          clearInterval(this.intervalId)
+        } else if (v === 'resume') {
+          this.intervalId = setInterval(down, 4000)
+        }
       },
       gnb () {
         var menuRight = document.getElementById('graviti-menu-s2')
@@ -174,7 +208,6 @@
       // do something after mounting vue instance
       // this.$refs.topProgress.start()
       this.visual('init')
-      this.updown()
       this.gnb()
       this.setListPortfolio()
     },

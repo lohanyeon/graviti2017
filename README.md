@@ -18,7 +18,8 @@ npm install --save jquery-ui
 npm install --save axios
 npm install --save babel-polyfill
 npm install --save gsap
-npm install --save vue-top-progress 
+npm install --save vue-top-progress
+npm install --save desandro-classie
 
 ## Build Setup
 
