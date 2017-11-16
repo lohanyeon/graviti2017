@@ -10,159 +10,165 @@
         <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
   		</header>
 
-      <!-- work contents -->
-      <section class="contents">
-        <article class="work-list-wrap">
-          <ul class="w-list">
-            <li>
-              <div class="thum-wrap">
-            		<router-link v-bind:to="{ name: 'WorkDetail' }">
+      <!-- work-list contents -->
+      <section id="contentWrap" class="section-work-list">
+        <h3 class="skip">Work</h3>
+        <!-- contents -->
+        <div class="contents">
+          <article class="work-list-wrap">
+            <ul class="w-list">
+              <li>
+                <div class="thum-wrap">
+              		<router-link v-bind:to="{ name: 'WorkDetail' }">
+                    <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_01.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p><!-- 아이콘이름 : icon_web(WEB), icon_mobile(MOBILE), icon_video(IDEO) -->
+                  </router-link>
+                </div>
+            		<div class="dim">
                   <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_01.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
-                </router-link>
-              </div>
-          		<div class="dim">
-                <p class="tit">일진디스플레이 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2} }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-          		</div>
-          	</li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2} }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+            		</div>
+            	</li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
+                  	<p class="thum"><img src="/static/v2017/images/work_thum_02.jpg"/></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
+                  </router-link>
+                </div>
+            		<div class="dim">
                   <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
-                	<p class="thum"><img src="/static/v2017/images/work_thum_02.jpg"/></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
-                </router-link>
-              </div>
-          		<div class="dim">
-                <p class="tit">세아제강 AMERICA 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-          		</div>
-          	</li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+            		</div>
+            	</li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">세아그룹 ‘장인정신’ 영상 제작</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_03.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">세아그룹 ‘장인정신’ 영상 제작</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_03.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">세아그룹 ‘장인정신’ 영상 제작</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 웹사이트 구축</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_04.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 웹사이트 구축</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_04.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">법무법인 화우 웹사이트 구축</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_05.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">법무법인 화우 웹사이트 구축</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_05.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">법무법인 화우 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">화천기계 웹사이트 구축</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_06.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">화천기계 웹사이트 구축</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_06.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">화천기계 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_07.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_07.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">KT CS 웹사이트 리뉴얼</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_08.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">KT CS 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_08.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_mobile.png" alt="MOBILE"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">KT CS 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_09.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_09.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_10.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_10.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_11.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_11.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_web.png" alt="WEB"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 홍보관 웹사이트 구축</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li><li>
-              <div class="thum-wrap">
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li><li>
+                <div class="thum-wrap">
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }">
+                    <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
+                    <p class="thum"><img src="/static/v2017/images/work_thum_12.jpg" alt=""></p>
+                    <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
+                  </router-link>
+                </div>
+                <div class="dim">
                   <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                  <p class="thum"><img src="/static/v2017/images/work_thum_12.jpg" alt=""></p>
-                  <p class="icon"><img src="/static/v2017/images/icon_video.png" alt="VIDEO"></p>
-                </router-link>
-              </div>
-              <div class="dim">
-                <p class="tit">일진그룹 계열사 웹사이트 리뉴얼</p>
-                <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
-              </div>
-            </li>
-          </ul>
-        </article>
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: 2}  }" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <!-- //contents -->
       </section>
-      <!-- //work contents -->
+      <!-- //work-list contents -->
+
   	</div>
 </template>
 

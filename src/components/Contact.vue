@@ -1,48 +1,53 @@
 <template id="">
-  <div class="wrapper-contact">
+  <div class="wrapper contact">
 
-  		<!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
-  		<header class="header">
-  			<div class="hollow"></div>
-  			<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_blue.png" alt=""></router-link></h1></div>
-  			<aside class="fr">
-  				<nav>
-  					<ul>
-  						<!-- <li><a href="#"><img src="/static/v2017/images/brochure_download.png" alt="브로셔 다운로드"></a></li>
-  						<li><a href="#"><img src="/static/v2017/images/project_request.png" alt="프로젝트 의뢰"></a></li> -->
-  						<!-- <li><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-  					</ul>
-  				</nav>
-  			</aside>
-  		</header>
+    <header class="sub_header">
+      <h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt=""></router-link></h1>
+      <h2 class="title01">CONTACT</h2>
+      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+    </header>
 
-  		<div class="contents">
+    <!-- contact contents -->
+    <section id="contentWrap" class="section-contact">
+      <h3 class="skip">Contact</h3>
+      <!-- contents -->
+      <div class="contents">
   			<article>
-  				<p>Stunning Result in Digital Ecology</p>
-  				<div class="col-2 mcol-12"></div>
-  				<div class="col-3 mcol-12">
-  					<div class="ceo">
-  						<p class="title">CEO</p>
-  						<p class="content">대표 우재을</p>
-  						<p class="content">WOO, JAE EUL</p>
-  					</div>
-  				</div>
-  				<div class="col-4 mcol-12">
-  					<div class="address">
-  						<p class="title">ADDRESS</p>
-  						<p class="content">(주)그라비티 인터렉티브</p>
-  						<p class="content">서울특별시 마포구 동료로 107,302호</p>
-  					</div>
-  				</div>
-  				<div class="col-3 mcol-12">
-  					<div class="contactus">
-  						<p class="title">CONTACT US</p>
-  						<p class="content">TEL. 02.333.9230</p>
-  						<p class="content">FAX. 02.333.8893</p>
-  						<p class="content">EMAIL. jacky@graviti.co.kr</p>
-  					</div>
-  				</div>
-          <div class="row mrow">
+          <!-- map -->
+          <div class="map"></div>
+          <!-- //map -->
+
+          <div class="detail">
+            <div class="box-left fc-blue">
+              <dl>
+                <dt>DIGITAL Agency</dt>
+                <dd>e-Service Strategy &amp; Contents <br>Responsive Web (N-devices) <br>Mobile (Native &amp; Hybrid App) <br>Next Web Technology</dd>
+              </dl>
+              <dl>
+                <dt>MEDIA LAB.</dt>
+                <dd>New Media Creative <br>Media Fagade / Motion Art <br>Biz video & Interview Reel <br>3D effect, Character</dd>
+              </dl>
+            </div>
+            <div class="box-center">
+              <dl class="">
+                <dt class="tit fc-blue"></dt>
+                <dd></dd>
+              </dl>
+              <dl class="">
+                <dt class="tit fc-blue"></dt>
+                <dd></dd>
+              </dl>
+            </div>
+            <div class="box-right">
+              <dl class="">
+                <dt class="tit fc-blue"></dt>
+                <dd></dd>
+              </dl>
+              <p class="qr-code"><img src="/static/v2017/images/icon_qr-code.jpg" alt="그라비티인터랙티브 QR 코드"></p>
+            </div>
+          </div>
+
+          <!-- <div class="row mrow">
           </div>
   				<div class="map" id="map" style="width:100%; height:50%;">
             <gmap-map
@@ -59,12 +64,36 @@
                 @click="center=m.position"
               ></gmap-marker>
             </gmap-map>
-          </div>
+          </div> -->
   			</article>
   		</div>
+      <!-- //contents -->
+    </section>
+    <!-- //contact contents -->
 
-  	</div>
+  </div>
 </template>
+
+<style>
+  .section-contact article {margin:0 60px;}
+  .section-contact article .map {width:100%; height:404px; background-color:#00a1e9;}
+  .section-contact .detail {padding:60px 0 110px;}
+  .section-contact .detail:after {content:""; display:block; clear:both;}
+  .section-contact .detail .box-left {float:left; width:40%;}
+  .section-contact .detail .box-center {float:left; width:30%;}
+  .section-contact .detail .box-right {float:left; width:30%;}
+
+  /* tablet */
+  @media all and (max-width:1024px) {
+    .section-contact article {margin:0 40px;}
+  }
+
+  /* mobile */
+  @media all and (max-width:767px) {
+    .wrapper.contact h2 {display:none;}
+    .section-contact article {margin:0 4%;}
+  }
+</style>
 
 <script>
   import 'babel-polyfill'

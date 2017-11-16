@@ -1,48 +1,86 @@
 <template>
-  <div class="wrapper-about">
+  <div class="wrapper about">
 
-    <!-- <a href="#skip_content" title="본문으로 바로가기" class="skip">본문 바로가기</a> -->
-
-
-
-    <header class="header">
-    	<div class="hollow"></div>
-    	<div class="fl"><h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_blue.png" alt=""></router-link></h1></div>
-    	<aside class="fr">
-    		<nav>
-    			<ul>
-    				<!-- <li><a href="#"><img src="/static/v2017/images/brochure_download.png" alt="브로셔 다운로드"></a></li>
-    				<li><a href="#"><img src="/static/v2017/images/project_request.png" alt="프로젝트 의뢰"></a></li> -->
-    				<!-- <li><a href="#" id="showRightPush"><img src="/static/v2017/images/menu_icon.png" alt="메뉴"></a></li> -->
-    			</ul>
-    		</nav>
-    	</aside>
+    <header class="sub_header">
+      <h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt=""></router-link></h1>
+      <h2 class="title01">ABOUT</h2>
+      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
     </header>
 
-    <div class="contents">
-    	<article>
-    		<p class="title">Stunning Result in Digital Ecology</p>
-    		<p class="summary">신뢰와 크리에이티브를 최우선으로 생각하는 기업!</p>
-    		<p class="detail">2005년 11월 3일에 설립된 그라비티인터렉티브는 웹사이트, 모바일 웹, 앱 제작/운영, 홍보영상 등 디지털 콘텐츠를 제작·관리하는 웹이이전시입니다.</p>
-    		<p class="detail">그라비티인터렉티브는 젊음과 열정이 있는 회사입니다. 빠른 변화를 요구하는 디지털 시대에 높은 퀄리티와 안정된 실력으로 최고의 웹사이트를 만들어 가고 있습니다.</p>
-    		<div class="about">
-    			<div class="col-4 mcol-12">
-    				<img src="/static/v2017/images/about01.jpg" alt="" />
-    			</div>
-    			<div class="col-4 mcol-12">
-    				<img src="/static/v2017/images/about02.jpg" alt="" />
-    			</div>
-    			<div class="col-4 mcol-12">
-    				<img src="/static/v2017/images/about03.jpg" alt="" />
-    			</div>
-    			<div class="row mrow"></div>
-    			<!-- <img src="/static/v2017/images/about.jpg" alt="" /> -->
-    		</div>
-    		<div class="about-detail">
-    			<a href="#"><img src="/static/v2017/images/about_detail.jpg" alt="" /></a>
-    		</div>
-    	</article>
-    </div>
+    <!-- about contents -->
+    <section id="contentWrap" class="section-about">
+      <h3 class="skip">About</h3>
+      <!-- contents -->
+      <div class="contents">
+      	<article class="txt_c">
+      		<p class="title">Stunning Result in <span>Digital Ecology</span></p>
+          <dl class="summary">
+            <dt>신뢰와 크리에이티브를 최우선으로 생각하는 기업!</dt>
+            <dd>
+              2005년 11월 3일에 설립된 그라비티인터랙티브는 웹사이트, 모바일 웹, 앱 제작/운영, 홍보영상 등 디지털 콘텐츠를 제작·관리하는 웹에이전시입니다. <br>
+              그라비티인터랙티브는 젊음과 열정이 있는 회사입니다. 빠른 변화를 요구하는 디지털 시대에 높은 퀄리티와 안정된 실력으로 최고의 웹사이트를 만들어 가고 있습니다.
+            </dd>
+          </dl>
+    			<ul class="a-list">
+    			  <li>
+              <p class="tit">Balance &amp; <br>Cooperation<span>균형과 협력</span></p>
+              <p class="txt">세련된 맨파워, 강력한 팀워크, <span>완숙한 경험과 식견이 출중한 리더들을</span> <span>중심으로 양질의 결과물을 도출합니다.</span></p>
+            </li>
+    			  <li>
+              <p class="tit">Integrated e-Biz <br>Services<span>통합 e-Biz 서비스</span></p>
+              <p class="txt">정확한 커뮤니케이션, 전문적 기술, <span>체계적이고 크리에이티브한 접근으로</span> <span>시너지와 융합을 극대화합니다.</span></p>
+            </li>
+    			  <li>
+              <p class="tit">Ongoing <br>partnerships<span>지속적 파트너 관계</span></p>
+              <p class="txt">최적의 디지털 아이덴티티부터 <span>서비스 플랫폼까지… 지난 10여 년 간</span> <span>많은 기업들의 인정을 받고 있습니다.</span></p>
+            </li>
+    			</ul>
+      	</article>
+      </div>
+      <!-- //contents -->
+    </section>
+    <!-- //about contents -->
 
   </div>
 </template>
+
+<style>
+  .section-about article {background-color:#f4f7f9; padding:9% 4%; margin:0 60px;}
+  .section-about article .title {font-family:'Rajdhani'; font-size:50px; font-weight:500; letter-spacing:0.04em; line-height:1.1;}
+  .section-about article .summary {margin-top:40px;}
+  .section-about article .summary dt {font-size:24px; letter-spacing:-0.05em;}
+  .section-about article .summary dd {color:#4d4d4f; font-size:17px; font-weight:300; letter-spacing:-0.05em; line-height:1.5; margin-top:20px;}
+  .section-about article .a-list {margin-top:80px;}
+  .section-about article .a-list li {display:inline-block; max-width:30%; vertical-align:top;}
+  .section-about article .a-list li:nth-child(2) {margin:0 4%;}
+  .section-about article .a-list .tit {color:#373737; font-family:'Rajdhani'; font-size:18px; font-weight:600; letter-spacing:0.025em; text-transform:uppercase;}
+  .section-about article .a-list .tit span {
+    display:block; color:#00a1e9; font-family:'Noto Sans KR'; font-size:16px; font-weight:500; letter-spacing:-0.05em;
+    background:url('/static/v2017/images/line_blue_02.gif') center top no-repeat; padding-top:15px; margin-top:15px;
+  }
+  .section-about article .a-list .txt {color:#323232; font-size:15px; letter-spacing:-0.05em; line-height:1.5; margin-top:30px;}
+  .section-about article .a-list .txt span {display:block;}
+
+  /* tablet */
+  @media all and (max-width:1024px) {
+    .section-about article {margin:0 40px;}
+    .section-about article .a-list .txt span {display:inline;}
+  }
+
+  /* mobile */
+  @media all and (max-width:767px) {
+    .wrapper.about h2 {display:none;}
+    .section-about article {padding:13% 4%; margin:0 4%;}
+    .section-about article .title {font-size:30px;}
+    .section-about article .title span {display:block;}
+    .section-about article .summary {margin-top:7%;}
+    .section-about article .summary dt {font-size:18px;}
+    .section-about article .summary dd {font-size:13px; margin-top:5%;}
+    .section-about article .a-list {margin-top:0;}
+    .section-about article .a-list li {display:block; width:100%; max-width:100%; margin:13% 0 0 !important;}
+    .section-about article .a-list .tit {line-height:1.1;}
+    .section-about article .a-list .tit span {font-size:13px; padding-top:2%; margin-top:2%;}
+    .section-about article .a-list .txt {font-size:13px; margin-top:5%;}
+    .section-about article .a-list .txt span {display:block;}
+  }
+</style>

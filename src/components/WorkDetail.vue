@@ -1,15 +1,16 @@
 <template id="">
-  <div class="wrapper work">
+  <div class="wrapper work work-detail">
     <header class="sub_header">
       <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
-      <h2 class="portfolio">PORTFOLIO</h2>
+      <h2 class="title01">PORTFOLIO</h2>
       <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
     </header>
 
-    <section id="contentWrap">
+    <!-- work-detail contents -->
+    <section id="contentWrap" class="section-work">
       <h3 class="skip">Portfolio</h3>
       <!-- contents -->
-      <div class="contents section-work">
+      <div class="contents">
         <!-- portfolio -->
         <div class="portfolio-detail">
           <div class="img pt0">
@@ -103,7 +104,7 @@
         <!-- other portfolio -->
         <div class="other-portfolio">
           <ul>
-            <li class="prev">
+            <li class="prev txt_r">
               <a href="#">
                 <p class="p-name">세아제강 AMERICA <br>웹사이트 구축 프로젝트</p>
                 <p class="p-en">Seah America website renewal</p>
@@ -135,6 +136,8 @@
       </div>
       <!-- //grid -->
     </section>
+    <!-- //work-detail contents -->
+
   </div>
 </template>
 
@@ -152,12 +155,7 @@
 
 <style>
   .wrapper.work {position:relative; height:auto !important;}
-  .wrapper.work h2.portfolio {
-    width:186px; height:42px; line-height:42px;
-    color:#fff; font-size:1.188em; font-family:'Quantico'; font-weight: 400; text-align:center; letter-spacing:0.1em;
-    background-color:#00a1e9; margin:0 auto;
-  }
-  /*.portfolio-detail {margin:0 60px;}*/
+  .wrapper.work h2 {width:186px;}
   .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
@@ -183,10 +181,20 @@
   .portfolio-detail .txt dl dt img {max-width:100%;}
   .portfolio-detail .txt dl dd {float:left; width:63%; font-size:20px; font-weight:300; line-height:1.3; margin:40px 0 0 4%;}
 
-  .other-portfolio {max-height:400px; margin:0 60px;}
-  .other-portfolio li {float:left; width:50%; max-height:400px; background-color:#1d1d1d;}
-  .other-portfolio li.next {background-color:#292929;}
-  .other-portfolio li a {display:block; color:#fff; padding:20% 0;}
+  .other-portfolio {margin:0 60px;}
+  .other-portfolio li {float:left; width:50%;}
+  .other-portfolio li.prev {background:#1d1d1d url('/static/v2017/images/icon_prev.png') 12% center no-repeat;}
+  .other-portfolio li.next {background:#292929 url('/static/v2017/images/icon_next.png') 88% center no-repeat;}
+  .other-portfolio li.next.over {background-color:#1d1d1d;}
+  .other-portfolio li a {display:block; color:#fff; padding:115px 12%;}
+  .other-portfolio li .p-name {font-size:30px;}
+  .other-portfolio li .p-en {color:#00a1e9; font-family:'Quantico'; text-transform:uppercase; margin-top:22px;}
+  .other-portfolio li .p-client {
+    display:inline-block;
+    font-family:'Quantico'; font-size:13px; text-transform:uppercase;
+    padding-left:25px; margin-top:35px;
+    background:url('/static/v2017/images/line_blue.gif') left center no-repeat;
+  }
 
   .work_grid {position:absolute; top:0; left:0; width:100%; height:1000%; z-index:-1;}
   .work_grid .grid-line {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
@@ -223,11 +231,15 @@
     .portfolio-detail .txt dl dd {width:63%; font-size:16px; margin:3.8% 0 0 4%;}
 
     .other-portfolio {margin:0 40px;}
+    .other-portfolio li a {padding:50px 12%;}
+    .other-portfolio li .p-name {font-size:20px;}
+    .other-portfolio li .p-en {font-size:10px; margin-top:13px;}
+    .other-portfolio li .p-client {font-size:8px; margin-top:15px;}
   }
 
   /* mobile */
   @media all and (max-width:767px) {
-    .wrapper.work h2.portfolio {display:none;}
+    .wrapper.work h2 {display:none;}
     .portfolio-detail .info-box {padding:6% 10% 6%;}
     .portfolio-detail .info-box .desc {width:100%; padding:0;}
     .portfolio-detail .info-box .desc dl dt {font-size:20px;}
@@ -254,5 +266,11 @@
     .portfolio-detail .txt dl dd {width:100%; font-size:13px; margin:4% 0 0 0;}
 
     .other-portfolio {margin:0 4%;}
+    .other-portfolio li {float:none; width:100%;}
+    .other-portfolio li a {padding:9%;}
+    .other-portfolio li.prev {background-position:9% center;}
+    .other-portfolio li.next {background-position:91% center;}
+    .other-portfolio li .p-name {font-size:16px;}
+    .other-portfolio li .p-en, .other-portfolio li .p-client {display:none;}
   }
 </style>

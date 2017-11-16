@@ -183,7 +183,13 @@ $(function(){
 	$(".wrapper.work header .group li a").mouseleave(function(){
 		$(this).parent().removeClass("over");
 	});
-
+	/* work view over */
+	$(".other-portfolio li.next").mouseover(function(){
+		$(this).addClass("over");
+	});
+	$(".other-portfolio li.next").mouseleave(function(){
+		$(this).removeClass("over");
+	});
 });
 
 var main = {

@@ -28,8 +28,14 @@ html, body {
 .sub_header .gnb_menu {position:absolute; top:60px; right:60px; z-index:10;}
 
 /* contents */
-#contentWrap {position:absolute; width:100%; overflow:hidden;}
+#contentWrap {position:relative; width:100%; overflow:hidden;}
 .box-wrap {width:calc(100% -60px);}
+.title01 {
+  width:140px; height:42px; line-height:42px;
+  color:#fff; font-size:1.188em; font-family:'Quantico'; font-weight: 400; text-align:center; letter-spacing:0.1em;
+  background-color:#00a1e9; margin:0 auto;
+}
+.fc-blue {color:#00a1e9;}
 
 /* footer */
 footer {position:absolute; left:0; bottom:60px; width:100%; z-index:10;}
