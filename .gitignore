@@ -1,7 +1,5 @@
 .DS_Store
 node_modules/
-static/v2017/font/
-static/v2017/css/font/
 dist/
 npm-debug.log*
 yarn-debug.log*
