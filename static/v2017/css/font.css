@@ -40,25 +40,25 @@
   font-family: 'Quantico';
   font-style: normal;
   font-weight: 400;
-  src: url('./font/quantico-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('/static/v2017/css/font/quantico-v6-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Quantico'), local('Quantico-Regular'),
-       url('./font/quantico-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./font/quantico-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./font/quantico-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('./font/quantico-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./font/quantico-v6-latin-regular.svg#Quantico') format('svg'); /* Legacy iOS */
+       url('/static/v2017/css/font/quantico-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/static/v2017/css/font/quantico-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/static/v2017/css/font/quantico-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/static/v2017/css/font/quantico-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/static/v2017/css/font/quantico-v6-latin-regular.svg#Quantico') format('svg'); /* Legacy iOS */
 }
 @font-face {
   font-family: 'Quantico';
   font-style: normal;
   font-weight: 700;
-  src: url('./font/quantico-v6-latin-700.eot'); /* IE9 Compat Modes */
+  src: url('/static/v2017/css/font/quantico-v6-latin-700.eot'); /* IE9 Compat Modes */
   src: local('Quantico-Bold'),
-       url('./font/quantico-v6-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./font/quantico-v6-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./font/quantico-v6-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('./font/quantico-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./font/quantico-v6-latin-700.svg#Quantico') format('svg'); /* Legacy iOS */
+       url('/static/v2017/css/font/quantico-v6-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/static/v2017/css/font/quantico-v6-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/static/v2017/css/font/quantico-v6-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/static/v2017/css/font/quantico-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/static/v2017/css/font/quantico-v6-latin-700.svg#Quantico') format('svg'); /* Legacy iOS */
 }
 
 /* Rajdhani */
@@ -66,23 +66,23 @@
   font-family: 'Rajdhani';
   font-style: normal;
   font-weight: 400;
-  src: url('./font/rajdhani-v7-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Rajdhani Regular'), local('Rajdhani-Regular'),
-       url('./font/rajdhani-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./font/rajdhani-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./font/rajdhani-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('./font/rajdhani-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./font/rajdhani-v7-latin-regular.svg#Rajdhani') format('svg'); /* Legacy iOS */
+  src: url('/static/v2017/css/font/rajdhani-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Rajdhani'), local('Rajdhani-Regular'),
+       url('/static/v2017/css/font/rajdhani-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/static/v2017/css/font/rajdhani-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/static/v2017/css/font/rajdhani-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/static/v2017/css/font/rajdhani-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/static/v2017/css/font/rajdhani-v7-latin-regular.svg#Rajdhani') format('svg'); /* Legacy iOS */
 }
 @font-face {
   font-family: 'Rajdhani';
   font-style: normal;
   font-weight: 500;
-  src: url('./font/rajdhani-v7-latin-500.eot'); /* IE9 Compat Modes */
-  src: local('Rajdhani SemiBold'), local('Rajdhani-SemiBold'),
-       url('./font/rajdhani-v7-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./font/rajdhani-v7-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./font/rajdhani-v7-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('./font/rajdhani-v7-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./font/rajdhani-v7-latin-500.svg#Rajdhani') format('svg'); /* Legacy iOS */
+  src: url('/static/v2017/css/font/rajdhani-v7-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Rajdhani'), local('Rajdhani-SemiBold'),
+       url('/static/v2017/css/font/rajdhani-v7-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/static/v2017/css/font/rajdhani-v7-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/static/v2017/css/font/rajdhani-v7-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('/static/v2017/css/font/rajdhani-v7-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/static/v2017/css/font/rajdhani-v7-latin-500.svg#Rajdhani') format('svg'); /* Legacy iOS */
 }

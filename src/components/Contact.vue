@@ -28,19 +28,17 @@
                 <dd>New Media Creative <br>Media Fagade / Motion Art <br>Biz video & Interview Reel <br>3D effect, Character</dd>
               </dl>
             </div>
-            <div class="box-center">
-              <dl class="">
-                <dt class="tit fc-blue"></dt>
-                <dd></dd>
-              </dl>
-              <dl class="">
-                <dt class="tit fc-blue"></dt>
-                <dd></dd>
-              </dl>
-            </div>
             <div class="box-right">
               <dl class="">
+                <dt class="tit fc-blue">ADDRESS</dt>
+                <dd></dd>
+              </dl>
+              <dl class="">
                 <dt class="tit fc-blue"></dt>
+                <dd></dd>
+              </dl>
+              <dl class="">
+                <dt class="tit fc-blue">CEO</dt>
                 <dd></dd>
               </dl>
               <p class="qr-code"><img src="/static/v2017/images/icon_qr-code.jpg" alt="그라비티인터랙티브 QR 코드"></p>
@@ -80,8 +78,8 @@
   .section-contact .detail {padding:60px 0 110px;}
   .section-contact .detail:after {content:""; display:block; clear:both;}
   .section-contact .detail .box-left {float:left; width:40%;}
-  .section-contact .detail .box-center {float:left; width:30%;}
-  .section-contact .detail .box-right {float:left; width:30%;}
+  .section-contact .detail .box-right {float:left; width:60%;}
+  .section-contact .detail .box-right dl {width:50%;}
 
   /* tablet */
   @media all and (max-width:1024px) {
