@@ -79,7 +79,6 @@
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
   import {TweenMax, Power4} from 'gsap'
-  require('vticker/vticker')
 
   export default {
     name: 'mainApp',
