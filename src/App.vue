@@ -53,7 +53,10 @@
       </div>
     </section>
 
-    <router-view/>
+    <transition name="view" mode="out-in">
+      <router-view/>
+    </transition>
+
   </div>
 </template>
 
@@ -62,3 +65,12 @@ export default {
   name: 'app'
 }
 </script>
+
+<style>
+  .view-enter-active, .view-leave-active {
+    transition: opacity .3s
+  }
+  .view-enter, .view-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0
+  }
+</style>
