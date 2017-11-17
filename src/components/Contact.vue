@@ -92,7 +92,6 @@
   .section-contact .detail .box-center dl dd, .section-contact .detail .box-right dl dd {line-height:1.4; font-weight:300;}
   .section-contact .detail .box-center dl dd  strong, .section-contact .detail .box-right dl dd strong {font-weight:500;}
 
-  .qr-code {}
   /* tablet */
   @media all and (max-width:1024px) {
     .section-contact article {margin:0 40px;}
