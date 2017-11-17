@@ -14,7 +14,22 @@
       <div class="contents">
   			<article>
           <!-- map -->
-          <div class="map"></div>
+          <div class="map">
+            <gmap-map
+              :center="center"
+              :zoom="14"
+              style="width: 100%; height: 100%"
+            >
+              <gmap-marker
+                :key="index"
+                v-for="(m, index) in markers"
+                :position="m.position"
+                :clickable="true"
+                :draggable="true"
+                @click="center=m.position"
+              ></gmap-marker>
+            </gmap-map>
+          </div>
           <!-- //map -->
 
           <div class="detail">
@@ -77,6 +92,56 @@
   </div>
 </template>
 
+<script type="text/javascript">
+  import 'babel-polyfill'
+  import * as VueGoogleMaps from 'vue2-google-maps'
+  import Vue from 'vue'
+  import classie from 'desandro-classie'
+
+  Vue.use(VueGoogleMaps, {
+    load: {
+      key: 'AIzaSyB83zz0A7CYv8ZQ5v9F-XmbTkGkMvoADzs'
+    }
+  })
+
+  export default {
+    name: 'contactApp',
+    data: function () {
+      return {
+        portfolio: [],
+        center: {lat: 37.554974, lng: 126.913835},
+        markers: [{
+          position: {lat: 37.554974, lng: 126.913835}
+        }]
+      }
+    },
+    computed: {
+      hasResult: function () {
+        return this.portfolios.length > 0
+      }
+    },
+    methods: {
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          console.log('click')
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      }
+    },
+    created () {
+    },
+    mounted () {
+      this.gnb()
+    }
+  }
+</script>
+
 <style>
   .section-contact article {margin:0 60px;}
   .section-contact article .map {width:100%; height:404px; background-color:#00a1e9;}
@@ -117,26 +182,3 @@
     .section-contact .detail .box-right .qr-code {position:absolute; top:0; right:0; margin:0;}
   }
 </style>
-
-<script>
-  import 'babel-polyfill'
-  import * as VueGoogleMaps from 'vue2-google-maps'
-  import Vue from 'vue'
-
-  Vue.use(VueGoogleMaps, {
-    load: {
-      key: 'AIzaSyB83zz0A7CYv8ZQ5v9F-XmbTkGkMvoADzs'
-    }
-  })
-
-  export default {
-    data () {
-      return {
-        center: {lat: 37.554974, lng: 126.913835},
-        markers: [{
-          position: {lat: 37.554974, lng: 126.913835}
-        }]
-      }
-    }
-  }
-</script>

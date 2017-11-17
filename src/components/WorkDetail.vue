@@ -106,19 +106,25 @@
         <!-- other portfolio -->
         <div class="other-portfolio">
           <ul>
-            <li class="prev txt_r">
-              <a href="#">
-                <p class="p-name">세아제강 AMERICA <br>웹사이트 구축 프로젝트</p>
-                <p class="p-en">Seah America website renewal</p>
-                <p class="p-client">Client / ILJIN CNS</p>
-              </a>
+            <li v-if="hasPrevResult" class="prev txt_r">
+              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: prevPortfolio.pk}}">
+                <p class="p-name" v-text="prevPortfolio.fields.project_kor_name"></p>
+                <p class="p-en" v-html="prevPortfolio.fields.project_eng_name"></p>
+                <p class="p-client">Client / {{prevPortfolio.fields.client_name}}</p>
+              </router-link>
             </li>
-            <li class="next">
-              <a href="#">
-                <p class="p-name">법무법인 화우 <br>웹사이트 구축 프로젝트</p>
-                <p class="p-en">YOON &amp; YANG website renewal</p>
-                <p class="p-client">Client / YOON &amp; YANG</p>
-              </a>
+            <li v-else>
+              <!-- 이전 프로젝트가 없습니다.  -->
+            </li>
+            <li v-if="hasNextResult" class="next">
+              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: nextPortfolio.pk}}">
+                <p class="p-name" v-html="nextPortfolio.fields.project_kor_name"></p>
+                <p class="p-en" v-html="nextPortfolio.fields.project_eng_name"></p>
+                <p class="p-client">Client / {{nextPortfolio.fields.client_name}}</p>
+              </router-link>
+            </li>
+            <li v-else>
+              <!-- 다음 프로젝트가 없습니다. -->
             </li>
           </ul>
         </div>
@@ -143,6 +149,7 @@
 </template>
 
 <script type="text/javascript">
+  import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
 
@@ -150,12 +157,22 @@
     name: 'workDetailApp',
     data: function () {
       return {
-        portfolio: []
+        portfolios: [],
+        currPortfolio: [],
+        prevPortfolio: [],
+        nextPortfolio: []
       }
     },
     computed: {
-      hasResult: function () {
-        return this.portfolios.length > 0
+      hasPrevResult: function () {
+        var currPk = this.currPortfolio.pk
+        var prevPk = this.prevPortfolio.pk
+        return currPk === prevPk ? 0 : 1
+      },
+      hasNextResult: function () {
+        var currPk = this.currPortfolio.pk
+        var nextPk = this.nextPortfolio.pk
+        return currPk === nextPk ? 0 : 1
       }
     },
     methods: {
@@ -171,21 +188,26 @@
           classie.toggle(menuRight, 'graviti-menu-open')
         }
       },
-      setPortfolio () {
+      setPortfolio (id) {
         // const baseURI = '/apis'
         const baseURI = 'http://new.graviti.co.kr'
-        var id = this.$route.params.id
         var uri = baseURI + '/portfolios/api/portfolio/' + id
-
-        console.log(uri)
 
         this.$refs.topProgress.start()
 
         this.$http.get(`${uri}`)
           .then((result) => {
-            this.portfolio = result.data
+            this.portfolios = result.data
+
+            this.currPortfolio = this.portfolios[0]
+            this.prevPortfolio = this.portfolios[1]
+            this.nextPortfolio = this.portfolios[2]
+
+            console.log(this.currPortfolio)
+            console.log(this.prevPortfolio)
+            console.log(this.nextPortfolio)
+
             this.$refs.topProgress.done()
-            console.log(this.portfolio)
           })
           .catch(function (e) {
             console.log(e)
@@ -194,11 +216,19 @@
       }
     },
     created () {
-      console.log(this.$route.params.id)
+      // console.log(this.$route.params.id)
     },
     mounted () {
       this.gnb()
-      this.setPortfolio()
+      this.setPortfolio(this.$route.params.id)
+    },
+    watch: {
+      '$route.params.id' (newId, oldId) {
+        console.log(newId)
+        $('body').scrollTop(0)
+
+        this.setPortfolio(newId)
+      }
     },
     components: {
       vueTopprogress

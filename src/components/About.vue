@@ -44,6 +44,39 @@
   </div>
 </template>
 
+<script type="text/javascript">
+  import classie from 'desandro-classie'
+
+  export default {
+    name: 'contactApp',
+    data: function () {
+      return {
+      }
+    },
+    computed: {
+    },
+    methods: {
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          console.log('click')
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      }
+    },
+    created () {
+    },
+    mounted () {
+      this.gnb()
+    }
+  }
+</script>
+
 <style>
   .section-about article {background-color:#f4f7f9; padding:9% 4%; margin:0 60px;}
   .section-about article .title {font-family:'Rajdhani'; font-size:50px; font-weight:500; letter-spacing:0.04em; line-height:1.1;}

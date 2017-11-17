@@ -28,7 +28,7 @@
   import {TweenMax, Power4} from 'gsap'
   import router from '../router/index'
   // import {vueTopprogress} from 'vue-top-progress'
-  // import Main from '@/components/Main'
+  import Main from '@/components/Main'
 
   export default {
     name: 'introApp',
@@ -62,8 +62,8 @@
         }
         var goIndex = function () {
           console.log(router.currentRoute)
-          // router.push({path: 'main', name: 'Main', component: Main})
-          location.href = '/main'
+          router.push({path: 'main', name: 'Main', component: Main})
+          // location.href = '/main'
         }
         $('.grid-line span img').fadeIn(3000)
         setTimeout(showMent, 3000)
