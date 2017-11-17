@@ -1,9 +1,11 @@
 <template id="">
+
   <div class="wrapper work work-detail">
+    <vue-topprogress ref="topProgress"></vue-topprogress>
     <header class="sub_header">
-      <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
+      <h1><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
       <h2 class="title01">PORTFOLIO</h2>
-      <a href="#" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
     </header>
 
     <!-- work-detail contents -->
@@ -137,18 +139,69 @@
       <!-- //grid -->
     </section>
     <!-- //work-detail contents -->
-
   </div>
 </template>
 
 <script type="text/javascript">
-  export default {
-    name: 'work-detail',
-    methods: {
+  import {vueTopprogress} from 'vue-top-progress'
+  import classie from 'desandro-classie'
 
+  export default {
+    name: 'workDetailApp',
+    data: function () {
+      return {
+        portfolio: []
+      }
+    },
+    computed: {
+      hasResult: function () {
+        return this.portfolios.length > 0
+      }
+    },
+    methods: {
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          console.log('click')
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      },
+      setPortfolio () {
+        // const baseURI = '/apis'
+        const baseURI = 'http://new.graviti.co.kr'
+        var id = this.$route.params.id
+        var uri = baseURI + '/portfolios/api/portfolio/' + id
+
+        console.log(uri)
+
+        this.$refs.topProgress.start()
+
+        this.$http.get(`${uri}`)
+          .then((result) => {
+            this.portfolio = result.data
+            this.$refs.topProgress.done()
+            console.log(this.portfolio)
+          })
+          .catch(function (e) {
+            console.log(e)
+            // this.$refs.topProgress.fail()
+          })
+      }
     },
     created () {
       console.log(this.$route.params.id)
+    },
+    mounted () {
+      this.gnb()
+      this.setPortfolio()
+    },
+    components: {
+      vueTopprogress
     }
   }
 </script>

@@ -189,7 +189,6 @@
         const baseURI = 'http://new.graviti.co.kr'
         // const baseURI = 'http://localhost:3000'
         this.$http.get(`${baseURI}/portfolios/api/main/portfolio/`)
-        // this.$http.get(`${baseURI}`)
           .then((result) => {
             // console.log(result.data)
             this.portfolios = result.data
@@ -205,7 +204,7 @@
     },
     mounted () {
       // do something after mounting vue instance
-      // this.$refs.topProgress.start()
+      this.$refs.topProgress.start()
       this.visual('init')
       this.gnb()
       this.setListPortfolio()
