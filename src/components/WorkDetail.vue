@@ -195,24 +195,23 @@
 
         this.$refs.topProgress.start()
 
-        this.$http.get(`${uri}`)
-          .then((result) => {
-            this.portfolios = result.data
+        this.$http.get(`${uri}`).then((result) => {
+          this.portfolios = result.data
 
-            this.currPortfolio = this.portfolios[0]
-            this.prevPortfolio = this.portfolios[1]
-            this.nextPortfolio = this.portfolios[2]
+          this.currPortfolio = this.portfolios[0]
+          this.prevPortfolio = this.portfolios[1]
+          this.nextPortfolio = this.portfolios[2]
 
-            console.log(this.currPortfolio)
-            console.log(this.prevPortfolio)
-            console.log(this.nextPortfolio)
+          this.$refs.topProgress.done()
+          $('body').scrollTop(0)
+        }).catch(function (e) {
+          console.log(e)
+          // this.$refs.topProgress.fail()
+        })
 
-            this.$refs.topProgress.done()
-          })
-          .catch(function (e) {
-            console.log(e)
-            // this.$refs.topProgress.fail()
-          })
+        $('html').animate({
+          scrollTop: 0
+        }, 500)
       }
     },
     created () {
@@ -224,10 +223,10 @@
     },
     watch: {
       '$route.params.id' (newId, oldId) {
-        console.log(newId)
-        $('body').scrollTop(0)
-
         this.setPortfolio(newId)
+
+        console.log(newId)
+        console.log(oldId)
       }
     },
     components: {
