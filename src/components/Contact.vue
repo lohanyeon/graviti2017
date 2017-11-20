@@ -55,9 +55,9 @@
             </div>
             <div class="box-right">
               <dl>
-                <dt class="tit fc-blue">CONTATC US</dt>
+                <dt class="tit fc-blue">CONTACT US</dt>
                 <dd>
-                  <strong>TEl.</strong> 02.333.9230<br>
+                  <strong>TEL.</strong> <a href="tel:02-333-9230">02.333.9230</a><br>
                   <strong>FAX.</strong> 02.333.8893
                 </dd>
               </dl>

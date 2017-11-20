@@ -183,6 +183,13 @@ $(function(){
 	$(".wrapper.work header .group li a").mouseleave(function(){
 		$(this).parent().removeClass("over");
 	});
+	$(".work-list-wrap .w-list li .thum-wrap").mouseover(function(){
+		$(this).next(".dim").fadeIn("fast");
+	});
+	$(".work-list-wrap .w-list li .dim").mouseleave(function(){
+		$(this).fadeOut("fast");
+	});
+	
 	/* work view over */
 	$(".other-portfolio li.next").mouseover(function(){
 		$(this).addClass("over");
@@ -234,3 +241,14 @@ var main = {
 		setInterval(change, 4000)
 	}
 }
+
+// 브라우저 width값에 따른 font size 변경
+/*$( document ).ready( function() {
+	$('body').flowtype({
+	 minimum   : 500,
+	 maximum   : 1200,
+	 minFont   : 12,
+	 maxFont   : 40,
+	 fontRatio : 30
+	});
+});*/

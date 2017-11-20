@@ -32,8 +32,10 @@
                   </router-link>
                 </div>
             		<div class="dim">
-                  <p class="tit">{{work.fields.project_kor_name}}</p>
-                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}}" class="more"><img src="/static/v2017/images/btn_more.png" alt="더보기"></router-link>
+                  <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}}">
+                    <p class="tit">{{work.fields.project_kor_name}}</p>
+                    <img src="/static/v2017/images/btn_more.png" alt="더보기" class="more">
+                  </router-link>
             		</div>
             	</li>
             </transition-group>

@@ -35,8 +35,8 @@
       <div id="mainVisual">
         <div class="visual">
           <ul style="position:absolute;">
-            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk">
-              <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'">
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1">
+              <!-- <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="ment-text">
                 <div>
                   <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
