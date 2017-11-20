@@ -1,6 +1,7 @@
 <template id="">
 
   <div class="wrapper main">
+    <vue-topprogress ref="topProgress"></vue-topprogress>
 
     <header class="main_header">
       <h1>
@@ -44,7 +45,7 @@
                       <dt><p>HWAWOO <span>LAWFIRM</span> </p><p>WEBSITE</p></dt>
                       <dd>법무법인 화우 리뉴얼 프로젝트</dd>
                     </dl>
-                    <router-link :to="{ name: 'WorkDetail', params: { id: portfolio.pk }}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
+                    <router-link :to="{ name: 'WorkDetail'}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
                   </div>
                 </div>
               </div>
@@ -64,7 +65,7 @@
                       <dt><p>HWAWOO <span>LAWFIRM</span> </p><p>WEBSITE</p></dt>
                       <dd>법무법인 화우 리뉴얼 프로젝트</dd>
                     </dl>
-                    <router-link :to="{ name: 'WorkDetail', params: { id: portfolio.pk }}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
+                    <router-link :to="{ name: 'WorkDetail'}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
                   </div>
                 </div>
               </div>
@@ -79,7 +80,7 @@
                       <dt><p>HWAWOO <span>LAWFIRM</span> </p><p>WEBSITE</p></dt>
                       <dd>법무법인 화우 리뉴얼 프로젝트</dd>
                     </dl>
-                    <router-link :to="{ name: 'WorkDetail', params: { id: portfolio.pk }}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
+                    <router-link :to="{ name: 'WorkDetail'}" class="more"><img src="/static/v2017/images/btn_main_more.png" alt="포토폴리오 상세보기"></router-link>
                   </div>
                 </div>
               </div>
@@ -104,3 +105,147 @@
   </div>
 
 </template>
+
+<script type="text/javascript">
+  import $ from 'jQuery'
+  import {vueTopprogress} from 'vue-top-progress'
+  import classie from 'desandro-classie'
+  import {TweenMax, Power4} from 'gsap'
+
+  export default {
+    name: 'mainApp',
+    data: function () {
+      return {
+        portfolios: [],
+        intervalId: '',
+        isProcess: ''
+      }
+    },
+    computed: {
+      hasResult: function () {
+        return this.portfolios.length > 0
+      }
+    },
+    methods: {
+      visual (v) {
+        var down = function () {
+          var top = $(window).height() * -1
+          var target = $('#mainVisual .visual ul')
+          var obj = $('#mainVisual .visual ul li').eq(0)
+          var nextObj = $('#mainVisual .visual ul li').eq(0).clone()
+
+          target.append(obj)
+          $('#mainVisual .visual ul li').eq(0).after(nextObj)
+
+          TweenMax.fromTo(target, 1,
+             {top: top},
+             {top: 0, onComplete: completeDown, ease: Power4.easeOut}
+          )
+        }
+        var up = function () {
+          var top = $(window).height() * -1
+          var target = $('#mainVisual .visual ul')
+          var len = $('#mainVisual .visual ul li').length
+          var obj = $('#mainVisual .visual ul li').eq(len - 1)
+
+          $('#mainVisual .visual ul li').eq(0).after(obj)
+
+          var t = $('#mainVisual .visual ul li').eq(0).clone()
+          $('#mainVisual .visual ul li').eq(1).after(t)
+
+          TweenMax.fromTo(target, 1,
+             {top: 0},
+             {top: top, onComplete: completeUp, ease: Power4.easeOut}
+          )
+        }
+        var completeDown = function () {
+          $('#mainVisual .visual ul li').eq(1).remove()
+        }
+        var completeUp = function () {
+          // $('#mainVisual .visual ul').css({top: 0})
+          $('#mainVisual .visual ul li').eq(0).remove()
+          $('#mainVisual .visual ul').css({top: 0})
+        }
+        var disabledYN = function (v) {
+          $('.arr_up').attr('disabled', v)
+          $('.arr_down').attr('disabled', v)
+        }
+
+        if (v === 'init') {
+          this.intervalId = setInterval(down, 4000)
+        } else if (v === 'up') {
+          this.isProcess = $('.arr_up').attr('disabled')
+
+          disabledYN(true)
+          if (this.isProcess !== 'disabled') {
+            up()
+            clearInterval(this.intervalId)
+            this.intervalId = setInterval(up, 4000)
+
+            setTimeout(function () {
+              disabledYN(false)
+            }, 1000)
+          }
+        } else if (v === 'down') {
+          this.isProcess = $('.arr_down').attr('disabled')
+
+          disabledYN(true)
+          if (this.isProcess !== 'disabled') {
+            down()
+            clearInterval(this.intervalId)
+            this.intervalId = setInterval(down, 4000)
+
+            setTimeout(function () {
+              disabledYN(false)
+            }, 1000)
+          }
+        } else if (v === 'pause') {
+          clearInterval(this.intervalId)
+        } else if (v === 'resume') {
+          this.intervalId = setInterval(down, 4000)
+        }
+      },
+      gnb () {
+        var menuRight = document.getElementById('graviti-menu-s2')
+        var showRightPush = document.getElementById('showRightPush')
+        var body = document.body
+
+        showRightPush.onclick = function () {
+          classie.toggle(this, 'active')
+          classie.toggle(body, 'graviti-menu-push-toleft')
+          classie.toggle(menuRight, 'graviti-menu-open')
+        }
+      },
+      setListPortfolio () {
+        // const baseURI = '/apis'
+        const baseURI = 'http://new.graviti.co.kr'
+        // const baseURI = 'http://localhost:3000'
+        this.$http.get(`${baseURI}/portfolios/api/main/portfolio/`)
+          .then((result) => {
+            // console.log(result.data)
+            this.portfolios = result.data
+            this.$refs.topProgress.done()
+          })
+          .catch(function (e) {
+            console.log(e)
+            // this.$refs.topProgress.fail()
+          })
+      }
+    },
+    created () {
+    },
+    mounted () {
+      // do something after mounting vue instance
+      // this.$refs.topProgress.start()
+      // this.visual('init')
+      this.gnb()
+      // this.setListPortfolio()
+    },
+    beforeDestroy () {
+      clearInterval(this.intervalId)
+    },
+    components: {
+      vueTopprogress
+    }
+  }
+</script>
