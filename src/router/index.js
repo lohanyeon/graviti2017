@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
+import Main01 from '@/components/Main01'
 import About from '@/components/About'
 import Work from '@/components/Work'
 import WorkDetail from '@/components/WorkDetail'
@@ -23,6 +24,11 @@ export default new Router({
       path: '/main',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/main01',
+      name: 'Main01',
+      component: Main01
     },
     {
       path: '/about',

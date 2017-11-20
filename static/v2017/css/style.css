@@ -52,7 +52,7 @@
 .work-list-wrap:after {content:""; display:block; clear:both;}
 .work-list-wrap .w-list {position:relative;}
 .work-list-wrap .w-list li {position:relative; display:inline-block; width:25%;}
-.work-list-wrap .w-list .thum-wrap a {display:block;}
+.work-list-wrap .w-list .thum-wrap a {display:block; width:100%; height:100%;}
 .work-list-wrap .w-list .thum-wrap .tit {position:absolute; left:4%; bottom:9%; color:#fff; font-size:21px; font-weight:300; letter-spacing:-0.05em;}
 .work-list-wrap .w-list .thum-wrap .icon {position:absolute; right:4%; bottom:9.5%;}
 .work-list-wrap .w-list .thum-wrap .thum img {width:100%;}

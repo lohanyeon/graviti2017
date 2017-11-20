@@ -189,7 +189,7 @@ $(function(){
 	$(".work-list-wrap .w-list li .dim").mouseleave(function(){
 		$(this).fadeOut("fast");
 	});
-	
+
 	/* work view over */
 	$(".other-portfolio li.next").mouseover(function(){
 		$(this).addClass("over");
