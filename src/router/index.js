@@ -9,6 +9,7 @@ import Contact from '@/components/Contact'
 import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import Intro from '@/components/Intro'
+import Intro01 from '@/components/Intro01'
 
 Vue.use(Router)
 
@@ -19,6 +20,11 @@ export default new Router({
       path: '/',
       name: 'Intro',
       component: Intro
+    },
+    {
+      path: '/intro01',
+      name: 'Intro01',
+      component: Intro01
     },
     {
       path: '/main',

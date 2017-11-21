@@ -26,6 +26,7 @@ html, body {
 .sub_header h1 {position:absolute; top:60px; left:60px;}
 .sub_header h1 img {vertical-align:top;}
 .sub_header .gnb_menu {position:absolute; top:60px; right:60px; z-index:10;}
+.sub_header .btn_w-list {position:absolute; top:60px; right:112px; z-index:10;}
 .sub_main .sub_header {background:none;}
 
 /* contents */
@@ -61,6 +62,7 @@ footer .arrow li a img.mobile {display:none;}
   .sub_header {padding:40px 0 28px;}
   .sub_header h1 {top:40px; left:40px;}
   .sub_header .gnb_menu {top:40px; right:40px;}
+  .sub_header .btn_w-list {top:40px; right:92px;}
   .section-work-list, .section-work, .section-about, .section-contact {padding-top:108px;}
   footer {bottom:40px;}
   footer address {padding-left:40px;}
@@ -84,6 +86,7 @@ footer .arrow li a img.mobile {display:none;}
   .sub_header {padding-top:2rem;}
   .sub_header h1 {top:2rem; left:4%;}
   .sub_header .gnb_menu {top:2rem; right:4%;}
+  .sub_header .btn_w-list {top:2rem; right:4%; margin-right:52px;}
   .section-work-list, .section-work, .section-about, .section-contact {padding-top:98px;}
   footer {bottom:2rem;}
   footer address {font-size:14px; padding-left:4%;}

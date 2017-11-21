@@ -5,6 +5,7 @@
     <header class="sub_header">
       <h1><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
       <h2 class="title01">PORTFOLIO</h2>
+      <a href="#" id="" class="btn_w-list"><img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트"></a><!-- 이 페이지에서만 보여짐 -->
       <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
     </header>
 
