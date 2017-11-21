@@ -2,9 +2,17 @@
   <div class="wrapper about">
 
     <header class="sub_header">
-      <h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt=""></router-link></h1>
+      <h1 class="logo">
+        <router-link v-bind:to="{ name: 'Main' }">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive">
+          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile">
+        </router-link>
+      </h1>
       <h2 class="title01">ABOUT</h2>
-      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+      <a href="#" id="showRightPush" class="gnb_menu">
+        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
+        <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
+      </a>
     </header>
 
     <!-- about contents -->

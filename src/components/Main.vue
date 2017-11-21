@@ -7,12 +7,12 @@
       <h1>
         <router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();">
           <img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive">
-          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive" class="mobile">
+          <img src="/static/v2017/images/logo_m.png" alt="GRAVITI Interactive" class="mobile">
         </router-link>
       </h1>
       <a href="#" class="gnb_menu" id="showRightPush">
         <img src="/static/v2017/images/gnb_menu.png" alt="메뉴">
-        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴" class="mobile">
+        <img src="/static/v2017/images/gnb_menu_m.png" alt="메뉴" class="mobile">
       </a>
     </header>
 

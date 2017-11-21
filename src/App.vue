@@ -4,8 +4,16 @@
     <section class="graviti-menu graviti-menu-vertical graviti-menu-right" id="graviti-menu-s2">
       <div class="sub_main">
         <div class="sub_header">
-          <h1><router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();"><img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive" /></router-link></h1>
-          <a href="#" id="hideRightPush" onclick="closeGnb();" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_back.png" alt="Back" /></a>
+          <h1>
+            <router-link v-bind:to="{ name: 'Main' }" onclick="closeGnb();">
+              <img src="/static/v2017/images/logo.png" alt="GRAVITI Interactive" />
+              <img src="/static/v2017/images/logo_m.png" alt="GRAVITI Interactive" class="mobile" />
+            </router-link>
+          </h1>
+          <a href="#" id="hideRightPush" onclick="closeGnb();" class="gnb_menu">
+            <img src="/static/v2017/images/gnb_menu_back.png" alt="Back" />
+            <img src="/static/v2017/images/gnb_menu_back_m.png" alt="Back" class="mobile" />
+          </a>
         </div>
 
         <div class="sub_cont">

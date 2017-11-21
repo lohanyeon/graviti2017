@@ -2,14 +2,22 @@
   <div class="wrapper work work-list">
     <vue-topprogress ref="topProgress"></vue-topprogress>
 		<header class="sub_header">
-      <h1 class="logo"><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt=""></router-link></h1>
+      <h1 class="logo">
+        <router-link v-bind:to="{ name: 'Main' }">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive">
+          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile">
+        </router-link>
+      </h1>
       <ul class="group">
         <li class="all on"><a href="#">ALL</a></li>
         <li class="web"><a href="#" v-on:click="setListPortfolio('W1')">WEB</a></li>
         <li class="mobile"><a href="#" v-on:click="setListPortfolio('M1')">MOBILE</a></li>
         <li class="video"><a href="#" v-on:click="setListPortfolio('V1')">VIDEO</a></li>
       </ul>
-      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+      <a href="#" id="showRightPush" class="gnb_menu">
+        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
+        <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
+      </a>
 		</header>
 
     <!-- work-list contents -->

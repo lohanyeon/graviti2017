@@ -3,10 +3,21 @@
   <div class="wrapper work work-detail">
     <vue-topprogress ref="topProgress"></vue-topprogress>
     <header class="sub_header">
-      <h1><router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive"></router-link></h1>
+      <h1>
+        <router-link v-bind:to="{ name: 'Main' }">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive">
+          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile">
+        </router-link>
+      </h1>
       <h2 class="title01">PORTFOLIO</h2>
-      <a href="#" id="" class="btn_w-list"><img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트"></a><!-- 이 페이지에서만 보여짐 -->
-      <a href="#" id="showRightPush" class="gnb_menu"><img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴"></a>
+      <a href="#" id="" class="btn_w-list"><!-- 이 페이지에서만 보여짐 -->
+        <img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트">
+        <img src="/static/v2017/images/btn_w-list_m.png" alt="Work 리스트" class="mobile">
+      </a>
+      <a href="#" id="showRightPush" class="gnb_menu">
+        <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
+        <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
+      </a>
     </header>
 
     <!-- work-detail contents -->
@@ -35,7 +46,7 @@
                   일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
                 </dd>
               </dl>
-              <p class="site"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
+              <p class="site"><span class="url">URL</span><a href="mailto:norah222@naver.com">www.seah.co.kr</a></p>
             </div>
             <div class="info">
               <dl>

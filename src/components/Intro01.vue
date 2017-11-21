@@ -71,18 +71,18 @@
   .landing div {position:absolute; top:0; height:100%; background-color:#e9eef2;}
   .landing .l_01 {left:0; width:0.7%;}
   .landing .l_02 {left:3.5%; width:4%;}
-  .landing .l_03 {left:12.5%; width:0.7%;}
-  .landing .l_04 {left:18%; width:0.7%;}
-  .landing .l_05 {left:23%; width:0.7%;}
+  .landing .l_03 {left:13%; width:0.7%;}
+  .landing .l_04 {left:19%; width:0.7%;}
+  .landing .l_05 {left:25%; width:0.7%;}
   .landing .l_06 {left:28%; width:4%;}
-  .landing .l_07 {left:36.5%; width:4%;}
+  .landing .l_07 {left:35%; width:4%;}
   .landing .l_08 {left:45%; width:4%;}
-  .landing .l_09 {left:52%; width:0.7%;}
-  .landing .l_10 {left:57%; width:4%;}
-  .landing .l_11 {left:65%; width:0.7%;}
-  .landing .l_12 {left:70%; width:0.7%;}
-  .landing .l_13 {left:75%; width:0.7%;}
-  .landing .l_14 {left:80%; width:4%;}
-  .landing .l_15 {left:88%; width:4%;}
+  .landing .l_09 {left:53%; width:0.7%;}
+  .landing .l_10 {left:55%; width:4%;}
+  .landing .l_11 {left:64.5%; width:0.7%;}
+  .landing .l_12 {left:70.5%; width:0.7%;}
+  .landing .l_13 {left:76%; width:0.7%;}
+  .landing .l_14 {left:78.5%; width:4%;}
+  .landing .l_15 {left:84.5%; width:4%;}
   .landing .l_16 {right:0; width:4%;}
 </style>
