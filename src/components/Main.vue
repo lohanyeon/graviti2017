@@ -168,6 +168,7 @@
             }, 1000)
           }
         } else if (v === 'pause') {
+          console.log(v)
           clearInterval(this.intervalId)
         } else if (v === 'resume') {
           this.intervalId = setInterval(down, 4000)

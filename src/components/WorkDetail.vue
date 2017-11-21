@@ -10,10 +10,11 @@
         </router-link>
       </h1>
       <h2 class="title01">PORTFOLIO</h2>
-      <a href="#" id="" class="btn_w-list"><!-- 이 페이지에서만 보여짐 -->
+      <router-link :to="{ name: 'Work' }" class="btn_w-list">
+      <!-- <a href="#" id="" class="btn_w-list">이 페이지에서만 보여짐 -->
         <img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트">
         <img src="/static/v2017/images/btn_w-list_m.png" alt="Work 리스트" class="mobile">
-      </a>
+      </router-link>
       <a href="#" id="showRightPush" class="gnb_menu">
         <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
         <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
@@ -46,7 +47,7 @@
                   일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
                 </dd>
               </dl>
-              <p class="site"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
+              <p class="site" v-if="hasUrlListResult"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
             </div>
             <div class="info">
               <dl>
@@ -178,7 +179,10 @@
         portfolios: [],
         currPortfolio: [],
         prevPortfolio: [],
-        nextPortfolio: []
+        nextPortfolio: [],
+        urlList: [],
+        subList: [],
+        videoList: []
       }
     },
     computed: {
@@ -191,6 +195,9 @@
         var currPk = this.currPortfolio.pk
         var nextPk = this.nextPortfolio.pk
         return currPk === nextPk ? 0 : 1
+      },
+      hasUrlListResult: function () {
+        return this.urlList.length > 0
       }
     },
     methods: {
@@ -230,6 +237,17 @@
         $('html').animate({
           scrollTop: 0
         }, 500)
+      },
+      setUrl (id) {
+        const baseURI = 'http://new.graviti.co.kr'
+        var uri = baseURI + '/portfolios/api/portfolio/' + id
+
+        this.$http.get(`${uri}`).then((result) => {
+          this.urlList = result.data
+        }).catch(function (e) {
+          console.log(e)
+          // this.$refs.topProgress.fail()
+        })
       }
     },
     created () {
@@ -238,6 +256,7 @@
     mounted () {
       this.gnb()
       this.setPortfolio(this.$route.params.id)
+      this.setUrl(this.$route.params.id)
     },
     watch: {
       '$route.params.id' (newId, oldId) {

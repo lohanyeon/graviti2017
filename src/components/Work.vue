@@ -9,7 +9,7 @@
         </router-link>
       </h1>
       <ul class="group">
-        <li class="all on"><a href="#">ALL</a></li>
+        <li class="all on"><a href="#" v-on:click="setListPortfolio('all')">ALL</a></li>
         <li class="web"><a href="#" v-on:click="setListPortfolio('W1')">WEB</a></li>
         <li class="mobile"><a href="#" v-on:click="setListPortfolio('M1')">MOBILE</a></li>
         <li class="video"><a href="#" v-on:click="setListPortfolio('V1')">VIDEO</a></li>

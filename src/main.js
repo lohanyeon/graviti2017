@@ -9,6 +9,15 @@ Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
 
+var EventBus = new Vue()
+Object.defineProperties(Vue.prototype, {
+  $eventBus: {
+    get: function () {
+      return EventBus
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
