@@ -46,7 +46,7 @@
                   일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
                 </dd>
               </dl>
-              <p class="site"><span class="url">URL</span><a href="mailto:norah222@naver.com">www.seah.co.kr</a></p>
+              <p class="site"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
             </div>
             <div class="info">
               <dl>
@@ -125,8 +125,11 @@
                 <p class="p-client">Client / {{prevPortfolio.fields.client_name}}</p>
               </router-link>
             </li>
-            <li v-else>
+            <li v-else class="prev no-data txt_r">
               <!-- 이전 프로젝트가 없습니다.  -->
+              <router-link v-bind:to="{ name: 'Main' }">
+                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="데이터가 없습니다."></p>
+              </router-link>
             </li>
             <li v-if="hasNextResult" class="next">
               <router-link v-bind:to="{ name: 'WorkDetail', params: { id: nextPortfolio.pk}}">
@@ -135,8 +138,11 @@
                 <p class="p-client">Client / {{nextPortfolio.fields.client_name}}</p>
               </router-link>
             </li>
-            <li v-else>
+            <li v-else class="next no-data">
               <!-- 다음 프로젝트가 없습니다. -->
+              <router-link v-bind:to="{ name: 'Main' }">
+                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="데이터가 없습니다."></p>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -276,11 +282,14 @@
   .portfolio-detail .txt dl dd {float:left; width:63%; font-size:20px; font-weight:300; line-height:1.3; margin:40px 0 0 4%;}
 
   .other-portfolio {margin:0 60px;}
-  .other-portfolio li {float:left; width:50%;}
+  .other-portfolio li {float:left; width:50%; height:370px;}
   .other-portfolio li.prev {background:#1d1d1d url('/static/v2017/images/icon_prev.png') 12% center no-repeat;}
   .other-portfolio li.next {background:#292929 url('/static/v2017/images/icon_next.png') 88% center no-repeat;}
   .other-portfolio li.next.over {background-color:#1d1d1d;}
-  .other-portfolio li a {display:block; color:#fff; padding:115px 12%;}
+  .other-portfolio li.prev.no-data {background:#1d1d1d url('/static/v2017/images/icon_home_prev.png') 12% center no-repeat;}
+  .other-portfolio li.next.no-data {background:#292929 url('/static/v2017/images/icon_home_prev.png') 88% center no-repeat;}
+  .other-portfolio li.no-data img {width:151px !important;}
+  .other-portfolio li a {display:block; color:#fff; padding:112px 12%;}
   .other-portfolio li .p-name {font-size:30px;}
   .other-portfolio li .p-en {color:#00a1e9; font-family:'Quantico'; text-transform:uppercase; margin-top:22px;}
   .other-portfolio li .p-client {
@@ -325,6 +334,8 @@
     .portfolio-detail .txt dl dd {width:63%; font-size:16px; margin:3.8% 0 0 4%;}
 
     .other-portfolio {margin:0 40px;}
+    .other-portfolio li {height:188px;}
+    .other-portfolio li.no-data img {width:95px !important;}
     .other-portfolio li a {padding:50px 12%;}
     .other-portfolio li .p-name {font-size:20px;}
     .other-portfolio li .p-en {font-size:10px; margin-top:13px;}
@@ -360,11 +371,12 @@
     .portfolio-detail .txt dl dd {width:100%; font-size:13px; margin:4% 0 0 0;}
 
     .other-portfolio {margin:0 4%;}
-    .other-portfolio li {float:none; width:100%;}
-    .other-portfolio li a {padding:9%;}
+    .other-portfolio li {float:none; width:100%; height:auto; background-size:80%;}
     .other-portfolio li.prev {background-position:9% center;}
     .other-portfolio li.next {background-position:91% center;}
-    .other-portfolio li .p-name {font-size:16px;}
+    .other-portfolio li.no-data {display:none !important;}
+    .other-portfolio li a {padding:9%;}
+    .other-portfolio li .p-name {font-size:13px;}
     .other-portfolio li .p-en, .other-portfolio li .p-client {display:none;}
   }
 </style>
