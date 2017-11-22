@@ -59,7 +59,7 @@
             </transition-group>
           </ul>
           <!-- //work list -->
-          <a href="#" class="btn_more_list show txt_c"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
+          <a href="#" class="btn_more_list show txt_c" v-if="hasMoreResult"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
         </article>
       </div>
       <!-- //contents -->
@@ -78,12 +78,17 @@
     name: 'workListApp',
     data: function () {
       return {
-        portfolios: []
+        portfolios: [],
+        PortfoliosDisplayTotal: 0,
+        portfoliosTotal: []
       }
     },
     computed: {
       hasResult: function () {
         return this.portfolios.length > 0
+      },
+      hasMoreResult: function () {
+        return this.portfoliosTotal.id__count > 12 ? 1 : 0
       }
     },
     methods: {
@@ -93,7 +98,7 @@
         var body = document.body
 
         showRightPush.onclick = function () {
-          console.log('click')
+          // console.log('click')
           classie.toggle(this, 'active')
           classie.toggle(body, 'graviti-menu-push-toleft')
           classie.toggle(menuRight, 'graviti-menu-open')
@@ -112,15 +117,25 @@
           uri = baseURI + '/portfolios/api/search/portfolio/' + v
           obj.work.value = v
         }
-        this.$http.get(`${uri}`)
-          .then((result) => {
-            this.portfolios = result.data
-            this.$refs.topProgress.done()
-          })
-          .catch(function (e) {
-            console.log(e)
-            // this.$refs.topProgress.fail()
-          })
+        this.$http.get(`${uri}`).then((result) => {
+          this.portfolios = result.data
+          this.$refs.topProgress.done()
+        }).catch(function (e) {
+          console.log(e)
+          // this.$refs.topProgress.fail()
+        })
+      },
+      getPortfolioTotal () {
+        const baseURI = 'http://new.graviti.co.kr'
+        var uri = baseURI + '/portfolios/api/portfolio/total/'
+
+        this.$http.get(`${uri}`).then((result) => {
+          this.portfoliosTotal = result.data
+          // console.log(this.portfoliosTotal.id__count)
+        }).catch(function (e) {
+          console.log(e)
+          // this.$refs.topProgress.fail()
+        })
       },
       setBtn () {
         $('.group li').each(function () {
@@ -132,7 +147,7 @@
         })
       },
       setDefaultClickBtn (t) {
-        if (t === 'all') {
+        if (t === 'all' || t === '') {
           $('.group li').eq(0).addClass('on')
         } else if (t === 'W1') {
           $('.group li').eq(1).addClass('on')
@@ -147,7 +162,6 @@
     },
     mounted () {
       var o = document.myform
-      console.log(o)
       var t = o.work.value
       var search = ''
 
@@ -161,6 +175,7 @@
       this.setListPortfolio(search)
       this.setBtn()
       this.setDefaultClickBtn(t)
+      this.getPortfolioTotal()
     },
     components: {
       vueTopprogress

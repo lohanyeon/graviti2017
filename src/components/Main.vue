@@ -35,8 +35,13 @@
       <div id="mainVisual">
         <div class="visual">
           <ul style="position:absolute;">
-            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" style="background:url('/static/v2017/images/main_visual_01-1.jpg') center center no-repeat; background-size:cover;">
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
               <!-- <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
+              <div class="video-area" v-if="portfolio.fields.project_kind==='V1'">
+                <video autoplay loop>
+                  <source v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.main_video" type="video/mp4" />
+                </video>
+              </div>
               <div class="ment-text">
                 <div>
                   <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
@@ -140,7 +145,7 @@
         }
 
         if (v === 'init') {
-          this.intervalId = setInterval(down, 4000)
+          this.intervalId = setInterval(down, 5000)
         } else if (v === 'up') {
           this.isProcess = $('.arr_up').attr('disabled')
 
@@ -148,7 +153,7 @@
           if (this.isProcess !== 'disabled') {
             up()
             clearInterval(this.intervalId)
-            this.intervalId = setInterval(up, 4000)
+            this.intervalId = setInterval(up, 5000)
 
             setTimeout(function () {
               disabledYN(false)
@@ -161,7 +166,7 @@
           if (this.isProcess !== 'disabled') {
             down()
             clearInterval(this.intervalId)
-            this.intervalId = setInterval(down, 4000)
+            this.intervalId = setInterval(down, 5000)
 
             setTimeout(function () {
               disabledYN(false)
@@ -171,7 +176,7 @@
           console.log(v)
           clearInterval(this.intervalId)
         } else if (v === 'resume') {
-          this.intervalId = setInterval(down, 4000)
+          this.intervalId = setInterval(down, 5000)
         }
       },
       gnb () {
