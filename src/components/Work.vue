@@ -80,6 +80,7 @@
       return {
         portfolios: [],
         PortfoliosDisplayTotal: 0,
+        portfoliosGetAmount: 12,
         portfoliosTotal: []
       }
     },
@@ -88,7 +89,7 @@
         return this.portfolios.length > 0
       },
       hasMoreResult: function () {
-        return this.portfoliosTotal.id__count > 12 ? 1 : 0
+        return this.portfoliosTotal.id__count > this.PortfoliosDisplayTotal ? 1 : 0
       }
     },
     methods: {
@@ -108,18 +109,32 @@
         // const baseURI = '/apis'
         var obj = document.myform
         const baseURI = 'http://new.graviti.co.kr'
+        // const baseURI = 'http://localhost:8000'
         var uri
         this.$refs.topProgress.start()
-        if (v === 'all') {
-          uri = baseURI + '/portfolios/api/portfolio/'
-          obj.work.value = 'all'
-        } else {
-          uri = baseURI + '/portfolios/api/search/portfolio/' + v
-          obj.work.value = v
-        }
+        // this.PortfoliosDisplayTotal = $('.w-list li').length
+
+        this.PortfoliosDisplayTotal = 0
+        this.portfoliosGetAmount = 12
+
+        uri = baseURI + '/portfolios/api/portfolio/' + v + '/'
+        uri += this.PortfoliosDisplayTotal + '/' + this.portfoliosGetAmount
+        obj.work.value = v
+
+        console.log(uri)
         this.$http.get(`${uri}`).then((result) => {
           this.portfolios = result.data
+          // console.log(result.data)
           this.$refs.topProgress.done()
+        }).catch(function (e) {
+          console.log(e)
+          // this.$refs.topProgress.fail()
+        })
+
+        uri = baseURI + '/portfolios/api/portfolio/total/'
+
+        this.$http.get(`${uri}`).then((result) => {
+          this.portfoliosTotal = result.data
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
@@ -127,11 +142,12 @@
       },
       getPortfolioTotal () {
         const baseURI = 'http://new.graviti.co.kr'
+        // const baseURI = 'http://localhost:8000'
         var uri = baseURI + '/portfolios/api/portfolio/total/'
 
         this.$http.get(`${uri}`).then((result) => {
           this.portfoliosTotal = result.data
-          // console.log(this.portfoliosTotal.id__count)
+          console.log(this.portfoliosTotal.id__count)
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
@@ -175,7 +191,7 @@
       this.setListPortfolio(search)
       this.setBtn()
       this.setDefaultClickBtn(t)
-      this.getPortfolioTotal()
+      // this.getPortfolioTotal()
     },
     components: {
       vueTopprogress
