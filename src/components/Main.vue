@@ -35,7 +35,7 @@
       <div id="mainVisual">
         <div class="visual">
           <ul style="position:absolute;">
-            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1">
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" style="background:url('/static/v2017/images/main_visual_01-1.jpg') center center no-repeat; background-size:cover;">
               <!-- <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="ment-text">
                 <div>
