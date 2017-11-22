@@ -20,7 +20,7 @@
       <address>
         Tel. 02.333.9230<br>
         Cell. 010.5090.9788<br>
-        Fax. 02.333.8893
+        Fax. 02.6919.2699
       </address>
       <p>서울특별시 마포구 동교로 107, 302호</p>
       <p class="copyright"><a href="#" v-on:click="visual('pause')" style="color:#FFF">© Copyright</a> <a href="#" v-on:click="visual('resume')" style="color:#FFF">2017</a></p>
