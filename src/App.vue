@@ -65,6 +65,9 @@
       <router-view/>
     </transition>
 
+    <form name="myform" method="post">
+      <input type="hidden" name="work" id="work" />
+    </form>
   </div>
 </template>
 

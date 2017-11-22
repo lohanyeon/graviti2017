@@ -9,7 +9,7 @@
         </router-link>
       </h1>
       <ul class="group">
-        <li class="all on"><a href="#" v-on:click="setListPortfolio('all')">ALL</a></li>
+        <li class="all"><a href="#" v-on:click="setListPortfolio('all')">ALL</a></li>
         <li class="web"><a href="#" v-on:click="setListPortfolio('W1')">WEB</a></li>
         <li class="mobile"><a href="#" v-on:click="setListPortfolio('M1')">MOBILE</a></li>
         <li class="video"><a href="#" v-on:click="setListPortfolio('V1')">VIDEO</a></li>
@@ -93,13 +93,16 @@
       },
       setListPortfolio (v) {
         // const baseURI = '/apis'
+        var obj = document.myform
         const baseURI = 'http://new.graviti.co.kr'
         var uri
         this.$refs.topProgress.start()
         if (v === 'all') {
           uri = baseURI + '/portfolios/api/portfolio/'
+          obj.work.value = 'all'
         } else {
           uri = baseURI + '/portfolios/api/search/portfolio/' + v
+          obj.work.value = v
         }
         this.$http.get(`${uri}`)
           .then((result) => {
@@ -119,14 +122,37 @@
             $(this).addClass('on')
           })
         })
+      },
+      setDefaultClickBtn (t) {
+        if (t === 'all') {
+          $('.group li').eq(0).addClass('on')
+        } else if (t === 'W1') {
+          $('.group li').eq(1).addClass('on')
+        } else if (t === 'M1') {
+          $('.group li').eq(2).addClass('on')
+        } else if (t === 'V1') {
+          $('.group li').eq(3).addClass('on')
+        }
       }
     },
     created () {
     },
     mounted () {
+      var o = document.myform
+      console.log(o)
+      var t = o.work.value
+      var search = ''
+
+      if (t === '') {
+        search = 'all'
+      } else {
+        search = t
+      }
+
       this.gnb()
-      this.setListPortfolio('all')
+      this.setListPortfolio(search)
       this.setBtn()
+      this.setDefaultClickBtn(t)
     },
     components: {
       vueTopprogress
