@@ -14,6 +14,14 @@
         <li class="mobile"><a href="#" v-on:click="setListPortfolio('M1')">MOBILE</a></li>
         <li class="video"><a href="#" v-on:click="setListPortfolio('V1')">VIDEO</a></li>
       </ul>
+      <div class="group_m">
+        <select id="" name="" class="custom_dd">
+          <option value="" selected>ALL</option>
+          <option value="">WEB</option>
+          <option value="">MOBILE</option>
+          <option value="">VIDEO</option>
+        </select>
+      </div>
       <a href="#" id="showRightPush" class="gnb_menu">
         <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
         <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
@@ -179,12 +187,14 @@
   .wrapper.work header .group li.web.on a, .wrapper.work header .group li.web.over a {background:#00a1e9 url('/static/v2017/images/icon_group_web_on.png') 52px center no-repeat;}
   .wrapper.work header .group li.mobile.on a, .wrapper.work header .group li.mobile.over a {background:#00a1e9 url('/static/v2017/images/icon_group_mobile_on.png') 64px center no-repeat;}
   .wrapper.work header .group li.video.on a, .wrapper.work header .group li.video.over a {background:#00a1e9 url('/static/v2017/images/icon_group_video_on.png') 58px center no-repeat;}
+  .wrapper.work header .group_m {display:none;}
   .btn_more_list {height:11px; padding:20px 0;}
   .btn_more_list img {vertical-align:top;}
 
   /* mobile */
   @media all and (max-width:767px) {
     .wrapper.work header .group {display:none;}
+    .wrapper.work header .group_m {display:block; position:absolute; top:2rem; right:4%;}
   }
 
 
