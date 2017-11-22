@@ -181,7 +181,7 @@
         prevPortfolio: [],
         nextPortfolio: [],
         urlList: [],
-        subList: [],
+        imagesList: [],
         videoList: []
       }
     },
@@ -197,6 +197,12 @@
         return currPk === nextPk ? 0 : 1
       },
       hasUrlListResult: function () {
+        return this.urlList.length > 0
+      },
+      hasImagesListResult: function () {
+        return this.urlList.length > 0
+      },
+      hasVideoListResult: function () {
         return this.urlList.length > 0
       }
     },
@@ -238,12 +244,18 @@
           scrollTop: 0
         }, 500)
       },
-      setUrl (id) {
+      setPortfolioSub (subKind, id) {
         const baseURI = 'http://new.graviti.co.kr'
-        var uri = baseURI + '/portfolios/api/portfolio/' + id
+        var uri = baseURI + '/portfolios/api/portfolio/' + subKind + '/' + id
 
         this.$http.get(`${uri}`).then((result) => {
-          this.urlList = result.data
+          if (subKind === 'url') {
+            this.urlList = result.data
+          } else if (subKind === 'images') {
+            this.imagesList = result.data
+          } else if (subKind === 'video') {
+            this.videoList = result.data
+          }
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
@@ -256,7 +268,9 @@
     mounted () {
       this.gnb()
       this.setPortfolio(this.$route.params.id)
-      this.setUrl(this.$route.params.id)
+      this.setPortfolioSub('url', this.$route.params.id)
+      this.setPortfolioSub('images', this.$route.params.id)
+      this.setPortfolioSub('video', this.$route.params.id)
     },
     watch: {
       '$route.params.id' (newId, oldId) {
