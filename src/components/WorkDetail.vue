@@ -29,7 +29,11 @@
         <!-- portfolio -->
         <div class="portfolio-detail">
           <div class="img pt0">
+            <!-- 이미지일 경우 -->
             <img src="/static/v2017/images/portfolio_01-1.jpg" alt="">
+            <!-- 영상일 경우 -->
+            <video src="/static/v2017/video_test.mp4" autoplay poster=""></video>
+
             <div class="tit">
               <p class="year">2013</p>
               <dl>
@@ -73,9 +77,17 @@
             portfolio detail 이미지 / 텍스트+이미지 영역 구분.
             class=l1 : 이미지
             class=l2 : 텍스트+이미지
+            class=v : video
             로 구분해놓았음
           -->
           <ul>
+            <li class="v"><!-- class=v : video만 들어가는 li -->
+              <div class="video-box">
+                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
+                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
+                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
+              </div>
+            </li>
             <li class="l1"><!-- class=l1 : 이미지만 들어가는 li -->
               <div class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
                 <img src="/static/v2017/images/portfolio_01-2.jpg" alt="">
@@ -311,6 +323,10 @@
 <style>
   .wrapper.work {position:relative; height:auto !important;}
   .wrapper.work h2 {width:186px;}
+  .portfolio-detail video {width:100%;}
+  .portfolio-detail .video-box {margin:0 60px;}
+  .portfolio-detail .video-box video {width:100%; padding-top:100px;}
+  .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
   .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
@@ -370,6 +386,7 @@
 
   /* tablet */
   @media all and (max-width:1024px) {
+  .portfolio-detail .video-box video {padding-top:45px;}
     .portfolio-detail .info-box {padding:45px 14.28% 50px;}
     .portfolio-detail .info-box .desc {width:68%;}
     .portfolio-detail .info-box .desc dl dt {font-size:24px;}
@@ -400,6 +417,7 @@
   /* mobile */
   @media all and (max-width:767px) {
     .wrapper.work h2 {display:none;}
+    .portfolio-detail .video-box video {padding-top:8%;}
     .portfolio-detail .info-box {padding:6% 10% 6%;}
     .portfolio-detail .info-box .desc {width:100%; padding:0;}
     .portfolio-detail .info-box .desc dl dt {font-size:20px;}
