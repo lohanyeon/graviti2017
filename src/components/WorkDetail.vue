@@ -68,51 +68,73 @@
               </dl>
             </div>
           </div>
-          <div class="img pt0">
-            <img src="/static/v2017/images/portfolio_01-2.jpg" alt="">
-          </div>
-          <div class="txt">
-            <dl class="t1">
-              <dt><img src="/static/v2017/images/work_txt_01.png" alt="Main Page"></dt>
-              <dd>
-                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-              </dd>
-            </dl>
-          </div>
-          <div class="img">
-            <img src="/static/v2017/images/portfolio_01-3.png" alt="">
-          </div>
-          <div class="img">
-            <img src="/static/v2017/images/portfolio_01-4.jpg" alt="">
-          </div>
-          <div class="txt">
-            <dl class="t2">
-              <dt><img src="/static/v2017/images/work_txt_02.png" alt="Graphic"></dt>
-              <dd>
-                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-              </dd>
-            </dl>
-          </div>
-          <div class="img">
-            <img src="/static/v2017/images/portfolio_01-5.png" alt="">
-          </div>
-          <div class="txt">
-            <dl class="t3">
-              <dt><img src="/static/v2017/images/work_txt_03.png" alt="Page"></dt>
-              <dd>
-                일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-              </dd>
-            </dl>
-          </div>
-          <div class="img">
-            <img src="/static/v2017/images/portfolio_01-6.png" alt="">
-          </div>
-          <div class="img">
-            <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
-          </div>
+
+          <!--
+            portfolio detail 이미지 / 텍스트+이미지 영역 구분.
+            class=l1 : 이미지
+            class=l2 : 텍스트+이미지
+            로 구분해놓았음
+          -->
+          <ul>
+            <li class="l1"><!-- class=l1 : 이미지만 들어가는 li -->
+              <div class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
+                <img src="/static/v2017/images/portfolio_01-2.jpg" alt="">
+              </div>
+            </li>
+            <li class="l2"><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
+              <div class="txt">
+                <dl class="t1">
+                  <dt><img src="/static/v2017/images/work_txt_01.png" alt="Main Page"></dt>
+                  <dd>
+                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+                  </dd>
+                </dl>
+              </div>
+              <div class="img">
+                <img src="/static/v2017/images/portfolio_01-3.png" alt="">
+              </div>
+            </li>
+            <li class="l1">
+              <div class="img">
+                <img src="/static/v2017/images/portfolio_01-4.jpg" alt="">
+              </div>
+            </li>
+            <li class="l2">
+              <div class="txt">
+                <dl class="t2">
+                  <dt><img src="/static/v2017/images/work_txt_02.png" alt="Graphic"></dt>
+                  <dd>
+                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+                  </dd>
+                </dl>
+              </div>
+              <div class="img">
+                <img src="/static/v2017/images/portfolio_01-5.png" alt="">
+              </div>
+            </li>
+            <li class="l2">
+              <div class="txt">
+                <dl class="t3">
+                  <dt><img src="/static/v2017/images/work_txt_03.png" alt="Page"></dt>
+                  <dd>
+                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
+                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
+                  </dd>
+                </dl>
+              </div>
+              <div class="img">
+                <img src="/static/v2017/images/portfolio_01-6.png" alt="">
+              </div>
+            </li>
+            <li class="l1">
+              <div class="img">
+                <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
+              </div>
+            </li>
+          </ul>
+          <!-- //portfolio detail 이미지 / 텍스트+이미지 영역 구분. -->
         </div>
         <!-- //portfolio -->
 
