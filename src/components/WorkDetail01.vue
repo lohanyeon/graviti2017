@@ -83,13 +83,15 @@
           <ul>
             <li class="v"><!-- class=v : video만 들어가는 li -->
               <div class="video-box">
-                <iframe src="https://player.vimeo.com/video/104973735?title=0&byline=0&portrait=0" width="100%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-                </iframe>
-                <object width="100%" height="100%">
-                  <param name="movie" value="https://vimeo.com/104973735"></param>
-                  <param name="wmode" value="transparent"></param>
-                  <embed src="https://vimeo.com/104973735" type="application/x-shockwave-flash" wmode="transparent" width="100%" height="100%"></embed>
-                </object>
+                <div class="container">
+                  <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
+                </div>
+                <div class="container">
+                  <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
+                </div>
+                <div class="container">
+                  <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
+                </div>
               </div>
             </li>
             <li class="l1"><!-- class=l1 : 이미지만 들어가는 li -->
@@ -331,6 +333,10 @@
   .wrapper.work {position:relative; height:auto !important;}
   .wrapper.work h2 {width:186px;}
   .portfolio-detail video {width:100%;}
+  .container {position:relative; width:100%; height:0; padding-bottom:56.25%;}
+  .video {position:absolute; top:0; left:0; width:100%; height:100%;}
+  .video-box .container {margin-bottom:100px;}
+  .video-box .container:last-child {margin-bottom:0;}
   .portfolio-detail .video-box {margin:0 60px;}
   .portfolio-detail .video-box video {width:100%; padding-top:100px;}
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
@@ -426,6 +432,7 @@
   /* mobile */
   @media all and (max-width:767px) {
     .wrapper.work h2 {display:none;}
+    .video-box .container {margin-bottom:8%;}
     .portfolio-detail .video-box {margin:0 4%;}
     .portfolio-detail .video-box video {padding-top:8%;}
     .portfolio-detail .info-box {padding:6% 10% 6%;}
