@@ -394,6 +394,7 @@
 
   /* tablet */
   @media all and (max-width:1024px) {
+    .portfolio-detail .video-box {margin:0 40px;}
     .portfolio-detail .video-box video {padding-top:45px;}
     .portfolio-detail .info-box {padding:45px 14.28% 50px;}
     .portfolio-detail .info-box .desc {width:68%;}
@@ -425,6 +426,7 @@
   /* mobile */
   @media all and (max-width:767px) {
     .wrapper.work h2 {display:none;}
+    .portfolio-detail .video-box {margin:0 4%;}
     .portfolio-detail .video-box video {padding-top:8%;}
     .portfolio-detail .info-box {padding:6% 10% 6%;}
     .portfolio-detail .info-box .desc {width:100%; padding:0;}
