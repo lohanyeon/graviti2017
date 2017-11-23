@@ -148,9 +148,7 @@
               <div class="img">
                 <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
               </div>
-            </li>
-            <li class="l3">
-              <div class="img">
+              <div class="img img2">
                 <img src="/static/v2017/images/portfolio_01-6.png" alt="">
               </div>
             </li>
@@ -355,12 +353,12 @@
   .portfolio-detail .img .tit .year {font-family:'Rajdhani'; font-size:1.1vw; letter-spacing:0.1em;}
   .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:4vw; font-weight:700; line-height:1em; margin-top:1.5%;}
   .portfolio-detail .img .tit dl dd {font-size:1.2vw; margin-top:5%;}
+  .portfolio-detail .img.img2 {padding-bottom:115px;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
   .portfolio-detail .txt dl:after {content:""; display:block; clear:both;}
   .portfolio-detail .txt dl dt {float:left; width:33%;}
   .portfolio-detail .txt dl dt img {max-width:100%;}
   .portfolio-detail .txt dl dd {float:left; width:63%; font-size:20px; font-weight:300; line-height:1.3; margin:40px 0 0 4%;}
-  .portfolio-detail .l3 .img {padding-bottom:115px;}
 
   .other-portfolio {margin:0 60px;}
   .other-portfolio li {float:left; width:50%; height:370px;}
@@ -441,7 +439,7 @@
     .portfolio-detail .info-box .info dl dt {font-size:12px;}
     .portfolio-detail .info-box .info dl dd {font-size:12px; margin-top:5px;}
     .portfolio-detail .img {margin:0 4%;}
-    .portfolio-detail .l3 .img {padding-bottom:8%;}
+    .portfolio-detail .img.img2 {padding-bottom:8%;}
     .work_grid {display:none;}
 
     .portfolio-detail .img {padding-top:8%;}
