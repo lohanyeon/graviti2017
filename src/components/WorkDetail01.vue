@@ -194,13 +194,13 @@
 
       <!-- grid -->
       <div class="work_grid">
-        <div class="grid-line"></div>
-        <div class="grid-line line2"></div>
-        <div class="grid-line line3"></div>
-        <div class="grid-line line4"></div>
-        <div class="grid-line line5"></div>
-        <div class="grid-line line6"></div>
-        <div class="grid-line line7"></div>
+        <div class="grid-line-graviti"></div>
+        <div class="grid-line-graviti line2"></div>
+        <div class="grid-line-graviti line3"></div>
+        <div class="grid-line-graviti line4"></div>
+        <div class="grid-line-graviti line5"></div>
+        <div class="grid-line-graviti line6"></div>
+        <div class="grid-line-graviti line7"></div>
       </div>
       <!-- //grid -->
     </section>
@@ -379,13 +379,13 @@
   }
 
   .work_grid {position:absolute; top:0; left:0; width:100%; height:1000%; z-index:-1;}
-  .work_grid .grid-line {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
-  .work_grid .grid-line.line2 {left:14.28%;}
-  .work_grid .grid-line.line3 {left:28.56%;}
-  .work_grid .grid-line.line4 {left:42.84%;}
-  .work_grid .grid-line.line5 {left:57.12%;}
-  .work_grid .grid-line.line6 {left:71.4%;}
-  .work_grid .grid-line.line7 {left:85.68%; background:none;}
+  .work_grid .grid-line-graviti {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
+  .work_grid .grid-line-graviti.line2 {left:14.28%;}
+  .work_grid .grid-line-graviti.line3 {left:28.56%;}
+  .work_grid .grid-line-graviti.line4 {left:42.84%;}
+  .work_grid .grid-line-graviti.line5 {left:57.12%;}
+  .work_grid .grid-line-graviti.line6 {left:71.4%;}
+  .work_grid .grid-line-graviti.line7 {left:85.68%; background:none;}
 
   @media all and (max-width:1300px) {
     .portfolio-detail .txt dl dt {width:42%;}
