@@ -32,7 +32,7 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_video" autoplay poster=""></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_video" autoplay loop poster=""></video>
 
             <div class="tit">
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
@@ -82,67 +82,37 @@
           <ul>
             <li class="v"><!-- class=v : video만 들어가는 li -->
               <div class="video-box">
-                <ul v-for="obj in videoList">
-                  <li v-html="obj.fields.video_source"></li>
+                <ul>
+                  <li v-for="obj in videoList" v-html="obj.fields.video_source"></li>
                 </ul>
               </div>
             </li>
           </ul>
-          <ul v-for="obj in imagesList">
-            <li class="l1" v-if="obj.sub_image_explain === ''"><!-- class=l1 : 이미지만 들어가는 li -->
-              <div class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
+          <ul v-for="(obj, index) in imagesList">
+            <li class="l1" v-if="obj.fields.sub_image_explain === ''"><!-- class=l1 : 이미지만 들어가는 li -->
+              <div v-if="index===0 && videoList.length===0" class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
+                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+              </div>
+              <div v-else class="img"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
                 <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
               </div>
             </li>
             <li class="l2" v-else><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
-              <div class="txt">
+              <div class="txt" v-if="obj.fields.sub_image_explain_title !== ''">
                 <dl class="t1">
                   <dt><img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image_explain_title" alt="설명아이콘"></dt>
                   <dd>{{obj.fields.sub_image_explain}}</dd>
                 </dl>
               </div>
-              <div class="img">
-                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+              <div v-for="currObj in currPortfolio">
+                <div v-if="currObj.fields.project_kind==='V1' && index===(imagesList.length-1)" class="img img2">
+                  <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                </div>
+                <div v-else class="img">
+                  <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                </div>
               </div>
             </li>
-            <!-- <li class="l1">
-              <div class="img">
-                <img src="/static/v2017/images/portfolio_01-4.jpg" alt="">
-              </div>
-            </li>
-            <li class="l2">
-              <div class="txt">
-                <dl class="t2">
-                  <dt><img src="/static/v2017/images/work_txt_02.png" alt="Graphic"></dt>
-                  <dd>
-                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-                  </dd>
-                </dl>
-              </div>
-              <div class="img">
-                <img src="/static/v2017/images/portfolio_01-5.png" alt="">
-              </div>
-            </li>
-            <li class="l2">
-              <div class="txt">
-                <dl class="t3">
-                  <dt><img src="/static/v2017/images/work_txt_03.png" alt="Page"></dt>
-                  <dd>
-                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-                  </dd>
-                </dl>
-              </div>
-              <div class="img">
-                <img src="/static/v2017/images/portfolio_01-6.png" alt="">
-              </div>
-            </li>
-            <li class="l1">
-              <div class="img">
-                <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
-              </div>
-            </li> -->
           </ul>
           <!-- //portfolio detail 이미지 / 텍스트+이미지 영역 구분. -->
         </div>
@@ -152,29 +122,29 @@
         <div class="other-portfolio">
           <ul>
             <li v-if="hasPrevResult" class="prev txt_r">
-              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: prevPortfolio.pk}}">
-                <p class="p-name" v-text="prevPortfolio.fields.project_kor_name"></p>
-                <p class="p-en" v-html="prevPortfolio.fields.project_eng_name"></p>
-                <p class="p-client">Client / {{prevPortfolio.fields.client_name}}</p>
+              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: pPortfolio.pk}}">
+                <p class="p-name" v-text="pPortfolio.fields.project_kor_name"></p>
+                <p class="p-en" v-html="pPortfolio.fields.project_eng_name"></p>
+                <p class="p-client">Client / {{pPortfolio.fields.client_name}}</p>
               </router-link>
             </li>
             <li v-else class="prev no-data txt_r">
               <!-- 이전 프로젝트가 없습니다.  -->
               <router-link v-bind:to="{ name: 'Main' }">
-                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="데이터가 없습니다."></p>
+                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="이전 포토폴리오가 없습니다."></p>
               </router-link>
             </li>
             <li v-if="hasNextResult" class="next">
-              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: nextPortfolio.pk}}">
-                <p class="p-name" v-html="nextPortfolio.fields.project_kor_name"></p>
-                <p class="p-en" v-html="nextPortfolio.fields.project_eng_name"></p>
-                <p class="p-client">Client / {{nextPortfolio.fields.client_name}}</p>
+              <router-link v-bind:to="{ name: 'WorkDetail', params: { id: nPortfolio.pk}}">
+                <p class="p-name" v-html="nPortfolio.fields.project_kor_name"></p>
+                <p class="p-en" v-html="nPortfolio.fields.project_eng_name"></p>
+                <p class="p-client">Client / {{nPortfolio.fields.client_name}}</p>
               </router-link>
             </li>
             <li v-else class="next no-data">
               <!-- 다음 프로젝트가 없습니다. -->
               <router-link v-bind:to="{ name: 'Main' }">
-                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="데이터가 없습니다."></p>
+                <p class="no-data"><img src="/static/v2017/images/no_data.png" alt="다음 포토폴리오가 없습니다."></p>
               </router-link>
             </li>
           </ul>
@@ -185,13 +155,13 @@
 
       <!-- grid -->
       <div class="work_grid">
-        <div class="grid-line"></div>
-        <div class="grid-line line2"></div>
-        <div class="grid-line line3"></div>
-        <div class="grid-line line4"></div>
-        <div class="grid-line line5"></div>
-        <div class="grid-line line6"></div>
-        <div class="grid-line line7"></div>
+        <div class="grid-line-graviti"></div>
+        <div class="grid-line-graviti line2"></div>
+        <div class="grid-line-graviti line3"></div>
+        <div class="grid-line-graviti line4"></div>
+        <div class="grid-line-graviti line5"></div>
+        <div class="grid-line-graviti line6"></div>
+        <div class="grid-line-graviti line7"></div>
       </div>
       <!-- //grid -->
     </section>
@@ -209,6 +179,9 @@
     data: function () {
       return {
         portfolios: [],
+        cPortfolio: [],
+        pPortfolio: [],
+        nPortfolio: [],
         currPortfolio: [],
         prevPortfolio: [],
         nextPortfolio: [],
@@ -219,13 +192,15 @@
     },
     computed: {
       hasPrevResult: function () {
-        var currPk = this.currPortfolio.pk
-        var prevPk = this.prevPortfolio.pk
+        var currPk = this.cPortfolio.pk
+        var prevPk = this.pPortfolio.pk
+        console.log(currPk)
+        console.log(prevPk)
         return currPk === prevPk ? 0 : 1
       },
       hasNextResult: function () {
-        var currPk = this.currPortfolio.pk
-        var nextPk = this.nextPortfolio.pk
+        var currPk = this.cPortfolio.pk
+        var nextPk = this.nPortfolio.pk
         return currPk === nextPk ? 0 : 1
       },
       hasUrlListResult: function () {
@@ -265,7 +240,9 @@
           this.prevPortfolio = [this.portfolios[1]]
           this.nextPortfolio = [this.portfolios[2]]
 
-          console.log(this.currPortfolio)
+          this.cPortfolio = this.portfolios[0]
+          this.pPortfolio = this.portfolios[1]
+          this.nPortfolio = this.portfolios[2]
 
           this.$refs.topProgress.done()
           $('body').scrollTop(0)
@@ -309,6 +286,9 @@
     watch: {
       '$route.params.id' (newId, oldId) {
         this.setPortfolio(newId)
+        this.setPortfolioSub('url', newId)
+        this.setPortfolioSub('images', newId)
+        this.setPortfolioSub('video', newId)
 
         console.log(newId)
         console.log(oldId)
@@ -324,6 +304,10 @@
   .wrapper.work {position:relative; height:auto !important;}
   .wrapper.work h2 {width:186px;}
   .portfolio-detail video {width:100%;}
+  .container {position:relative; width:100%; height:0; padding-bottom:56.25%;}
+  .video {position:absolute; top:0; left:0; width:100%; height:100%;}
+  .video-box .container {margin-bottom:100px;}
+  .video-box ul li:last-child .container {margin-bottom:0;}
   .portfolio-detail .video-box {margin:0 60px;}
   .portfolio-detail .video-box video {width:100% !important; padding-top:100px;}
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
@@ -346,6 +330,7 @@
   .portfolio-detail .img .tit .year {font-family:'Rajdhani'; font-size:1.1vw; letter-spacing:0.1em;}
   .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:4vw; font-weight:700; line-height:1em; margin-top:1.5%;}
   .portfolio-detail .img .tit dl dd {font-size:1.2vw; margin-top:5%;}
+  .portfolio-detail .img.img2 {padding-bottom:115px;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
   .portfolio-detail .txt dl:after {content:""; display:block; clear:both;}
   .portfolio-detail .txt dl dt {float:left; width:33%;}
@@ -371,13 +356,13 @@
   }
 
   .work_grid {position:absolute; top:0; left:0; width:100%; height:1000%; z-index:-1;}
-  .work_grid .grid-line {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
-  .work_grid .grid-line.line2 {left:14.28%;}
-  .work_grid .grid-line.line3 {left:28.56%;}
-  .work_grid .grid-line.line4 {left:42.84%;}
-  .work_grid .grid-line.line5 {left:57.12%;}
-  .work_grid .grid-line.line6 {left:71.4%;}
-  .work_grid .grid-line.line7 {left:85.68%; background:none;}
+  .work_grid .grid-line-graviti {position:absolute; top:0; left:0; width:14.28%; height:1000%; background:url('/static/v2017/images/bg_line.gif') right top repeat-y;}
+  .work_grid .grid-line-graviti.line2 {left:14.28%;}
+  .work_grid .grid-line-graviti.line3 {left:28.56%;}
+  .work_grid .grid-line-graviti.line4 {left:42.84%;}
+  .work_grid .grid-line-graviti.line5 {left:57.12%;}
+  .work_grid .grid-line-graviti.line6 {left:71.4%;}
+  .work_grid .grid-line-graviti.line7 {left:85.68%; background:none;}
 
   @media all and (max-width:1300px) {
     .portfolio-detail .txt dl dt {width:42%;}
