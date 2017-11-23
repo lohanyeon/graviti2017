@@ -5,6 +5,7 @@ import Main01 from '@/components/Main01'
 import About from '@/components/About'
 import Work from '@/components/Work'
 import WorkDetail from '@/components/WorkDetail'
+import WorkDetail01 from '@/components/WorkDetail01'
 import Contact from '@/components/Contact'
 import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
@@ -50,6 +51,11 @@ export default new Router({
       path: '/work/:id',
       name: 'WorkDetail',
       component: WorkDetail
+    },
+    {
+      path: '/workdetail01',
+      name: 'WorkDetail01',
+      component: WorkDetail01
     },
     {
       path: '/contact',
