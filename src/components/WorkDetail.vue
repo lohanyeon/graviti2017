@@ -30,45 +30,44 @@
         <div class="portfolio-detail">
           <div class="img pt0">
             <!-- 이미지일 경우 -->
-            <img src="/static/v2017/images/portfolio_01-1.jpg" alt="">
+            <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video src="/static/v2017/video_test.mp4" autoplay poster=""></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_video" autoplay poster=""></video>
 
             <div class="tit">
-              <p class="year">2013</p>
+              <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
               <dl>
-                <dt>SEAH GROUP <br>WEBSITE</dt>
-                <dd>세아그룹 웹사이트 리뉴얼 프로젝트</dd>
+                <dt v-for="obj in currPortfolio" v-html="obj.fields.project_eng_name"></dt>
+                <dd v-for="obj in currPortfolio">{{obj.fields.project_kor_name}}</dd>
               </dl>
             </div>
           </div>
           <div class="info-box">
             <div class="desc">
               <dl>
-                <dt>세아그룹 웹사이트 리뉴얼 프로젝트</dt>
-                <dd>
-                  일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                  일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-                </dd>
+                <dt v-for="obj in currPortfolio">{{obj.fields.project_kor_name}}</dt>
+                <dd v-for="obj in currPortfolio">{{obj.fields.project_summary}}</dd>
               </dl>
-              <p class="site" v-if="hasUrlListResult"><span class="url">URL</span><a href="http://www.seah.co.kr/" target="_blank" title="새창으로 이동">www.seah.co.kr</a></p>
+              <p class="site" v-if="hasUrlListResult" v-for="obj in urlList">
+                <span class="url">URL</span><a :href="obj.fields.homepage_url" target="_blank" title="새창으로 이동">{{obj.fields.homepage_url}}</a>
+              </p>
             </div>
             <div class="info">
               <dl>
                 <dt>제작사</dt>
-                <dd>그라비티인터랙티브</dd>
+                <dd v-for="obj in currPortfolio">{{obj.fields.producer}}</dd>
               </dl>
               <dl>
                 <dt>프로젝트 기간</dt>
-                <dd>2014.02 ~ 2015.03</dd>
+                <dd v-for="obj in currPortfolio">{{obj.fields.project_period}}</dd>
               </dl>
               <dl>
                 <dt>고객사</dt>
-                <dd>세아홀딩스</dd>
+                <dd v-for="obj in currPortfolio">{{obj.fields.client_name}}</dd>
               </dl>
               <dl>
                 <dt>범위</dt>
-                <dd>반응형웹</dd>
+                <dd v-for="obj in currPortfolio">{{obj.fields.project_range}}</dd>
               </dl>
             </div>
           </div>
@@ -83,31 +82,30 @@
           <ul>
             <li class="v"><!-- class=v : video만 들어가는 li -->
               <div class="video-box">
-                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
-                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
-                <video src="/static/v2017/video_test.mp4" controls poster=""></video>
+                <ul v-for="obj in videoList">
+                  <li v-html="obj.fields.video_source"></li>
+                </ul>
               </div>
             </li>
-            <li class="l1"><!-- class=l1 : 이미지만 들어가는 li -->
+          </ul>
+          <ul v-for="obj in imagesList">
+            <li class="l1" v-if="obj.sub_image_explain === ''"><!-- class=l1 : 이미지만 들어가는 li -->
               <div class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
-                <img src="/static/v2017/images/portfolio_01-2.jpg" alt="">
+                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
               </div>
             </li>
-            <li class="l2"><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
+            <li class="l2" v-else><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
               <div class="txt">
                 <dl class="t1">
-                  <dt><img src="/static/v2017/images/work_txt_01.png" alt="Main Page"></dt>
-                  <dd>
-                    일진그룹의 브랜드 정체성의 확립을 목표로 온라인 통합 플랫폼을 구축하였습니다.<br>
-                    일진의 CI에 부합되는 규칙을 찾아 &lt;The Next Step&gt;이라는 컨셉을 바탕으로 일진그룹만의 브랜드 아이덴티티를 강화한 웹사이트로 개편하였습니다.
-                  </dd>
+                  <dt><img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image_explain_title" alt="설명아이콘"></dt>
+                  <dd>{{obj.fields.sub_image_explain}}</dd>
                 </dl>
               </div>
               <div class="img">
-                <img src="/static/v2017/images/portfolio_01-3.png" alt="">
+                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
               </div>
             </li>
-            <li class="l1">
+            <!-- <li class="l1">
               <div class="img">
                 <img src="/static/v2017/images/portfolio_01-4.jpg" alt="">
               </div>
@@ -144,7 +142,7 @@
               <div class="img">
                 <img src="/static/v2017/images/portfolio_01-7.jpg" alt="">
               </div>
-            </li>
+            </li> -->
           </ul>
           <!-- //portfolio detail 이미지 / 텍스트+이미지 영역 구분. -->
         </div>
@@ -247,7 +245,7 @@
         var body = document.body
 
         showRightPush.onclick = function () {
-          console.log('click')
+          // console.log('click')
           classie.toggle(this, 'active')
           classie.toggle(body, 'graviti-menu-push-toleft')
           classie.toggle(menuRight, 'graviti-menu-open')
@@ -263,9 +261,11 @@
         this.$http.get(`${uri}`).then((result) => {
           this.portfolios = result.data
 
-          this.currPortfolio = this.portfolios[0]
-          this.prevPortfolio = this.portfolios[1]
-          this.nextPortfolio = this.portfolios[2]
+          this.currPortfolio = [this.portfolios[0]]
+          this.prevPortfolio = [this.portfolios[1]]
+          this.nextPortfolio = [this.portfolios[2]]
+
+          console.log(this.currPortfolio)
 
           this.$refs.topProgress.done()
           $('body').scrollTop(0)
@@ -325,7 +325,7 @@
   .wrapper.work h2 {width:186px;}
   .portfolio-detail video {width:100%;}
   .portfolio-detail .video-box {margin:0 60px;}
-  .portfolio-detail .video-box video {width:100%; padding-top:100px;}
+  .portfolio-detail .video-box video {width:100% !important; padding-top:100px;}
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
   .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
