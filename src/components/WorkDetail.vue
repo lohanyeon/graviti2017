@@ -194,8 +194,8 @@
       hasPrevResult: function () {
         var currPk = this.cPortfolio.pk
         var prevPk = this.pPortfolio.pk
-        console.log(currPk)
-        console.log(prevPk)
+        // console.log(currPk)
+        // console.log(prevPk)
         return currPk === prevPk ? 0 : 1
       },
       hasNextResult: function () {
@@ -290,8 +290,8 @@
         this.setPortfolioSub('images', newId)
         this.setPortfolioSub('video', newId)
 
-        console.log(newId)
-        console.log(oldId)
+        // console.log(newId)
+        // console.log(oldId)
       }
     },
     components: {

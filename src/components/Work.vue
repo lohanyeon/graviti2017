@@ -121,7 +121,7 @@
         uri += this.PortfoliosDisplayTotal + '/' + this.portfoliosGetAmount
         obj.work.value = v
 
-        console.log(uri)
+        // console.log(uri)
         this.$http.get(`${uri}`).then((result) => {
           this.portfolios = result.data
           // console.log(result.data)
@@ -147,7 +147,7 @@
 
         this.$http.get(`${uri}`).then((result) => {
           this.portfoliosTotal = result.data
-          console.log(this.portfoliosTotal.id__count)
+          // console.log(this.portfoliosTotal.id__count)
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
