@@ -9,10 +9,10 @@
         </router-link>
       </h1>
       <ul class="group">
-        <li class="all"><a href="#" v-on:click="setListPortfolio('all')">ALL</a></li>
-        <li class="web"><a href="#" v-on:click="setListPortfolio('W1')">WEB</a></li>
-        <li class="mobile"><a href="#" v-on:click="setListPortfolio('M1')">MOBILE</a></li>
-        <li class="video"><a href="#" v-on:click="setListPortfolio('V1')">VIDEO</a></li>
+        <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all')">ALL</a></li>
+        <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1')">WEB</a></li>
+        <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1')">MOBILE</a></li>
+        <li class="video"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
       </ul>
       <div class="group_m">
         <select id="" name="" class="custom_dd">
@@ -41,7 +41,7 @@
                 <div class="thum-wrap">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}  }">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
-                  	<p class="thum"><img v-bind:src="'http://new.graviti.co.kr/media/' + work.fields.thumb_image"/></p>
+                  	<p class="thum"><img v-bind:src="strMediaUrl + work.fields.thumb_image"/></p>
                     <p class="icon">
                       <img v-if="work.fields.project_kind==='W1'" src="/static/v2017/images/icon_web.png" alt="WEB">
                       <img v-if="work.fields.project_kind==='M1'" src="/static/v2017/images/icon_mobile.png" alt="MOBILE">
@@ -59,13 +59,18 @@
             </transition-group>
           </ul>
           <!-- //work list -->
-          <a href="#" class="btn_more_list show txt_c" v-if="hasMoreResult"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
+          <a href="javascript:" class="btn_more_list show txt_c" v-on:click="setListPortfolio('more', 'more')"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
         </article>
       </div>
       <!-- //contents -->
     </section>
     <!-- //work-list contents -->
 
+    <form name="workForm">
+      <input type="hidden" name="portfolios" />
+      <input type="hidden" name="portfoliosDisplayTotal" />
+      <input type="hidden" name="portfoliosTotal" />
+    </form>
 	</div>
 </template>
 
@@ -79,17 +84,18 @@
     data: function () {
       return {
         portfolios: [],
-        PortfoliosDisplayTotal: 0,
+        portfoliosDisplayTotal: 0,
         portfoliosGetAmount: 12,
-        portfoliosTotal: []
+        portfoliosTotal: 0,
+        strUrl: 'http://new.graviti.co.kr',
+        // strUrl: 'http://localhost:8000',
+        strMediaUrl: 'http://new.graviti.co.kr/media/'
+        // strMediaUrl: 'http://localhost:8000/media/'
       }
     },
     computed: {
       hasResult: function () {
         return this.portfolios.length > 0
-      },
-      hasMoreResult: function () {
-        return this.portfoliosTotal.id__count > this.PortfoliosDisplayTotal ? 1 : 0
       }
     },
     methods: {
@@ -105,49 +111,58 @@
           classie.toggle(menuRight, 'graviti-menu-open')
         }
       },
-      setListPortfolio (v) {
+      setListPortfolio (k, v) {
         // const baseURI = '/apis'
         var obj = document.myform
-        const baseURI = 'http://new.graviti.co.kr'
-        // const baseURI = 'http://localhost:8000'
+        const baseURI = this.strUrl
         var uri
         this.$refs.topProgress.start()
-        // this.PortfoliosDisplayTotal = $('.w-list li').length
+        // this.portfoliosDisplayTotal = $('.w-list li').length
+        v = v === 'more' ? obj.work.value : v
+        this.portfoliosDisplayTotal = k === 'init' ? 0 : this.portfoliosDisplayTotal
 
-        this.PortfoliosDisplayTotal = 0
         this.portfoliosGetAmount = 12
 
-        uri = baseURI + '/portfolios/api/portfolio/' + v + '/'
-        uri += this.PortfoliosDisplayTotal + '/' + this.portfoliosGetAmount
-        obj.work.value = v
+        var projectKind = k === 'init' ? v : obj.work.value
+        uri = baseURI + '/portfolios/api/portfolio/total/' + projectKind
 
-        // console.log(uri)
         this.$http.get(`${uri}`).then((result) => {
-          this.portfolios = result.data
-          // console.log(result.data)
-          this.$refs.topProgress.done()
+          this.portfoliosTotal = result.data.id__count
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
         })
 
-        uri = baseURI + '/portfolios/api/portfolio/total/'
+        var uri2 = baseURI + '/portfolios/api/portfolio/' + v + '/'
+        uri2 += this.portfoliosDisplayTotal + '/' + this.portfoliosGetAmount + '/'
+        obj.work.value = v
 
-        this.$http.get(`${uri}`).then((result) => {
-          this.portfoliosTotal = result.data
+        // console.log(uri)
+        this.$http.get(`${uri2}`).then((result) => {
+          if (k !== 'more') { // for init
+            this.portfoliosDisplayTotal = result.data.length
+            this.portfolios = result.data
+          } else {  // for more
+            this.portfoliosDisplayTotal += result.data.length
+            for (var i = 0; i < result.data.length; i++) {
+              this.portfolios.push(result.data[i])
+            }
+          }
+          this.$refs.topProgress.done()
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
         })
       },
       getPortfolioTotal () {
-        const baseURI = 'http://new.graviti.co.kr'
-        // const baseURI = 'http://localhost:8000'
-        var uri = baseURI + '/portfolios/api/portfolio/total/'
+        var obj = document.myform
+        const baseURI = this.strUrl
+        var projectKind = obj.work.value === '' ? 'all' : obj.work.value
+        var uri = baseURI + '/portfolios/api/portfolio/total/' + projectKind
 
         this.$http.get(`${uri}`).then((result) => {
-          this.portfoliosTotal = result.data
-          // console.log(this.portfoliosTotal.id__count)
+          this.portfoliosTotal = result.data.id__count
+          // console.log('total : ' + this.portfoliosTotal.id__count)
         }).catch(function (e) {
           console.log(e)
           // this.$refs.topProgress.fail()
@@ -188,10 +203,22 @@
       }
 
       this.gnb()
-      this.setListPortfolio(search)
+      this.setListPortfolio('init', search)
       this.setBtn()
       this.setDefaultClickBtn(t)
-      // this.getPortfolioTotal()
+      this.getPortfolioTotal()
+    },
+    watch: {
+      portfolios () {
+        // console.log(this.portfoliosDisplayTotal + '-' + this.portfoliosTotal)
+        if (this.portfoliosDisplayTotal === 0) { //
+          $('.btn_more_list').hide()
+        } else if (this.portfoliosDisplayTotal > 0 && this.portfoliosDisplayTotal < this.portfoliosTotal) {
+          $('.btn_more_list').show()
+        } else if (this.portfoliosDisplayTotal === this.portfoliosTotal) {
+          $('.btn_more_list').hide()
+        }
+      }
     },
     components: {
       vueTopprogress

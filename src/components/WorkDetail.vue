@@ -30,9 +30,9 @@
         <div class="portfolio-detail">
           <div class="img pt0">
             <!-- 이미지일 경우 -->
-            <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_image" alt="메인 이미지">
+            <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="'http://new.graviti.co.kr/media/'+obj.fields.main_video" autoplay loop poster=""></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" autoplay loop poster=""></video>
 
             <div class="tit">
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
@@ -91,25 +91,25 @@
           <ul v-for="(obj, index) in imagesList">
             <li class="l1" v-if="obj.fields.sub_image_explain === ''"><!-- class=l1 : 이미지만 들어가는 li -->
               <div v-if="index===0 && videoList.length===0" class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
-                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
               </div>
               <div v-else class="img"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
-                <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
               </div>
             </li>
             <li class="l2" v-else><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
               <div class="txt" v-if="obj.fields.sub_image_explain_title !== ''">
                 <dl class="t1">
-                  <dt><img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image_explain_title" alt="설명아이콘"></dt>
+                  <dt><img :src="strMediaUrl + obj.fields.sub_image_explain_title" alt="설명아이콘"></dt>
                   <dd>{{obj.fields.sub_image_explain}}</dd>
                 </dl>
               </div>
               <div v-for="currObj in currPortfolio">
                 <div v-if="currObj.fields.project_kind==='V1' && index===(imagesList.length-1)" class="img img2">
-                  <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                  <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
                 </div>
                 <div v-else class="img">
-                  <img :src="'http://new.graviti.co.kr/media/' + obj.fields.sub_image" alt="서브이미지">
+                  <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
                 </div>
               </div>
             </li>
@@ -187,7 +187,11 @@
         nextPortfolio: [],
         urlList: [],
         imagesList: [],
-        videoList: []
+        videoList: [],
+        strUrl: 'http://new.graviti.co.kr',
+        // strUrl: 'http://localhost:8000',
+        strMediaUrl: 'http://new.graviti.co.kr/media'
+        // strMediaUrl: 'http://localhost:8000/media/'
       }
     },
     computed: {
@@ -228,7 +232,7 @@
       },
       setPortfolio (id) {
         // const baseURI = '/apis'
-        const baseURI = 'http://new.graviti.co.kr'
+        const baseURI = this.strUrl
         var uri = baseURI + '/portfolios/api/portfolio/' + id
 
         this.$refs.topProgress.start()
@@ -256,7 +260,7 @@
         }, 500)
       },
       setPortfolioSub (subKind, id) {
-        const baseURI = 'http://new.graviti.co.kr'
+        const baseURI = this.strUrl
         var uri = baseURI + '/portfolios/api/portfolio/' + subKind + '/' + id
 
         this.$http.get(`${uri}`).then((result) => {
