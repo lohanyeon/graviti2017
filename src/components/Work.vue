@@ -15,12 +15,19 @@
         <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
       </ul>
       <div class="group_m">
+<<<<<<< HEAD
         <p class="text">ALL</p>
         <select id="selectKind" name="selectKind" v-on:change="setListPortfolio('init', this.value)">
           <option value="all" selected>ALL</option>
           <option value="W1">WEB</option>
           <option value="M1">MOBILE</option>
           <option value="V1">VIDEO</option>
+=======
+        <select id="sortKey" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
+          <option v-for="option in options" v-bind:value="option.value">
+            {{option.text}}
+          </option>
+>>>>>>> c13cdc8770a6c22b13b242d564320f561b1f562b
         </select>
       </div>
       <a href="#" id="showRightPush" class="gnb_menu">
@@ -88,6 +95,13 @@
         portfoliosDisplayTotal: 0,
         portfoliosGetAmount: 12,
         portfoliosTotal: 0,
+        sortKey: 'all',
+        options: [
+          {text: 'ALL', value: 'all'},
+          {text: 'WEB', value: 'W1'},
+          {text: 'MOBILE', value: 'M1'},
+          {text: 'VIDEO', value: 'V1'}
+        ],
         strUrl: 'http://new.graviti.co.kr',
         // strUrl: 'http://localhost:8000',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
@@ -119,7 +133,11 @@
         var uri
         this.$refs.topProgress.start()
         // this.portfoliosDisplayTotal = $('.w-list li').length
-        v = v === 'more' ? obj.work.value : v
+        if (v === 'more') {
+          v = obj.work.value
+        } else if (v === 'select') {
+          v = this.sortKey
+        }
         this.portfoliosDisplayTotal = k === 'init' ? 0 : this.portfoliosDisplayTotal
 
         this.portfoliosGetAmount = 12
