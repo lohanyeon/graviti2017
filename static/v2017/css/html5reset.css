@@ -104,6 +104,10 @@ input, select {
     vertical-align:middle;
 }
 
+@-ms-viewport {width:device-width;}
+@-o-viewport {width:device-width;}
+@viewport {width:device-width;}
+
 img {vertical-align:middle;}
 
 .txt_l {text-align:left;}
