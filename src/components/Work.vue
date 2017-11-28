@@ -12,14 +12,14 @@
         <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all')">ALL</a></li>
         <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1')">WEB</a></li>
         <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1')">MOBILE</a></li>
-        <li class="video"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
+        <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
       </ul>
       <div class="group_m">
-        <select id="" name="" class="custom_dd">
-          <option value="" selected>ALL</option>
-          <option value="">WEB</option>
-          <option value="">MOBILE</option>
-          <option value="">VIDEO</option>
+        <select id="selectKind" name="selectKind" class="custom_dd" v-on:change="setListPortfolio('init', this.value)">
+          <option value="all" selected>ALL</option>
+          <option value="W1">WEB</option>
+          <option value="M1">MOBILE</option>
+          <option value="V1">VIDEO</option>
         </select>
       </div>
       <a href="#" id="showRightPush" class="gnb_menu">
@@ -209,7 +209,7 @@
       this.getPortfolioTotal()
     },
     watch: {
-      portfolios () {
+      portfoliosTotal () {
         // console.log(this.portfoliosDisplayTotal + '-' + this.portfoliosTotal)
         if (this.portfoliosDisplayTotal === 0) { //
           $('.btn_more_list').hide()
@@ -240,11 +240,11 @@
   .wrapper.work header .group li.all a {background:url('/static/v2017/images/icon_group_all.png') 52px center no-repeat;}
   .wrapper.work header .group li.web a {background:url('/static/v2017/images/icon_group_web.png') 52px center no-repeat;}
   .wrapper.work header .group li.mobile a {background:url('/static/v2017/images/icon_group_mobile.png') 64px center no-repeat; padding-right:40px;}
-  .wrapper.work header .group li.video a {background:url('/static/v2017/images/icon_group_video.png') 58px center no-repeat; padding-right:45px;}
+  .wrapper.work header .group li.video01 a {background:url('/static/v2017/images/icon_group_video.png') 58px center no-repeat; padding-right:45px;}
   .wrapper.work header .group li.all.on a, .wrapper.work header .group li.all.over a {background:#00a1e9 url('/static/v2017/images/icon_group_all_on.png') 52px center no-repeat;}
   .wrapper.work header .group li.web.on a, .wrapper.work header .group li.web.over a {background:#00a1e9 url('/static/v2017/images/icon_group_web_on.png') 52px center no-repeat;}
   .wrapper.work header .group li.mobile.on a, .wrapper.work header .group li.mobile.over a {background:#00a1e9 url('/static/v2017/images/icon_group_mobile_on.png') 64px center no-repeat;}
-  .wrapper.work header .group li.video.on a, .wrapper.work header .group li.video.over a {background:#00a1e9 url('/static/v2017/images/icon_group_video_on.png') 58px center no-repeat;}
+  .wrapper.work header .group li.video01.on a, .wrapper.work header .group li.video01.over a {background:#00a1e9 url('/static/v2017/images/icon_group_video_on.png') 58px center no-repeat;}
   .wrapper.work header .group_m {display:none;}
   .btn_more_list {height:11px; padding:20px 0;}
   .btn_more_list img {vertical-align:top;}
