@@ -195,6 +195,14 @@ $(function(){
 	$(".other-portfolio li.next").mouseleave(function(){
 		$(this).removeClass("over");
 	});
+
+	/* work select box click */
+	$('.wrapper.work header .group_m select').click(function() {
+		//alert('Handler for .click() called.');
+	});
+	$('.wrapper.work header .group_m .text').click(function() {
+		$('.wrapper.work header .group_m select').click();
+	});
 });
 
 var main = {

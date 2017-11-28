@@ -15,6 +15,7 @@
         <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
       </ul>
       <div class="group_m">
+        <p class="text">ALL</p>
         <select id="selectKind" name="selectKind" v-on:change="setListPortfolio('init', this.value)">
           <option value="all" selected>ALL</option>
           <option value="W1">WEB</option>
@@ -256,10 +257,15 @@
   .wrapper.work header .group li.mobile.on a, .wrapper.work header .group li.mobile.over a {background:#00a1e9 url('/static/v2017/images/icon_group_mobile_on.png') 64px center no-repeat;}
   .wrapper.work header .group li.video01.on a, .wrapper.work header .group li.video01.over a {background:#00a1e9 url('/static/v2017/images/icon_group_video_on.png') 58px center no-repeat;}
   .wrapper.work header .group_m {display:none;}
-  .wrapper.work header .group_m select {
-    width:95px !important; height:30px;
+  .wrapper.work header .group_m .text {
+    width:95px !important; height:28px; line-height:28px;
     color:#00a1e9; font-size:13px; font-family:'Rajdhani'; font-weight:700;
-    padding-left:5px; margin: 0 35px 0 0; background-color:#fff; border:1px solid #e9eef3;
+    padding-left:5px; margin: 0 35px 0 0; border:1px solid #e9eef3;
+    background:#fff url('/static/v2017/images/btn_select.png') 90% 50% no-repeat; z-index:10;
+  }
+  .wrapper.work header .group_m select {
+    width:0 !important; height:0 !important;
+    z-index:1;
   }
   .wrapper.work header .group_m select option {color:#00a1e9; font-size:13px; font-family:'Rajdhani'; font-weight:700; background-color:#fff;}
   .btn_more_list {height:11px; padding:20px 0;}
