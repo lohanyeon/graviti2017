@@ -39,11 +39,14 @@ function closeGnb() {
 	var menuRight = document.getElementById( 'graviti-menu-s2' );
 	var showRightPush = document.getElementById( 'showRightPush' );
 	var body = document.body;
+	var form = document.myform;
 
 	//classie.toggle( this, 'active' );
 	classie.toggle( body, 'graviti-menu-push-toleft' );
 	classie.toggle( menuRight, 'graviti-menu-open' );
 	disableOther( 'showRightPush' );
+
+	form.work.value = 'all'
 }
 
 //메인 포토폴리오 롤링 관련

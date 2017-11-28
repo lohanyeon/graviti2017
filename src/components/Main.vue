@@ -35,11 +35,11 @@
       <div id="mainVisual">
         <div class="visual">
           <ul style="position:absolute;">
-            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
-              <!-- <img v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
+            <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'' + strMediaUrl + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
+              <!-- <img v-bind:src="'' + strMediaUrl + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="video-area" v-if="portfolio.fields.project_kind==='V1'">
                 <video autoplay loop>
-                  <source v-bind:src="'http://new.graviti.co.kr/media/' + portfolio.fields.main_video" type="video/mp4" />
+                  <source v-bind:src="strMediaUrl + portfolio.fields.main_video" type="video/mp4" />
                 </video>
               </div>
               <div class="ment-text">
@@ -91,7 +91,9 @@
       return {
         portfolios: [],
         intervalId: '',
-        isProcess: ''
+        isProcess: '',
+        strUrl: 'http://new.graviti.co.kr',
+        strMediaUrl: 'http://new.graviti.co.kr/media/'
       }
     },
     computed: {
@@ -191,9 +193,7 @@
         }
       },
       setListPortfolio () {
-        // const baseURI = '/apis'
-        const baseURI = 'http://new.graviti.co.kr'
-        // const baseURI = 'http://localhost:3000'
+        const baseURI = this.strUrl
         this.$http.get(`${baseURI}/portfolios/api/main/portfolio/`)
           .then((result) => {
             // console.log(result.data)
