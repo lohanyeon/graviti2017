@@ -38,8 +38,9 @@
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'' + strMediaUrl + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
               <!-- <img v-bind:src="'' + strMediaUrl + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="video-area" v-if="portfolio.fields.project_kind==='V1'">
-                <video autoplay loop>
+                <video v-bind:id="'video' + portfolio.pk" autoplay>
                   <source v-bind:src="strMediaUrl + portfolio.fields.main_video" type="video/mp4" />
+                  <p>Your browser does not support the video tag.</p>
                 </video>
               </div>
               <div class="ment-text">
@@ -92,6 +93,7 @@
         portfolios: [],
         intervalId: '',
         isProcess: '',
+        interval: 7500,
         strUrl: 'http://new.graviti.co.kr',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
       }
@@ -110,11 +112,28 @@
           var nextObj = $('#mainVisual .visual ul li').eq(0).clone()
 
           target.append(obj)
+
           $('#mainVisual .visual ul li').eq(0).after(nextObj)
+
+          var topObj = target.children('li:eq(0)')
+          var isVideo = topObj.children('.video-area').length
+
+          if (isVideo) {
+            // console.log(videoObj.children('.video-area').children('video').prop('id'))
+            var id = topObj.children('.video-area').children('video').prop('id')
+            document.getElementById(id).play()
+          }
 
           TweenMax.fromTo(target, 1,
              {top: top},
              {top: 0, onComplete: completeDown, ease: Power4.easeOut}
+          )
+
+          var innerObj = topObj.children('.ment-text')
+          var w = innerObj.width()
+          TweenMax.fromTo(innerObj, 0.8,
+             {left: w * -1 * 500},
+             {left: 0, ease: Power4.easeOut}
           )
         }
         var up = function () {
@@ -128,9 +147,24 @@
           var t = $('#mainVisual .visual ul li').eq(0).clone()
           $('#mainVisual .visual ul li').eq(1).after(t)
 
+          var topObj = target.children('li:eq(1)')
+          var isVideo = topObj.children('.video-area').length
+
+          if (isVideo) {
+            var id = topObj.children('.video-area').children('video').prop('id')
+            document.getElementById(id).play()
+          }
+
           TweenMax.fromTo(target, 1,
              {top: 0},
              {top: top, onComplete: completeUp, ease: Power4.easeOut}
+          )
+
+          var innerObj = topObj.children('.ment-text')
+          var w = innerObj.width()
+          TweenMax.fromTo(innerObj, 0.8,
+             {left: w * 500},
+             {left: 0, ease: Power4.easeOut}
           )
         }
         var completeDown = function () {
@@ -146,16 +180,45 @@
           $('.arr_down').attr('disabled', v)
         }
 
+        var videoStop = function () {
+          $('#mainVisual .visual ul li').each(function () {
+            var isVideo = $(this).children('.video-area')
+            if (isVideo.length) {
+              var id = isVideo.children('video').prop('id')
+              document.getElementById(id).pause()
+            }
+          })
+        }
+
         if (v === 'init') {
-          this.intervalId = setInterval(down, 5000)
+          this.intervalId = setInterval(down, this.interval)
+          $(document).ready(function () {
+            var target = $('#mainVisual .visual ul')
+            var topObj = target.children('li:eq(0)')
+            var isVideo = topObj.children('.video-area').length
+
+            if (isVideo) {
+              // console.log(videoObj.children('.video-area').children('video').prop('id'))
+              var id = topObj.children('.video-area').children('video').prop('id')
+              document.getElementById(id).play()
+            }
+
+            var innerObj = topObj.children('.ment-text')
+            var w = innerObj.width()
+            TweenMax.fromTo(innerObj, 0.8,
+               {left: w * -1 * 500},
+               {left: 0, ease: Power4.easeOut}
+            )
+          })
         } else if (v === 'up') {
           this.isProcess = $('.arr_up').attr('disabled')
 
           disabledYN(true)
           if (this.isProcess !== 'disabled') {
+            videoStop()
             up()
             clearInterval(this.intervalId)
-            this.intervalId = setInterval(up, 5000)
+            this.intervalId = setInterval(up, this.interval)
 
             setTimeout(function () {
               disabledYN(false)
@@ -166,19 +229,19 @@
 
           disabledYN(true)
           if (this.isProcess !== 'disabled') {
+            videoStop()
             down()
             clearInterval(this.intervalId)
-            this.intervalId = setInterval(down, 5000)
+            this.intervalId = setInterval(down, this.interval)
 
             setTimeout(function () {
               disabledYN(false)
             }, 1000)
           }
         } else if (v === 'pause') {
-          console.log(v)
           clearInterval(this.intervalId)
         } else if (v === 'resume') {
-          this.intervalId = setInterval(down, 5000)
+          this.intervalId = setInterval(down, this.interval)
         }
       },
       gnb () {
@@ -211,9 +274,9 @@
     mounted () {
       // do something after mounting vue instance
       this.$refs.topProgress.start()
+      this.setListPortfolio()
       this.visual('init')
       this.gnb()
-      this.setListPortfolio()
     },
     beforeDestroy () {
       clearInterval(this.intervalId)

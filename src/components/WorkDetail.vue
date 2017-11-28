@@ -32,7 +32,7 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" autoplay loop poster=""></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" autoplay loop poster="" v-on:click="videoPlay()" id="video"></video>
 
             <div class="tit">
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
@@ -190,7 +190,7 @@
         videoList: [],
         strUrl: 'http://new.graviti.co.kr',
         // strUrl: 'http://localhost:8000',
-        strMediaUrl: 'http://new.graviti.co.kr/media'
+        strMediaUrl: 'http://new.graviti.co.kr/media/'
         // strMediaUrl: 'http://localhost:8000/media/'
       }
     },
@@ -275,6 +275,10 @@
           console.log(e)
           // this.$refs.topProgress.fail()
         })
+      },
+      videoPlay () {
+        var video = document.getElementById('video')
+        video.play()
       }
     },
     created () {
