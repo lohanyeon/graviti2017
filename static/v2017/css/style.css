@@ -84,7 +84,7 @@
   #mainVisual .ment-text .barcode {display:none;}
   #mainVisual .ment-text .title {float:none; width:100%; max-width:100%; margin-left:0;}
   #mainVisual .ment-text .title dl {margin-bottom:40px;}
-  #mainVisual .ment-text .title dl dt {font-size:8vw;}
+  #mainVisual .ment-text .title dl dt {font-size:55px;}
   #mainVisual .ment-text .title dl dt span {display:inline;}
   #mainVisual .ment-text .title .more {position:relative;}
   #gnb li a {font-size:8vw;}
@@ -102,11 +102,14 @@
 /* mobile */
 @media all and (max-width:767px) {
   /*#mainVisual .visual {display:none;}*/
+  #mainVisual .ment-text > div {width:93%;}
+  #mainVisual .ment-text {margin-top:-95px;}
   #mainVisual .ment-text li {width:93%; padding-left:7%;}
   #mainVisual .ment-text .title {width:90%;}
   #mainVisual .ment-text .title .year {margin-bottom:10px;}
-  #mainVisual .ment-text .title dl dt {font-size:9vw;}
-  #mainVisual .ment-text .title dl dd {font-size:3.5vw;}
+  #mainVisual .ment-text .title dl {margin-bottom:17px;}
+  #mainVisual .ment-text .title dl dt {font-size:38px; line-height:0.95; margin-bottom:9px;}
+  #mainVisual .ment-text .title dl dd {font-size:13px;}
   #gnb li a {font-size:9vw;}
   #gnb li span {font-size:12px;}
   .work-list-wrap {padding:0 4% 40px;}

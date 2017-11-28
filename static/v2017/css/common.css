@@ -93,14 +93,14 @@ footer .arrow li a img.mobile {display:none;}
   .sub_header .btn_w-list img {display:none;}
   .sub_header .btn_w-list img.mobile {display:block;}
   .section-work-list, .section-work, .section-about, .section-contact {padding-top:90px;}
-  footer {bottom:2rem;}
-  footer address {font-size:14px; padding-left:4%;}
-  footer p {font-size:12px; padding-left:4%;}
+  footer {bottom:1.6rem;}
+  footer address {font-size:13px; padding-left:4%; line-height:1.2;}
+  footer p {font-size:12px; padding-left:4%; margin-top:6px;}
   footer .copyright {display:none;}
   /*footer .arrow li a img {display:none;}
   footer .arrow li a img.mobile {display:block;}*/
-  .sub_footer {bottom:2rem;}
-  .sub_footer address {font-size:14px; padding-left:4%;}
-  .sub_footer p {font-size:12px; padding-left:4%;}
+  .sub_footer {bottom:1.6rem;}
+  .sub_footer address {font-size:13px; padding-left:4%; line-height:1.2;}
+  .sub_footer p {font-size:12px; padding-left:4%; margin-top:6px;}
   footer .arrow {right:4%;}
 }
