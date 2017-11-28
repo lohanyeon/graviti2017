@@ -195,14 +195,6 @@ $(function(){
 	$(".other-portfolio li.next").mouseleave(function(){
 		$(this).removeClass("over");
 	});
-
-	/* select box */
-	try {$(".custom_dd").msDropDown();} catch(e) {alert(e.message);}
-  if( $("#" + childid).is(":visible") ){
-		close();
-		return false;
-	}
-	close();
 });
 
 var main = {
