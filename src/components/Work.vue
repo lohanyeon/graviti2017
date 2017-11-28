@@ -15,19 +15,11 @@
         <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
       </ul>
       <div class="group_m">
-<<<<<<< HEAD
         <p class="text">ALL</p>
-        <select id="selectKind" name="selectKind" v-on:change="setListPortfolio('init', this.value)">
-          <option value="all" selected>ALL</option>
-          <option value="W1">WEB</option>
-          <option value="M1">MOBILE</option>
-          <option value="V1">VIDEO</option>
-=======
-        <select id="sortKey" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
+        <select id="sortKey" class="skip" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
           <option v-for="option in options" v-bind:value="option.value">
             {{option.text}}
           </option>
->>>>>>> c13cdc8770a6c22b13b242d564320f561b1f562b
         </select>
       </div>
       <a href="#" id="showRightPush" class="gnb_menu">
@@ -280,10 +272,6 @@
     color:#00a1e9; font-size:13px; font-family:'Rajdhani'; font-weight:700;
     padding-left:5px; margin: 0 35px 0 0; border:1px solid #e9eef3;
     background:#fff url('/static/v2017/images/btn_select.png') 90% 50% no-repeat; z-index:10;
-  }
-  .wrapper.work header .group_m select {
-    width:0 !important; height:0 !important;
-    z-index:1;
   }
   .wrapper.work header .group_m select option {color:#00a1e9; font-size:13px; font-family:'Rajdhani'; font-weight:700; background-color:#fff;}
   .btn_more_list {height:11px; padding:20px 0;}

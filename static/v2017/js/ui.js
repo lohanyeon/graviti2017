@@ -198,7 +198,7 @@ $(function(){
 
 	/* work select box click */
 	$('.wrapper.work header .group_m select').click(function() {
-		//alert('Handler for .click() called.');
+		//alert('111');
 	});
 	$('.wrapper.work header .group_m .text').click(function() {
 		$('.wrapper.work header .group_m select').click();
