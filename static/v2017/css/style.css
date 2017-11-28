@@ -87,6 +87,7 @@
   #mainVisual .ment-text .title dl dt {font-size:55px;}
   #mainVisual .ment-text .title dl dt span {display:inline;}
   #mainVisual .ment-text .title .more {position:relative;}
+  #gnb {top:50%; margin-top:-120px;}
   #gnb li a {font-size:55px;}
   .sub_cont .contR {display:none;}
 
@@ -110,6 +111,7 @@
   #mainVisual .ment-text .title dl {margin-bottom:17px;}
   #mainVisual .ment-text .title dl dt {font-size:38px; line-height:0.95; margin-bottom:9px;}
   #mainVisual .ment-text .title dl dd {font-size:13px;}
+  #gnb {margin-top:-85px;}
   #gnb li a {font-size:38px;}
   #gnb li span {font-size:12px;}
   .work-list-wrap {padding:0 4% 40px;}
