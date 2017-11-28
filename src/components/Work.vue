@@ -35,10 +35,10 @@
       <div class="contents">
         <article class="work-list-wrap">
           <!-- work list -->
-          <ul class="w-list">
+          <ul id="graviti-w-list">
             <transition-group name="list">
               <li v-if="hasResult" v-for="(work, key) in portfolios" :key="work.pk">
-                <div class="thum-wrap">
+                <div class="thum-wrap test">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}  }">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
                   	<p class="thum"><img v-bind:src="'http://new.graviti.co.kr/media/' + work.fields.thumb_image"/></p>

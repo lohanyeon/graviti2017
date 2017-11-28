@@ -87,10 +87,10 @@
                   <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
                 </div>
                 <div class="container">
-                  <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
+                  <iframe src="https://player.vimeo.com/video/213177143" frameborder="0" allowfullscreen class="video"></iframe>
                 </div>
                 <div class="container">
-                  <iframe src="https://www.youtube.com/embed/H2ExX1cURpM" frameborder="0" allowfullscreen class="video"></iframe>
+                  <iframe src="https://player.vimeo.com/video/213473749" frameborder="0" allowfullscreen class="video"></iframe>
                 </div>
               </div>
             </li>
@@ -336,7 +336,7 @@
   .container {position:relative; width:100%; height:0; padding-bottom:56.25%;}
   .video {position:absolute; top:0; left:0; width:100%; height:100%;}
   .video-box .container {margin-bottom:100px;}
-  .video-box .container:last-child {margin-bottom:0;}
+  .video-box ul li:last-child .container {margin-bottom:0;}
   .portfolio-detail .video-box {margin:0 60px;}
   .portfolio-detail .video-box video {width:100%; padding-top:100px;}
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
