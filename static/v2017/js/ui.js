@@ -186,13 +186,7 @@ $(function(){
 	$(".wrapper.work header .group li a").mouseleave(function(){
 		$(this).parent().removeClass("over");
 	});
-	$("#graviti-w-list li .thum-wrap").mouseover(function(){
-		//$(this).next(".dim").fadeIn("fast");
-		alert('111');
-	});
-	//$("#graviti-w-list .w-list li .dim").mouseleave(function(){
-		//$(this).fadeOut("fast");
-	//});
+
 
 	/* work view over */
 	$(".other-portfolio li.next").mouseover(function(){
