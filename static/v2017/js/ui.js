@@ -197,11 +197,9 @@ $(function(){
 	});
 
 	/* work select box click */
-	$('.wrapper.work header .group_m select').click(function() {
-		//alert('111');
-	});
 	$('.wrapper.work header .group_m .text').click(function() {
 		$('.wrapper.work header .group_m select').click();
+		return false;
 	});
 });
 

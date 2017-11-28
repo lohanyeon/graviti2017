@@ -16,7 +16,7 @@
       </ul>
       <div class="group_m">
         <p class="text">ALL</p>
-        <select id="sortKey" class="skip" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
+        <select id="sortKey" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
           <option v-for="option in options" v-bind:value="option.value">
             {{option.text}}
           </option>
@@ -273,7 +273,7 @@
     padding-left:5px; margin: 0 35px 0 0; border:1px solid #e9eef3;
     background:#fff url('/static/v2017/images/btn_select.png') 90% 50% no-repeat; z-index:10;
   }
-  .wrapper.work header .group_m select option {color:#00a1e9; font-size:13px; font-family:'Rajdhani'; font-weight:700; background-color:#fff;}
+  .wrapper.work header .group_m select {position:absolute;width:0;height:0;left:-9999px;}
   .btn_more_list {height:11px; padding:20px 0;}
   .btn_more_list img {vertical-align:top;}
 
