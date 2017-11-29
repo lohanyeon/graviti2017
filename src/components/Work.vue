@@ -37,7 +37,7 @@
           <ul id="graviti-w-list">
             <transition-group name="list">
               <li v-if="hasResult" v-for="(work, key) in portfolios" :key="work.pk">
-                <div class="thum-wrap test" v-on:mouseover="setThumOver(this)">
+                <div class="thum-wrap test" v-on:mouseover="setThumOver($event)">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}  }">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
                   	<p class="thum"><img v-bind:src="strMediaUrl + work.fields.thumb_image"/></p>
@@ -48,7 +48,7 @@
                     </p>
                   </router-link>
                 </div>
-            		<div class="dim">
+            		<div class="dim" v-on:mouseleave="setThumLeave($event)">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}}">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
                     <img src="/static/v2017/images/btn_more.png" alt="더보기" class="more">
@@ -198,14 +198,15 @@
           $('.group li').eq(3).addClass('on')
         }
       },
-      setThumOver (t) {
-        // $('#graviti-w-list span li div.thum-wrap a').mouseover(function () {
-        $(t).next('.dim').fadeIn('fast')
-        console.log(t)
-        // })
-        // $('#graviti-w-list .w-list li .dim').mouseleave(function () {
-          // $(this).fadeOut('fast')
-        // })
+      setThumOver (event) {
+        event.preventDefault()
+        let obj = event.path[3]
+        $(obj).next('.dim').fadeIn('fast')
+      },
+      setThumLeave (event) {
+        event.preventDefault()
+        let obj = event.target
+        $(obj).fadeOut('fast')
       }
     },
     created () {
@@ -226,7 +227,6 @@
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
-      // this.setThumOver()
     },
     watch: {
       portfoliosTotal () {

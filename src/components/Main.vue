@@ -275,8 +275,11 @@
       // do something after mounting vue instance
       this.$refs.topProgress.start()
       this.setListPortfolio()
-      this.visual('init')
+      // this.visual('init')
       this.gnb()
+    },
+    updated () {
+      this.visual('init')
     },
     beforeDestroy () {
       clearInterval(this.intervalId)
