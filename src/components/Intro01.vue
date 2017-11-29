@@ -43,9 +43,83 @@
 
 </template>
 
+<script type="text/javascript">
+  import $ from 'jQuery'
+  // import {TweenMax, TimelineLite, Power4} from 'gsap'
+  import {TweenMax, Power4, SteppedEase} from 'gsap'
+  // import router from '../router/index'
+  // import Main from '@/components/Main'
+
+  export default {
+    name: 'introApp',
+    data: function () {
+      return {
+      }
+    },
+    computed: {
+
+    },
+    methods: {
+      animate () {
+        // let timeline = new TimelineLite()
+        let target = $('.landing')
+        let height = $(window).height()
+        let delay = 1
+        let h = 50
+        let top = (height / 2) - h
+        $('.landing div').each(function (idx) {
+          let time = idx % 2 === 0 ? 1 : 1.2
+          if (idx === 2) {
+            time = 1.4
+          } else if (idx === 7) {
+            time = 1.6
+          }
+          TweenMax.to($(this), time, {
+            top: top,
+            height: h,
+            delay: delay,
+            ease: SteppedEase.config(5)
+          })
+
+          setTimeout(function () {
+            let w = 100
+            let width = $(window).width()
+            let left = (width / 2) - (w / 2)
+            TweenMax.to(target, 0.4, {
+              left: left,
+              width: w,
+              ease: Power4.easeOut
+            })
+          }, 3000)
+        })
+        setTimeout(function () {
+          TweenMax.to(target, 0.3, {
+            top: height
+          })
+        }, 3400)
+        setTimeout(function () {
+          $('.ment').fadeIn()
+        }, 3800)
+        setTimeout(function () {
+          // router.push({path: 'main', name: 'Main', component: Main})
+        }, 6000)
+      }
+    },
+    mounted () {
+      this.animate()
+    },
+    updated () {
+
+    },
+    watch: {
+
+    }
+  }
+</script>
+
 <style>
   .intro_wrap {position:relative; width:100%; height:100%;}
-  .intro_grid {position:relative; width:100%; height:100%;}
+  .intro_grid {position:absolute; width:100%; height:100%;}
   .grid-line {
     position:absolute; top:0; left:0; width:14.28%; height:100%;
     background:url('/static/v2017/images/bg_line.gif') right top repeat-y;

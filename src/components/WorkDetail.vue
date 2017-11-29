@@ -32,7 +32,7 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" autoplay loop poster="" v-on:click="videoPlay()" id="video"></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.main_image" v-on:click="videoPlay()" id="video01"></video>
 
             <div class="tit">
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
@@ -277,8 +277,10 @@
         })
       },
       videoPlay () {
-        var video = document.getElementById('video')
-        video.play()
+        $(document).ready(function () {
+          var v = document.getElementById('video01')
+          v.play()
+        })
       }
     },
     created () {
@@ -290,6 +292,9 @@
       this.setPortfolioSub('url', this.$route.params.id)
       this.setPortfolioSub('images', this.$route.params.id)
       this.setPortfolioSub('video', this.$route.params.id)
+    },
+    updated () {
+      // this.videoPlay()
     },
     watch: {
       '$route.params.id' (newId, oldId) {

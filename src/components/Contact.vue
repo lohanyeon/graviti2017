@@ -130,7 +130,7 @@
         var body = document.body
 
         showRightPush.onclick = function () {
-          console.log('click')
+          // console.log('click')
           classie.toggle(this, 'active')
           classie.toggle(body, 'graviti-menu-push-toleft')
           classie.toggle(menuRight, 'graviti-menu-open')

@@ -38,7 +38,11 @@
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'' + strMediaUrl + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
               <!-- <img v-bind:src="'' + strMediaUrl + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="video-area" v-if="portfolio.fields.project_kind==='V1'">
-                <video v-bind:id="'video' + portfolio.pk" autoplay>
+                <video v-if="portfolio.fields.main_video_replace_image !== ''" v-bind:id="'video' + portfolio.pk" muted autoplay playsinline :poster="strMediaUrl + portfolio.fields.main_video_replace_image">
+                  <source v-bind:src="strMediaUrl + portfolio.fields.main_video" type="video/mp4" />
+                  <p>Your browser does not support the video tag.</p>
+                </video>
+                <video v-else v-bind:id="'video' + portfolio.pk" muted autoplay playsinline>
                   <source v-bind:src="strMediaUrl + portfolio.fields.main_video" type="video/mp4" />
                   <p>Your browser does not support the video tag.</p>
                 </video>
@@ -65,7 +69,7 @@
       <!-- //mainVisual -->
 
       <!-- grid -->
-      <div class="intro_grid">
+      <!-- <div class="intro_grid">
         <div class="grid-line"><span><img src="/static/v2017/images/intro_tit_g.png" alt="G"></span></div>
         <div class="grid-line line2"><span><img src="/static/v2017/images/intro_tit_r.png" alt="R"></span></div>
         <div class="grid-line line3"><span><img src="/static/v2017/images/intro_tit_a.png" alt="A"></span></div>
@@ -73,7 +77,7 @@
         <div class="grid-line line5"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
         <div class="grid-line line6"><span><img src="/static/v2017/images/intro_tit_t.png" alt="T"></span></div>
         <div class="grid-line line7"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
-      </div>
+      </div> -->
       <!-- //grid -->
     </section>
   </div>

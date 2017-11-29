@@ -11,6 +11,7 @@ import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import Intro from '@/components/Intro'
 import Intro01 from '@/components/Intro01'
+import NotFound from '@/components/404'
 
 Vue.use(Router)
 
@@ -71,6 +72,11 @@ export default new Router({
       path: '/test2',
       name: 'Test2',
       component: Test2
+    },
+    {
+      path: '*',
+      name: NotFound,
+      component: NotFound
     }
   ]
 })
