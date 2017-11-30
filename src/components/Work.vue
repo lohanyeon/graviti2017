@@ -94,10 +94,10 @@
           {text: 'MOBILE', value: 'M1'},
           {text: 'VIDEO', value: 'V1'}
         ],
-        // strUrl: 'http://new.graviti.co.kr',
-        strUrl: 'http://localhost:8000',
-        // strMediaUrl: 'http://new.graviti.co.kr/media/'
-        strMediaUrl: 'http://localhost:8000/media/'
+        strUrl: 'http://new.graviti.co.kr',
+        // strUrl: 'http://localhost:8000',
+        strMediaUrl: 'http://new.graviti.co.kr/media/'
+        // strMediaUrl: 'http://localhost:8000/media/'
       }
     },
     computed: {
