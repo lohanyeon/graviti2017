@@ -12,8 +12,8 @@
       <h2 class="title01">PORTFOLIO</h2>
       <router-link :to="{ name: 'Work' }" class="btn_w-list">
       <!-- <a href="#" id="" class="btn_w-list">이 페이지에서만 보여짐 -->
-        <img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트">
-        <img src="/static/v2017/images/btn_w-list_m.png" alt="Work 리스트" class="mobile">
+        <img src="/static/v2017/images/btn_w-list.png" alt="Work 리스트" v-on:click="goList()">
+        <img src="/static/v2017/images/btn_w-list_m.png" alt="Work 리스트" class="mobile" v-on:click="goList()">
       </router-link>
       <a href="#" id="showRightPush" class="gnb_menu">
         <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
@@ -281,6 +281,11 @@
           var v = document.getElementById('video01')
           v.play()
         })
+      },
+      goList () {
+        // console.log('go list')
+        var obj = document.myform
+        obj.from_detail.value = 'detail'
       }
     },
     created () {

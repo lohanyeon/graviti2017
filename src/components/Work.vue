@@ -9,10 +9,10 @@
         </router-link>
       </h1>
       <ul class="group">
-        <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all')">ALL</a></li>
-        <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1')">WEB</a></li>
-        <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1')">MOBILE</a></li>
-        <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
+        <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all', 'menu')">ALL</a></li>
+        <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1', 'menu')">WEB</a></li>
+        <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1', 'menu')">MOBILE</a></li>
+        <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1', 'menu')">VIDEO</a></li>
       </ul>
       <div class="group_m">
         <select id="sortKey" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
@@ -85,6 +85,7 @@
         portfolios: [],
         portfoliosDisplayTotal: 0,
         portfoliosGetAmount: 12,
+        portfoliosSetAmount: 12,
         portfoliosTotal: 0,
         sortKey: 'all',
         options: [
@@ -93,10 +94,10 @@
           {text: 'MOBILE', value: 'M1'},
           {text: 'VIDEO', value: 'V1'}
         ],
-        strUrl: 'http://new.graviti.co.kr',
-        // strUrl: 'http://localhost:8000',
-        strMediaUrl: 'http://new.graviti.co.kr/media/'
-        // strMediaUrl: 'http://localhost:8000/media/'
+        // strUrl: 'http://new.graviti.co.kr',
+        strUrl: 'http://localhost:8000',
+        // strMediaUrl: 'http://new.graviti.co.kr/media/'
+        strMediaUrl: 'http://localhost:8000/media/'
       }
     },
     computed: {
@@ -117,9 +118,11 @@
           classie.toggle(menuRight, 'graviti-menu-open')
         }
       },
-      setListPortfolio (k, v) {
+      setListPortfolio (k, v, from) {
         // const baseURI = '/apis'
         var obj = document.myform
+        var currPortfolioDisplayTotal = parseInt(obj.portfolio_display_total.value)
+        var fromDetail = obj.from_detail.value
         const baseURI = this.strUrl
         var uri
         this.$refs.topProgress.start()
@@ -131,11 +134,10 @@
         }
         this.portfoliosDisplayTotal = k === 'init' ? 0 : this.portfoliosDisplayTotal
 
-        this.portfoliosGetAmount = 12
-
         var projectKind = k === 'init' ? v : obj.work.value
         uri = baseURI + '/portfolios/api/portfolio/total/' + projectKind
 
+        // 포토폴리오 총 갯수 가져오기
         this.$http.get(`${uri}`).then((result) => {
           this.portfoliosTotal = result.data.id__count
         }).catch(function (e) {
@@ -143,9 +145,21 @@
           // this.$refs.topProgress.fail()
         })
 
+        // 포토폴리오 리스트 가져오기
+        if (fromDetail === 'detail') {
+          if (from === 'menu') {
+            this.portfoliosGetAmount = this.portfoliosSetAmount
+          } else {
+            this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
+          }
+        } else {
+          this.portfoliosGetAmount = this.portfoliosSetAmount
+        }
         var uri2 = baseURI + '/portfolios/api/portfolio/' + v + '/'
         uri2 += this.portfoliosDisplayTotal + '/' + this.portfoliosGetAmount + '/'
         obj.work.value = v
+
+        console.log(uri2)
 
         // console.log(uri)
         this.$http.get(`${uri2}`).then((result) => {
@@ -158,6 +172,7 @@
               this.portfolios.push(result.data[i])
             }
           }
+          obj.portfolio_display_total.value = this.portfoliosDisplayTotal
           this.$refs.topProgress.done()
         }).catch(function (e) {
           console.log(e)
@@ -223,7 +238,7 @@
       }
 
       this.gnb()
-      this.setListPortfolio('init', search)
+      this.setListPortfolio('init', search, 'load')
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
@@ -236,6 +251,12 @@
         } else if (this.portfoliosDisplayTotal > 0 && this.portfoliosDisplayTotal < this.portfoliosTotal) {
           $('.btn_more_list').show()
         } else if (this.portfoliosDisplayTotal === this.portfoliosTotal) {
+          $('.btn_more_list').hide()
+        }
+      },
+      portfolios () {
+        // console.log('portfolios : ' + this.portfoliosDisplayTotal + '-' + this.portfoliosTotal)
+        if (this.portfoliosTotal > 0 && this.portfoliosDisplayTotal >= this.portfoliosTotal) {
           $('.btn_more_list').hide()
         }
       }
