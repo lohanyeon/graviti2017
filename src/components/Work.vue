@@ -4,8 +4,8 @@
 		<header class="sub_header">
       <h1 class="logo">
         <router-link v-bind:to="{ name: 'Main' }">
-          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive">
-          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive" v-on:click="goList()">
+          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile" v-on:click="goList()">
         </router-link>
       </h1>
       <ul class="group">
@@ -151,6 +151,7 @@
             this.portfoliosGetAmount = this.portfoliosSetAmount
           } else {
             this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
+            this.portfoliosGetAmount = this.portfoliosGetAmount === 0 ? this.portfoliosSetAmount : this.portfoliosGetAmount
           }
         } else {
           this.portfoliosGetAmount = this.portfoliosSetAmount
@@ -159,9 +160,6 @@
         uri2 += this.portfoliosDisplayTotal + '/' + this.portfoliosGetAmount + '/'
         obj.work.value = v
 
-        console.log(uri2)
-
-        // console.log(uri)
         this.$http.get(`${uri2}`).then((result) => {
           if (k !== 'more') { // for init
             this.portfoliosDisplayTotal = result.data.length
@@ -215,13 +213,18 @@
       },
       setThumOver (event) {
         event.preventDefault()
-        let obj = event.path[3]
-        $(obj).next('.dim').fadeIn('fast')
+        let obj = event.target
+        $(obj).parent().parent().parent().next('.dim').fadeIn('fast')
       },
       setThumLeave (event) {
         event.preventDefault()
         let obj = event.target
         $(obj).fadeOut('fast')
+      },
+      goList () {
+        var obj = document.myform
+        obj.work.value = ''
+        obj.portfolio_display_total.value = 0
       }
     },
     created () {
