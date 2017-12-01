@@ -67,6 +67,8 @@
         let delay = 1
         let h = 50
         let top = (height / 2) - h
+
+        // 화면 전체 바코드 높이 넓이 줄어드는 애니메이션
         $('.landing div').each(function (idx) {
           let time = idx % 2 === 0 ? 1 : 1.2
           if (idx === 2) {
@@ -92,12 +94,22 @@
             })
           }, 3000)
         })
+
+        // 바코드 내려가고 사라진다
         setTimeout(function () {
           TweenMax.to(target, 0.3, {
             top: height
           })
+          target.hide()
         }, 3400)
+
+        //  digital agency 나타남
         setTimeout(function () {
+          var lineHeight = parseInt($('.ment p').css('line-height'))
+          var orgMarginTop = parseInt($('.ment').css('margin-top'))
+          var marginTop = orgMarginTop - lineHeight
+          $('.ment').css('margin-top', marginTop)
+          console.log(lineHeight + ',' + orgMarginTop)
           $('.ment').fadeIn()
         }, 3800)
         setTimeout(function () {
@@ -159,4 +171,17 @@
   .landing .l_14 {left:78.5%; width:4%;}
   .landing .l_15 {left:84.5%; width:4%;}
   .landing .l_16 {right:0; width:4%;}
+
+
+    /* tablet */
+    @media all and (max-width:1024px) {
+      .ment p {height:53px; color:#333; font-family:'Quantico'; font-weight:700; font-size:3.25em; letter-spacing:0.3em; line-height:200px;}
+      .ment p span {display: block;}
+    }
+
+    /* mobile */
+    @media all and (max-width:767px) {
+      .ment p {height:53px; color:#333; font-family:'Quantico'; font-weight:700; font-size:2.25em; letter-spacing:0.3em; line-height:120px;}
+      .ment p span {display: block;}
+    }
 </style>
