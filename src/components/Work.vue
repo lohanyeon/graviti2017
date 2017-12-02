@@ -74,6 +74,7 @@
 </template>
 
 <script type="text/javascript">
+  import 'babel-polyfill'
   import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
@@ -200,8 +201,9 @@
       },
       setThumOver (event) {
         event.preventDefault()
-        let obj = event.path[3]
-        $(obj).next('.dim').fadeIn('fast')
+        // console.log(event.target)
+        let obj = event.target
+        $(obj).parent().parent().parent().next('.dim').fadeIn('fast')
       },
       setThumLeave (event) {
         event.preventDefault()
