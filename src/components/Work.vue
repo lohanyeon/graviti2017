@@ -4,15 +4,15 @@
 		<header class="sub_header">
       <h1 class="logo">
         <router-link v-bind:to="{ name: 'Main' }">
-          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive">
-          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile">
+          <img src="/static/v2017/images/logo_black.png" alt="GRAVITI Interactive" v-on:click="goList()">
+          <img src="/static/v2017/images/logo_black_m.png" alt="GRAVITI Interactive" class="mobile" v-on:click="goList()">
         </router-link>
       </h1>
       <ul class="group">
-        <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all')">ALL</a></li>
-        <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1')">WEB</a></li>
-        <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1')">MOBILE</a></li>
-        <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1')">VIDEO</a></li>
+        <li class="all"><a href="#" v-on:click="setListPortfolio('init', 'all', 'menu')">ALL</a></li>
+        <li class="web"><a href="#" v-on:click="setListPortfolio('init', 'W1', 'menu')">WEB</a></li>
+        <li class="mobile"><a href="#" v-on:click="setListPortfolio('init', 'M1', 'menu')">MOBILE</a></li>
+        <li class="video01"><a href="#" v-on:click="setListPortfolio('init', 'V1', 'menu')">VIDEO</a></li>
       </ul>
       <div class="group_m">
         <select id="sortKey" name="sortKey" v-model="sortKey" v-on:change="setListPortfolio('init', 'select')">
@@ -86,6 +86,7 @@
         portfolios: [],
         portfoliosDisplayTotal: 0,
         portfoliosGetAmount: 12,
+        portfoliosSetAmount: 12,
         portfoliosTotal: 0,
         sortKey: 'all',
         options: [
@@ -118,9 +119,11 @@
           classie.toggle(menuRight, 'graviti-menu-open')
         }
       },
-      setListPortfolio (k, v) {
+      setListPortfolio (k, v, from) {
         // const baseURI = '/apis'
         var obj = document.myform
+        var currPortfolioDisplayTotal = parseInt(obj.portfolio_display_total.value)
+        var fromDetail = obj.from_detail.value
         const baseURI = this.strUrl
         var uri
         this.$refs.topProgress.start()
@@ -132,11 +135,10 @@
         }
         this.portfoliosDisplayTotal = k === 'init' ? 0 : this.portfoliosDisplayTotal
 
-        this.portfoliosGetAmount = 12
-
         var projectKind = k === 'init' ? v : obj.work.value
         uri = baseURI + '/portfolios/api/portfolio/total/' + projectKind
 
+        // 포토폴리오 총 갯수 가져오기
         this.$http.get(`${uri}`).then((result) => {
           this.portfoliosTotal = result.data.id__count
         }).catch(function (e) {
@@ -144,11 +146,21 @@
           // this.$refs.topProgress.fail()
         })
 
+        // 포토폴리오 리스트 가져오기
+        if (fromDetail === 'detail') {
+          if (from === 'menu') {
+            this.portfoliosGetAmount = this.portfoliosSetAmount
+          } else {
+            this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
+            this.portfoliosGetAmount = this.portfoliosGetAmount === 0 ? this.portfoliosSetAmount : this.portfoliosGetAmount
+          }
+        } else {
+          this.portfoliosGetAmount = this.portfoliosSetAmount
+        }
         var uri2 = baseURI + '/portfolios/api/portfolio/' + v + '/'
         uri2 += this.portfoliosDisplayTotal + '/' + this.portfoliosGetAmount + '/'
         obj.work.value = v
 
-        // console.log(uri)
         this.$http.get(`${uri2}`).then((result) => {
           if (k !== 'more') { // for init
             this.portfoliosDisplayTotal = result.data.length
@@ -159,6 +171,7 @@
               this.portfolios.push(result.data[i])
             }
           }
+          obj.portfolio_display_total.value = this.portfoliosDisplayTotal
           this.$refs.topProgress.done()
         }).catch(function (e) {
           console.log(e)
@@ -201,7 +214,10 @@
       },
       setThumOver (event) {
         event.preventDefault()
+<<<<<<< HEAD
         // console.log(event.target)
+=======
+>>>>>>> 1bf69e924d5efe9077231388ca38d0f2ccb010c2
         let obj = event.target
         $(obj).parent().parent().parent().next('.dim').fadeIn('fast')
       },
@@ -209,6 +225,11 @@
         event.preventDefault()
         let obj = event.target
         $(obj).fadeOut('fast')
+      },
+      goList () {
+        var obj = document.myform
+        obj.work.value = ''
+        obj.portfolio_display_total.value = 0
       }
     },
     created () {
@@ -225,7 +246,7 @@
       }
 
       this.gnb()
-      this.setListPortfolio('init', search)
+      this.setListPortfolio('init', search, 'load')
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
@@ -238,6 +259,12 @@
         } else if (this.portfoliosDisplayTotal > 0 && this.portfoliosDisplayTotal < this.portfoliosTotal) {
           $('.btn_more_list').show()
         } else if (this.portfoliosDisplayTotal === this.portfoliosTotal) {
+          $('.btn_more_list').hide()
+        }
+      },
+      portfolios () {
+        // console.log('portfolios : ' + this.portfoliosDisplayTotal + '-' + this.portfoliosTotal)
+        if (this.portfoliosTotal > 0 && this.portfoliosDisplayTotal >= this.portfoliosTotal) {
           $('.btn_more_list').hide()
         }
       }

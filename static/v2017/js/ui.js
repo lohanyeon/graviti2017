@@ -16,6 +16,7 @@ function closeGnb() {
 	disableOther( 'showRightPush' );
 
 	form.work.value = 'all'
+	form.from_detail.value = 'menu'
 }
 
 $(function(){

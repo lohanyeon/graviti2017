@@ -67,6 +67,8 @@
 
     <form name="myform" method="post">
       <input type="hidden" name="work" id="work" />
+      <input type="hidden" name="portfolio_display_total" id="portfolio_display_total" value="0" />
+      <input type="hidden" name="from_detail" id="from_detail" />
     </form>
   </div>
 </template>
