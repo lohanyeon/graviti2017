@@ -78,6 +78,7 @@
   import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
+  let headerScroll = require('header-scroll-up')
 
   export default {
     name: 'workListApp',
@@ -214,10 +215,6 @@
       },
       setThumOver (event) {
         event.preventDefault()
-<<<<<<< HEAD
-        // console.log(event.target)
-=======
->>>>>>> 1bf69e924d5efe9077231388ca38d0f2ccb010c2
         let obj = event.target
         $(obj).parent().parent().parent().next('.dim').fadeIn('fast')
       },
@@ -250,6 +247,7 @@
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     },
     watch: {
       portfoliosTotal () {

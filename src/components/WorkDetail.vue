@@ -173,6 +173,7 @@
   import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
+  let headerScroll = require('header-scroll-up')
 
   export default {
     name: 'workDetailApp',
@@ -297,6 +298,8 @@
       this.setPortfolioSub('url', this.$route.params.id)
       this.setPortfolioSub('images', this.$route.params.id)
       this.setPortfolioSub('video', this.$route.params.id)
+
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     },
     updated () {
       // this.videoPlay()

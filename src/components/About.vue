@@ -54,6 +54,7 @@
 
 <script type="text/javascript">
   import classie from 'desandro-classie'
+  let headerScroll = require('header-scroll-up')
 
   export default {
     name: 'contactApp',
@@ -81,6 +82,7 @@
     },
     mounted () {
       this.gnb()
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     }
   }
 </script>
