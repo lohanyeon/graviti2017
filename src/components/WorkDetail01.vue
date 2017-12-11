@@ -42,7 +42,7 @@
               </dl>
             </div>
           </div>
-          <div class="info-box">
+          <div class="info-box" style="background-color:#f4f7f9;">
             <div class="desc">
               <dl>
                 <dt>세아그룹 웹사이트 리뉴얼 프로젝트</dt>
@@ -310,10 +310,10 @@
     },
     mounted () {
       this.gnb()
-      this.setPortfolio(this.$route.params.id)
-      this.setPortfolioSub('url', this.$route.params.id)
-      this.setPortfolioSub('images', this.$route.params.id)
-      this.setPortfolioSub('video', this.$route.params.id)
+      // this.setPortfolio(this.$route.params.id)
+      // this.setPortfolioSub('url', this.$route.params.id)
+      // this.setPortfolioSub('images', this.$route.params.id)
+      // this.setPortfolioSub('video', this.$route.params.id)
     },
     watch: {
       '$route.params.id' (newId, oldId) {
