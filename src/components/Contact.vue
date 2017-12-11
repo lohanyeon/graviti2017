@@ -100,6 +100,7 @@
   import * as VueGoogleMaps from 'vue2-google-maps'
   import Vue from 'vue'
   import classie from 'desandro-classie'
+  let headerScroll = require('header-scroll-up')
 
   Vue.use(VueGoogleMaps, {
     load: {
@@ -141,6 +142,7 @@
     },
     mounted () {
       this.gnb()
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     }
   }
 </script>

@@ -74,9 +74,11 @@
 </template>
 
 <script type="text/javascript">
+  import 'babel-polyfill'
   import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
+  let headerScroll = require('header-scroll-up')
 
   export default {
     name: 'workListApp',
@@ -245,6 +247,7 @@
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     },
     watch: {
       portfoliosTotal () {

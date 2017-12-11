@@ -89,6 +89,7 @@
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
   import {TweenMax, Power4} from 'gsap'
+  let headerScroll = require('header-scroll-up')
 
   export default {
     name: 'mainApp',
@@ -281,6 +282,7 @@
       this.setListPortfolio()
       // this.visual('init')
       this.gnb()
+      headerScroll.setScrollableHeader('header', {topOffset: 40})
     },
     updated () {
       this.visual('init')

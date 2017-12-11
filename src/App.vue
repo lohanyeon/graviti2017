@@ -74,9 +74,14 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app',
+    data: function () {
+      return {}
+    },
+    mounted () {
+    }
+  }
 </script>
 
 <style>
