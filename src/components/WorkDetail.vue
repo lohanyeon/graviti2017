@@ -334,12 +334,19 @@
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
   .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
+  .portfolio-detail .info-box.bg {background-color:#f4f7f9; margin-bottom:115px;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
   .portfolio-detail .info-box .desc dl dt {font-size:34px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
   .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; line-height:1.4; margin-top:25px;}
-  .portfolio-detail .info-box .desc .site {font-size:13px; margin-top:40px;}
-  .portfolio-detail .info-box .desc .site .url {display:inline-block; color:#fff; height:33px; line-height:33px; padding:0 14px; background-color:#1d1d1d;}
-  .portfolio-detail .info-box .desc .site a {display:inline-block; height:31px; line-height:31px; padding:0 20px; margin-left:-1xp; border:1px solid #e9eef3;}
+  .portfolio-detail .info-box .desc .site {position:relative; display:inline-block; font-size:13px; margin-top:40px; background-color:#1d1d1d;}
+  .portfolio-detail .info-box .desc .site .url {
+    position:absolute; top:0; left:0; display:inline-block; width:53px; height:33px;
+    color:#fff; text-align:center; line-height:33px;
+  }
+  .portfolio-detail .info-box .desc .site a {
+    display:inline-block; min-height:17px; line-height:1.3; vertical-align:middle; word-break:break-all;
+    padding:7px 20px; border:1px solid #e9eef3; margin-left:53px; background-color:#fff;
+  }
   .portfolio-detail .info-box .info {float:left; width:43%;}
   .portfolio-detail .info-box .info dl {float:left; width:49.5%; margin-bottom:50px; border-left:1px solid #e9eef3;}
   .portfolio-detail .info-box .info dl dt {color:#00a1e9; font-weight:500; padding-left:10%;}
@@ -392,8 +399,10 @@
 
   /* tablet */
   @media all and (max-width:1024px) {
-  .portfolio-detail .video-box video {padding-top:45px;}
+    .portfolio-detail .video-box {margin:0 40px;}
+    .portfolio-detail .video-box video {padding-top:45px;}
     .portfolio-detail .info-box {padding:45px 14.28% 50px;}
+    .portfolio-detail .info-box.bg {margin-bottom:65px;}
     .portfolio-detail .info-box .desc {width:68%;}
     .portfolio-detail .info-box .desc dl dt {font-size:24px;}
     .portfolio-detail .info-box .desc dl dd {font-size:16px;}
@@ -423,14 +432,16 @@
   /* mobile */
   @media all and (max-width:767px) {
     .wrapper.work h2 {display:none;}
+    .portfolio-detail .video-box {margin:0 4%;}
     .portfolio-detail .video-box video {padding-top:8%;}
     .portfolio-detail .info-box {padding:6% 10% 6%;}
+    .portfolio-detail .info-box.bg {margin-bottom:8%;}
     .portfolio-detail .info-box .desc {width:100%; padding:0;}
     .portfolio-detail .info-box .desc dl dt {font-size:20px;}
     .portfolio-detail .info-box .desc dl dd {font-size:13px; margin-top:10px;}
     .portfolio-detail .info-box .desc .site {font-size:12px; margin-top:20px;}
-    .portfolio-detail .info-box .desc .site .url {height:23px; line-height:23px; padding:0 14px;}
-    .portfolio-detail .info-box .desc .site a {height:21px; line-height:21px; padding:0 20px;}
+    .portfolio-detail .info-box .desc .site .url {height:23px; line-height:23px;}
+    .portfolio-detail .info-box .desc .site a {min-height:15px; padding:3px 20px;}
     .portfolio-detail .info-box .info {width:100%; margin-top:25px;}
     .portfolio-detail .info-box .info dl {width:49.5%; margin-bottom:30px;}
     .portfolio-detail .info-box .info dl:nth-child(3), .portfolio-detail .info-box .info dl:nth-child(4) {margin-bottom:0;}
