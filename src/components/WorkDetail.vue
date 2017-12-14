@@ -32,7 +32,7 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.work_detail_video_poster_image" v-on:click="videoPlay()" id="video01"></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.work_detail_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.work_detail_video_poster_image" v-on:click="videoPlay()" id="video01"></video>
 
             <div class="tit" v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" >
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
