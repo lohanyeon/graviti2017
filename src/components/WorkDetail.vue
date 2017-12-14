@@ -30,11 +30,11 @@
         <div class="portfolio-detail">
           <div class="img pt0">
             <!-- 이미지일 경우 -->
-            <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1'" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
+            <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.main_image" v-on:click="videoPlay()" id="video01"></video>
+            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.main_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.work_detail_video_poster_image" v-on:click="videoPlay()" id="video01"></video>
 
-            <div class="tit">
+            <div class="tit" v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" >
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
               <dl>
                 <dt v-for="obj in currPortfolio" v-html="obj.fields.project_eng_name"></dt>
@@ -42,7 +42,7 @@
               </dl>
             </div>
           </div>
-          <div class="info-box">
+          <div class="info-box" v-bind:class="{'bg': hasBgClass}">
             <div class="desc">
               <dl>
                 <dt v-for="obj in currPortfolio">{{obj.fields.project_kor_name}}</dt>
@@ -100,7 +100,7 @@
             <li class="l2" v-else><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
               <div class="txt" v-if="obj.fields.sub_image_explain_title !== ''">
                 <dl class="t1">
-                  <dt><img :src="strMediaUrl + obj.fields.sub_image_explain_title" alt="설명아이콘"></dt>
+                  <dt v-if="obj.fields.portfolio_title[0]!=='None'"><img :src="strMediaUrl + obj.fields.portfolio_title[1]" alt="설명아이콘"></dt>
                   <dd>{{obj.fields.sub_image_explain}}</dd>
                 </dl>
               </div>
@@ -189,6 +189,7 @@
         urlList: [],
         imagesList: [],
         videoList: [],
+        hasBgClass: true,
         strUrl: 'http://new.graviti.co.kr',
         // strUrl: 'http://localhost:8000',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
@@ -244,6 +245,10 @@
           this.currPortfolio = [this.portfolios[0]]
           this.prevPortfolio = [this.portfolios[1]]
           this.nextPortfolio = [this.portfolios[2]]
+
+          if (this.currPortfolio[0].fields.main_image !== '') {
+            this.hasBgClass = false
+          }
 
           this.cPortfolio = this.portfolios[0]
           this.pPortfolio = this.portfolios[1]
@@ -332,7 +337,7 @@
   .portfolio-detail .video-box {margin:0 60px;}
   .portfolio-detail .video-box video {width:100% !important; padding-top:100px;}
   .portfolio-detail .video-box video:nth-child(1) {padding-top:0 !important;}
-  .portfolio-detail .info-box {background-color:#fff; padding:90px 14.28% 100px;}
+  .portfolio-detail .info-box {background-color:#fff; padding:90px 11.28% 100px; margin:0 60px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box.bg {background-color:#f4f7f9; margin-bottom:115px;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
@@ -401,7 +406,7 @@
   @media all and (max-width:1024px) {
     .portfolio-detail .video-box {margin:0 40px;}
     .portfolio-detail .video-box video {padding-top:45px;}
-    .portfolio-detail .info-box {padding:45px 14.28% 50px;}
+    .portfolio-detail .info-box {padding:45px 10% 50px; margin:0 40px;}
     .portfolio-detail .info-box.bg {margin-bottom:65px;}
     .portfolio-detail .info-box .desc {width:68%;}
     .portfolio-detail .info-box .desc dl dt {font-size:24px;}

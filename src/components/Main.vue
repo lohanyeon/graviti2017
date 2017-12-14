@@ -98,7 +98,7 @@
         portfolios: [],
         intervalId: '',
         isProcess: '',
-        interval: 7500,
+        interval: 7000,
         strUrl: 'http://new.graviti.co.kr',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
       }
@@ -126,7 +126,10 @@
           if (isVideo) {
             // console.log(videoObj.children('.video-area').children('video').prop('id'))
             var id = topObj.children('.video-area').children('video').prop('id')
+            document.getElementById(id).pause()
+            document.getElementById(id).currentTime = 0
             document.getElementById(id).play()
+            console.log('down')
           }
 
           TweenMax.fromTo(target, 1,
@@ -157,7 +160,10 @@
 
           if (isVideo) {
             var id = topObj.children('.video-area').children('video').prop('id')
+            document.getElementById(id).pause()
+            document.getElementById(id).currentTime = 0
             document.getElementById(id).play()
+            console.log('up')
           }
 
           TweenMax.fromTo(target, 1,
