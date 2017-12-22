@@ -2,7 +2,7 @@
   <div id="" class="error">
     <div>
       <img src="/static/v2017/images/error.png" alt="404 Page not found 페이지를 표시할 수 없습니다">
-      <a href="#"><img src="/static/v2017/images/btn_home.gif" alt="Go Home"></a>
+      <router-link v-bind:to="{ name: 'Main' }"><img src="/static/v2017/images/btn_home.gif" alt="Go Home"></router-link>
     </div>
   </div>
 </template>
