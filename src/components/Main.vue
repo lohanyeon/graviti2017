@@ -49,7 +49,7 @@
               </div>
               <div class="ment-text">
                 <div>
-                  <p class="barcode"><img src="/static/v2017/images/main_barcode_01.png" alt="바코드"></p>
+                  <p class="barcode"><img src="/static/v2017/images/main_barcode_02.png" alt="바코드"></p>
                   <div class="title">
                     <p class="year">{{portfolio.making_year}}</p>
                     <dl>
