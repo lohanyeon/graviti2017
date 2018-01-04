@@ -86,6 +86,7 @@
       return {
         portfolios: [],
         portfoliosDisplayTotal: 0,
+        portfoliosDisplayPerPage: 12,
         portfoliosGetAmount: 12,
         portfoliosSetAmount: 12,
         portfoliosTotal: 0,
@@ -134,6 +135,7 @@
         } else if (v === 'select') {
           v = this.sortKey
         }
+        // console.log('k : ' + k)
         this.portfoliosDisplayTotal = k === 'init' ? 0 : this.portfoliosDisplayTotal
 
         var projectKind = k === 'init' ? v : obj.work.value
@@ -165,6 +167,7 @@
         this.$http.get(`${uri2}`).then((result) => {
           if (k !== 'more') { // for init
             this.portfoliosDisplayTotal = result.data.length
+            // console.log('--> ' + this.portfoliosDisplayTotal)
             this.portfolios = result.data
           } else {  // for more
             this.portfoliosDisplayTotal += result.data.length
@@ -252,11 +255,16 @@
     watch: {
       portfoliosTotal () {
         // console.log(this.portfoliosDisplayTotal + '-' + this.portfoliosTotal)
-        if (this.portfoliosDisplayTotal === 0) { //
-          $('.btn_more_list').hide()
-        } else if (this.portfoliosDisplayTotal > 0 && this.portfoliosDisplayTotal < this.portfoliosTotal) {
+        // if (this.portfoliosDisplayTotal === 0) { //
+        //   $('.btn_more_list').hide()
+        // } else if (this.portfoliosDisplayTotal > 0 && this.portfoliosDisplayTotal < this.portfoliosTotal) {
+        //   $('.btn_more_list').show()
+        // } else if (this.portfoliosDisplayTotal === this.portfoliosTotal) {
+        //   $('.btn_more_list').hide()
+        // }
+        if (this.portfoliosTotal > this.portfoliosDisplayPerPage) {
           $('.btn_more_list').show()
-        } else if (this.portfoliosDisplayTotal === this.portfoliosTotal) {
+        } else {
           $('.btn_more_list').hide()
         }
       },
