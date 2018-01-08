@@ -341,8 +341,8 @@
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box.bg {background-color:#f4f7f9; margin-bottom:115px;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
-  .portfolio-detail .info-box .desc dl dt {font-size:34px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
-  .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; line-height:1.4; margin-top:25px;}
+  .portfolio-detail .info-box .desc dl dt {font-size:30px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
+  .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; letter-spacing:-0.025em; line-height:1.4; margin-top:25px;}
   .portfolio-detail .info-box .desc .site {position:relative; display:inline-block; font-size:13px; margin-top:40px; background-color:#1d1d1d;}
   .portfolio-detail .info-box .desc .site .url {
     position:absolute; top:0; left:0; display:inline-block; width:53px; height:33px;
@@ -354,8 +354,8 @@
   }
   .portfolio-detail .info-box .info {float:left; width:43%;}
   .portfolio-detail .info-box .info dl {float:left; width:49.5%; margin-bottom:50px; border-left:1px solid #e9eef3;}
-  .portfolio-detail .info-box .info dl dt {color:#00a1e9; font-weight:500; padding-left:10%;}
-  .portfolio-detail .info-box .info dl dd {font-weight:300; padding-left:10%; margin-top:10px;}
+  .portfolio-detail .info-box .info dl dt {color:#00a1e9; font-weight:500; letter-spacing:-0.025em; padding-left:10%;}
+  .portfolio-detail .info-box .info dl dd {font-weight:300; letter-spacing:-0.025em; padding-left:10%; margin-top:10px;}
   .portfolio-detail .img {position:relative; padding-top:115px; margin:0 60px;}
   .portfolio-detail .img.pt0 {padding-top:0 !important;}
   .portfolio-detail .img img {width:100%;}
@@ -379,7 +379,7 @@
   .other-portfolio li.next.no-data {background:#292929 url('/static/v2017/images/icon_home_prev.png') 88% center no-repeat;}
   .other-portfolio li.no-data img {width:151px !important;}
   .other-portfolio li a {display:block; color:#fff; padding:112px 12%;}
-  .other-portfolio li .p-name {font-size:30px;}
+  .other-portfolio li .p-name {font-size:30px; letter-spacing:-0.05em;}
   .other-portfolio li .p-en {color:#00a1e9; font-family:'Quantico'; text-transform:uppercase; margin-top:22px;}
   .other-portfolio li .p-client {
     display:inline-block;

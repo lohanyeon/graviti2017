@@ -89,7 +89,7 @@
 
 <style>
   .section-about article {background-color:#f4f7f9; padding:9% 4%; margin:0 60px;}
-  .section-about article .title {font-family:'Rajdhani'; font-size:50px; font-weight:500; letter-spacing:0.04em; line-height:1.1;}
+  .section-about article .title {font-family:'Rajdhani'; font-size:50px; font-weight:400; letter-spacing:0.04em; line-height:1.1;}
   .section-about article .summary {margin-top:40px;}
   .section-about article .summary dt {font-size:24px; letter-spacing:-0.05em;}
   .section-about article .summary dd {color:#4d4d4f; font-size:17px; font-weight:300; letter-spacing:-0.05em; line-height:1.5; margin-top:20px;}
