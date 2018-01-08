@@ -67,19 +67,18 @@
         </div>
       </div>
       <!-- //mainVisual -->
-
-      <!-- grid -->
-      <!-- <div class="intro_grid">
-        <div class="grid-line"><span><img src="/static/v2017/images/intro_tit_g.png" alt="G"></span></div>
-        <div class="grid-line line2"><span><img src="/static/v2017/images/intro_tit_r.png" alt="R"></span></div>
-        <div class="grid-line line3"><span><img src="/static/v2017/images/intro_tit_a.png" alt="A"></span></div>
-        <div class="grid-line line4"><span><img src="/static/v2017/images/intro_tit_v.png" alt="V`"></span></div>
-        <div class="grid-line line5"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
-        <div class="grid-line line6"><span><img src="/static/v2017/images/intro_tit_t.png" alt="T"></span></div>
-        <div class="grid-line line7"><span><img src="/static/v2017/images/intro_tit_i.png" alt="I"></span></div>
-      </div> -->
-      <!-- //grid -->
     </section>
+    <!-- grid -->
+    <div class="grid-wrap">
+      <div class="grid-line"><span></span></div>
+      <div class="grid-line line2"><span></span></div>
+      <div class="grid-line line3"><span></span></div>
+      <div class="grid-line line4"><span></span></div>
+      <div class="grid-line line5"><span></span></div>
+      <div class="grid-line line6"><span></span></div>
+      <div class="grid-line line7"><span></span></div>
+    </div>
+    <!-- //grid -->
   </div>
 
 </template>
@@ -301,3 +300,15 @@
     }
   }
 </script>
+
+<style>
+  .grid-wrap {position:absolute; top:0; left:0; width:100%; height:100%;}
+  .grid-line {position:absolute; top:0; left:0; width:14.28%; height:100%; background:url('/static/v2017/images/bg_line.png') right top repeat-y;}
+  .grid-line.line2 {left:14.28%;}
+  .grid-line.line3 {left:28.56%;}
+  .grid-line.line4 {left:42.84%;}
+  .grid-line.line5 {left:57.12%;}
+  .grid-line.line6 {left:71.4%;}
+  .grid-line.line7 {width:14.32%; left:85.68%;}
+  .grid-line.line7 {background:none;}
+</style>
