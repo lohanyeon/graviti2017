@@ -49,7 +49,7 @@
                 <dd v-for="obj in currPortfolio">{{obj.fields.project_summary}}</dd>
               </dl>
               <p class="site" v-if="hasUrlListResult" v-for="obj in urlList">
-                <span class="url">URL</span><a :href="obj.fields.homepage_url" target="_blank" title="새창으로 이동">{{obj.fields.homepage_url}}</a>
+                <span class="url">URL</span><a :href="'http://'+obj.fields.homepage_url" target="_blank" title="새창으로 이동">{{obj.fields.homepage_url}}</a>
               </p>
             </div>
             <div class="info">
