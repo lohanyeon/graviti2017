@@ -344,7 +344,7 @@
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box.bg {background-color:#f4f7f9; margin-bottom:115px;}
   .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
-  .portfolio-detail .info-box .desc dl dt {font-size:34px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
+  .portfolio-detail .info-box .desc dl dt {font-size:30px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
   .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; line-height:1.4; margin-top:25px;}
   .portfolio-detail .info-box .desc .site {position:relative; display:inline-block; font-size:13px; margin-top:40px; background-color:#1d1d1d;}
   .portfolio-detail .info-box .desc .site .url {
@@ -364,7 +364,7 @@
   .portfolio-detail .img img {width:100%;}
   .portfolio-detail .img .tit {position:absolute; top:28%; left:10%; color:#fff;}
   .portfolio-detail .img .tit .year {font-family:'Rajdhani'; font-size:1.1vw; letter-spacing:0.1em;}
-  .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:4vw; font-weight:700; line-height:1em; margin-top:1.5%;}
+  .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:3.7vw; font-weight:700; line-height:1em; margin-top:1.5%;}
   .portfolio-detail .img .tit dl dd {font-size:1.2vw; margin-top:5%;}
   .portfolio-detail .img.img2 {padding-bottom:115px;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
