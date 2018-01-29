@@ -51,7 +51,7 @@
             		<div class="dim" v-on:mouseleave="setThumLeave($event)">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}}">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
-                    <img src="/static/v2017/images/btn_more.png" alt="더보기" class="more">
+                    <!-- <img src="/static/v2017/images/btn_more.png" alt="더보기" class="more"> -->
                   </router-link>
             		</div>
             	</li>
