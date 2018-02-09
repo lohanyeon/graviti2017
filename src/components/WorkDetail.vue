@@ -32,7 +32,9 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" v-if="obj.fields.project_kind === 'V1'" :src="strMediaUrl+obj.fields.work_detail_video" muted autoplay loop playsinline :poster="strMediaUrl+obj.fields.work_detail_video_poster_image" v-on:click="videoPlay()" id="video01"></video>
+            <video v-for="obj in currPortfolio" id="video01" muted autoplay loop playsinline  v-on:click="videoPlay()" controls="controls" :poster="strMediaUrl+obj.fields.work_detail_video_poster_image">
+              <source v-if="obj.fields.project_kind === 'V1' && obj.fields.work_detail_video !== ''" :src="strMediaUrl+obj.fields.work_detail_video" type="video/mp4" />
+            </video>
 
             <div class="tit" v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" >
               <p class="year" v-for="obj in currPortfolio">{{obj.fields.making_year}}</p>
@@ -330,7 +332,7 @@
   .wrapper.work {position:relative; height:auto !important;}
   .wrapper.work h2 {width:186px;}
   .portfolio-detail video {width:100%;}
-  .container {position:relative; width:100%; height:0; padding-bottom:56.25%;}
+  .container {position:relative; width:76.3%; height:0; padding-bottom:56.25%; margin: 0 auto;}
   .video {position:absolute; top:0; left:0; width:100%; height:100%;}
   .video-box .container {margin-bottom:100px;}
   .video-box ul li:last-child .container {margin-bottom:0;}

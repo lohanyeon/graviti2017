@@ -34,7 +34,7 @@
       <!-- mainVisual -->
       <div id="mainVisual">
         <div class="visual">
-          <ul style="position:absolute;">
+          <ul style="position:absolute;" id="portfolio_list">
             <li v-if="hasResult" v-for="(portfolio, key) in portfolios" :key="portfolio.pk" class="v1" :style="'background:url(\'' + strMediaUrl + portfolio.fields.bg_image_horizontal + '\') center center no-repeat; background-size:cover;'">
               <!-- <img v-bind:src="'' + strMediaUrl + portfolio.fields.bg_image_vertical" v-bind:alt="portfolio.fields.project_kor_name + '의 대표 이미지'"> -->
               <div class="video-area" v-if="portfolio.fields.project_kind==='V1'">
@@ -128,7 +128,7 @@
             document.getElementById(id).pause()
             document.getElementById(id).currentTime = 0
             document.getElementById(id).play()
-            console.log('down')
+            // console.log('down')
           }
 
           TweenMax.fromTo(target, 1,
@@ -162,7 +162,7 @@
             document.getElementById(id).pause()
             document.getElementById(id).currentTime = 0
             document.getElementById(id).play()
-            console.log('up')
+            // console.log('up')
           }
 
           TweenMax.fromTo(target, 1,
@@ -178,7 +178,18 @@
           )
         }
         var completeDown = function () {
-          $('#mainVisual .visual ul li').eq(1).remove()
+          // $('#mainVisual .visual ul li').eq(1).remove()
+          var len = $('#portfolio_list li').length
+          console.log(len)
+          if (len <= 5) {
+            $('#portfolio_list li:eq(1)').remove()
+          } else if (len > 5) {
+            $('#portfolio_list li').each(function (idx) {
+              if (idx > 4) {
+                $(this).remove()
+              }
+            })
+          }
         }
         var completeUp = function () {
           // $('#mainVisual .visual ul').css({top: 0})
