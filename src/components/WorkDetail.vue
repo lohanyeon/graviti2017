@@ -363,7 +363,7 @@
   .portfolio-detail .img img {width:100%;}
   .portfolio-detail .img .tit {position:absolute; top:28%; left:10%; color:#fff;}
   .portfolio-detail .img .tit .year {font-family:'Rajdhani'; font-size:1.1vw; letter-spacing:0.1em;}
-  .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:4vw; font-weight:700; line-height:1em; margin-top:1.5%;}
+  .portfolio-detail .img .tit dl dt {font-family:'Quantico'; font-size:3.7vw; font-weight:700; line-height:1em; margin-top:1.5%;}
   .portfolio-detail .img .tit dl dd {font-size:1.2vw; margin-top:5%;}
   .portfolio-detail .img.img2 {padding-bottom:115px;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
