@@ -54,7 +54,7 @@ footer .arrow li a {display:block; width:16px; height:9px;}
 footer .arrow li a img {width:16px; height:9px; vertical-align:top;}
 footer .arrow li a img.mobile {display:none;}
 .sub_footer {position:absolute; left:0; bottom:60px; width:100%;}
-.sub_footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; padding-left:60px;}
+.sub_footer address {color:#fff; font-size:14px; font-family:'Rajdhani'; font-weight:500; font-style:normal; line-height:1.4; letter-spacing:0.075em; padding-left:60px;}
 .sub_footer p {color:#fff; font-size:13px; letter-spacing:-0.025em; padding-left:60px; margin-top:10px;}
 
 /* tablet */

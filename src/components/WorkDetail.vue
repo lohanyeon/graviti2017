@@ -342,9 +342,9 @@
   .portfolio-detail .info-box {background-color:#fff; padding:90px 11.28% 100px; margin:0 60px;}
   .portfolio-detail .info-box:after {content:""; display:block; clear:both;}
   .portfolio-detail .info-box.bg {background-color:#f4f7f9; margin-bottom:115px;}
-  .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:7%;}
+  .portfolio-detail .info-box .desc {float:left; width:50%; padding-right:10%;}
   .portfolio-detail .info-box .desc dl dt {font-size:30px; font-weight:500; letter-spacing:-0.05em; line-height:1;}
-  .portfolio-detail .info-box .desc dl dd {font-size:20px; font-weight:300; letter-spacing:-0.025em; line-height:1.4; margin-top:25px;}
+  .portfolio-detail .info-box .desc dl dd {font-size:18px; font-weight:300; letter-spacing:-0.045em; line-height:1.4; margin-top:25px;}
   .portfolio-detail .info-box .desc .site {position:relative; display:inline-block; font-size:13px; margin-top:40px; background-color:#1d1d1d;}
   .portfolio-detail .info-box .desc .site .url {
     position:absolute; top:0; left:0; display:inline-block; width:53px; height:33px;
@@ -354,7 +354,7 @@
     display:inline-block; min-height:17px; line-height:1.3; vertical-align:middle; word-break:break-all;
     padding:7px 20px; border:1px solid #e9eef3; margin-left:53px; background-color:#fff;
   }
-  .portfolio-detail .info-box .info {float:left; width:43%;}
+  .portfolio-detail .info-box .info {float:left; width:40%;}
   .portfolio-detail .info-box .info dl {float:left; width:49.5%; margin-bottom:50px; border-left:1px solid #e9eef3;}
   .portfolio-detail .info-box .info dl dt {color:#00a1e9; font-weight:500; letter-spacing:-0.025em; padding-left:10%;}
   .portfolio-detail .info-box .info dl dd {font-weight:300; letter-spacing:-0.025em; padding-left:10%; margin-top:10px;}
