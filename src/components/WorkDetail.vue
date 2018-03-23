@@ -32,7 +32,7 @@
             <!-- 이미지일 경우 -->
             <img v-for="obj in currPortfolio" v-if="obj.fields.project_kind !== 'V1' && obj.fields.main_image !== ''" :src="strMediaUrl+obj.fields.main_image" alt="메인 이미지">
             <!-- 영상일 경우 -->
-            <video v-for="obj in currPortfolio" id="video01" muted autoplay loop playsinline  v-on:click="videoPlay()" controls="controls" :poster="strMediaUrl+obj.fields.work_detail_video_poster_image">
+            <video v-for="obj in currPortfolio" id="video01" muted autoplay loop playsinline  v-on:click="videoPlay()" :poster="strMediaUrl+obj.fields.work_detail_video_poster_image" v-if="obj.fields.project_kind === 'V1' && obj.fields.work_detail_video !== ''">
               <source v-if="obj.fields.project_kind === 'V1' && obj.fields.work_detail_video !== ''" :src="strMediaUrl+obj.fields.work_detail_video" type="video/mp4" />
             </video>
 
