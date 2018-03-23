@@ -41,7 +41,7 @@
           <!-- //map -->
 
           <div class="detail">
-            <div class="box-left fc-blue">
+            <!-- <div class="box-left fc-blue">
               <dl>
                 <dt>DIGITAL Agency</dt>
                 <dd>e-Service Strategy &amp; Contents Responsive <br>Web (N-devices) Mobile (Native &amp; Hybrid <br>App) Next Web Technology</dd>
@@ -50,13 +50,15 @@
                 <dt>MEDIA LAB.</dt>
                 <dd>New Media Creative Media Fagade / Motion <br>Art Biz video & Interview Reel 3D effect, <br>Character</dd>
               </dl>
+            </div> -->
+            <div class="box-left">
+              <dl>
+                <dt class="tit fc-blue">ADDRESS</dt>
+                <dd><strong>(주) 그라비티 인터렉티브</strong> 서울특별시 마포구 동교로 107, 302호</dd>
+              </dl>
             </div>
             <div class="box-right">
               <dl>
-                <dt class="tit fc-blue">ADDRESS</dt>
-                <dd><strong class="show">(주) 그라비티 인터렉티브</strong>서울특별시 마포구 동교로 107, 302호</dd>
-              </dl>
-              <dl class="last">
                 <dt class="tit fc-blue">CONTACT US</dt>
                 <dd>
                   <strong>TEL.</strong> <a href="tel:02-333-9230">02.333.9230</a>
@@ -150,26 +152,27 @@
 <style>
   .section-contact article {margin:0 60px;}
   .section-contact article .map {width:100%; height:404px; background-color:#00a1e9;}
-  .section-contact .detail {padding:60px 0 110px;}
+  .section-contact .detail {background-color:#f4f7f9; padding:40px 0; margin-bottom:60px;}
   .section-contact .detail:after {content:""; display:block; clear:both;}
-  .section-contact .detail .box-left {float:left; width:35%; font-family:'Rajdhani'; padding-left:12%;}
+  .section-contact .detail .box-left {float:left; width:48%; font-family:'Rajdhani'; text-align:center; padding:0 1%;}
   .section-contact .detail .box-left .last {margin-top:30px;}
-  .section-contact .detail .box-left dl dt {font-weight:700; text-transform:uppercase;}
-  .section-contact .detail .box-left dl dd {font-size:14px; line-height:1.4; margin-top:10px;}
-  .section-contact .detail .box-right {float:left; width:43%; padding-left:10%;}
+  .section-contact .detail .box-left dl dt {display:inline; font-weight:700; text-transform:uppercase; margin-right:20px;}
+  .section-contact .detail .box-left dl dd {display:inline; font-size:14px; line-height:1.4;}
+  .section-contact .detail .box-right {float:left; width:48%; text-align:center; padding:0 1%;}
   .section-contact .detail .box-right .last, .section-contact .detail .qr-code {margin-top:40px;}
-  .section-contact .detail .box-right dl dt {font-family:'Rajdhani'; font-weight:600; text-transform:uppercase; margin-bottom:15px;}
-  .section-contact .detail .box-right dl dd {line-height:1.4; font-size:15px; font-weight:300;}
+  .section-contact .detail .box-right dl dt {display:inline; font-family:'Rajdhani'; font-weight:600; text-transform:uppercase; margin-right:20px;}
+  .section-contact .detail .box-right dl dd {display:inline; line-height:1.4; font-size:15px; font-weight:300;}
   .section-contact .detail .box-right dl dd strong {font-weight:500;}
 
   /* tablet */
   @media all and (max-width:1024px) {
     .section-contact article {margin:0 40px;}
-    .section-contact .detail {padding:8% 0 12%;}
-    .section-contact .detail .box-left {display:none;}
-    .section-contact .detail .box-right {width:100%; padding-left:0;}
-    .section-contact .detail .box-center dl {padding:0 10% 0 25%;}
-    .section-contact .detail .box-right dl, .section-contact .detail .box-right .qr-code {padding:0 10% 0 13%;}
+    .section-contact .detail {padding:8% 0 12%; margin-bottom:40px;}
+    /*.section-contact .detail .box-left {display:none;}*/
+    .section-contact .detail .box-left {width:98%; padding-bottom:10px;}
+    .section-contact .detail .box-left dl dt {display:block;}
+    .section-contact .detail .box-right {width:98%;}
+    .section-contact .detail .box-right dl dt {display:block;}
   }
 
   /* mobile */
@@ -177,11 +180,10 @@
     .wrapper.contact h2 {display:none;}
     .section-contact article {margin:0 4%;}
     .section-contact article .map {height:200px;}
+    .section-contact .detail {margin-bottom:4%;}
     .section-contact .detail dl dt {margin-bottom:7px !important;}
     .section-contact .detail dl dd {font-size:13px !important;}
     .section-contact .detail .box-right {position:relative; float:none; width:100%;}
-    .section-contact .detail .box-right dl {padding-left:10%; margin-top:30px;}
     .section-contact .detail .box-right dl dd span.m {display:block; margin:0;}
-    .section-contact .detail .box-right .qr-code {position:absolute; top:0; right:0; margin:0;}
   }
 </style>
