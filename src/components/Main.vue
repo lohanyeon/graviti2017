@@ -109,6 +109,8 @@
     },
     methods: {
       visual (v) {
+        var count = 0
+        var _intervalId
         var down = function () {
           var top = $(window).height() * -1
           var target = $('#mainVisual .visual ul')
@@ -146,6 +148,11 @@
              {left: w * -1 * 500},
              {left: 0, ease: Power4.easeOut}
           )
+
+          count++
+          if (count === 10) {
+            clearInterval(_intervalId)
+          }
         }
         var up = function () {
           var top = $(window).height() * -1
@@ -180,27 +187,19 @@
              {left: w * 500},
              {left: 0, ease: Power4.easeOut}
           )
+
+          count++
+          if (count === 10) {
+            clearInterval(_intervalId)
+          }
         }
         var completeDown = function () {
           // $('#mainVisual .visual ul li').eq(1).remove()
-          var len = $('#portfolio_img_list li').length
-          if (len > 4) {
-            $('#portfolio_img_list li').each(function (idx) {
-              // console.log(idx)
-              if (idx === 1) {
-                // console.log('remove')
-                $(this).remove()
-              }
-            })
-          }
-          if (len > 5) {
-            $('#portfolio_img_list li').each(function (idx) {
-              if (idx > 4) {
-                // console.log('remove--')
-                $(this).remove()
-              }
-            })
-          }
+          $('#portfolio_img_list li').each(function (idx) {
+            if (idx === 1) {
+              $(this).remove()
+            }
+          })
         }
         var completeUp = function () {
           // $('#mainVisual .visual ul').css({top: 0})
@@ -224,6 +223,7 @@
 
         if (v === 'init') {
           this.intervalId = setInterval(down, this.interval)
+          _intervalId = this.intervalId
           $(document).ready(function () {
             var target = $('#mainVisual .visual ul')
             var topObj = target.children('li:eq(0)')
@@ -251,6 +251,7 @@
             up()
             clearInterval(this.intervalId)
             this.intervalId = setInterval(up, this.interval)
+            _intervalId = this.intervalId
 
             setTimeout(function () {
               disabledYN(false)
@@ -265,6 +266,7 @@
             down()
             clearInterval(this.intervalId)
             this.intervalId = setInterval(down, this.interval)
+            _intervalId = this.intervalId
 
             setTimeout(function () {
               disabledYN(false)
