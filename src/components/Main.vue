@@ -186,9 +186,9 @@
           var len = $('#portfolio_img_list li').length
           if (len > 4) {
             $('#portfolio_img_list li').each(function (idx) {
-              console.log(idx)
+              // console.log(idx)
               if (idx === 1) {
-                console.log('remove')
+                // console.log('remove')
                 $(this).remove()
               }
             })
@@ -196,7 +196,7 @@
           if (len > 5) {
             $('#portfolio_img_list li').each(function (idx) {
               if (idx > 4) {
-                console.log('remove--')
+                // console.log('remove--')
                 $(this).remove()
               }
             })
