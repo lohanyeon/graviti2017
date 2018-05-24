@@ -24,7 +24,11 @@
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
     "vue": "^2.4.2",
+    "vue-cookie": "^1.1.4",
+    "vue-cookies": "^1.5.6",
+    "vue-js-cookie": "^2.1.0",
     "vue-router": "^2.7.0",
+    "vue-scroll-behavior": "^0.2.0",
     "vue-top-progress": "^0.6.0",
     "vue2-google-maps": "^0.8.4"
   },

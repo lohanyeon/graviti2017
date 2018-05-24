@@ -36,7 +36,7 @@
           <!-- work list -->
           <ul id="graviti-w-list">
             <transition-group name="list">
-              <li v-if="hasResult" v-for="(work, key) in portfolios" :key="work.pk">
+              <li v-if="hasResult" v-for="(work, key) in portfolios" :key="work.pk" :id="work.pk">
                 <div class="thum-wrap test" v-on:mouseover="setThumOver($event)">
                   <router-link v-bind:to="{ name: 'WorkDetail', params: {id: work.pk}  }">
                     <p class="tit">{{work.fields.project_kor_name}}</p>
@@ -58,7 +58,7 @@
             </transition-group>
           </ul>
           <!-- //work list -->
-          <a href="javascript:" class="btn_more_list show txt_c" v-on:click="setListPortfolio('more', 'more')"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
+          <a href="javascript:" class="btn_more_list show txt_c" v-on:click="setListPortfolio('more', 'more')" id="9999999999"><img src="/static/v2017/images/btn_more_list.png" alt="더보기"></a><!-- 클릭 시 w-list가 더 뿌려짐 -->
         </article>
       </div>
       <!-- //contents -->
@@ -78,6 +78,7 @@
   import $ from 'jQuery'
   import {vueTopprogress} from 'vue-top-progress'
   import classie from 'desandro-classie'
+
   let headerScroll = require('header-scroll-up')
 
   export default {
@@ -124,7 +125,8 @@
       setListPortfolio (k, v, from) {
         // const baseURI = '/apis'
         var obj = document.myform
-        var currPortfolioDisplayTotal = parseInt(obj.portfolio_display_total.value)
+        // console.log(document.location.hash + 12)
+        // var currPortfolioDisplayTotal = parseInt(obj.portfolio_display_total.value)
         var fromDetail = obj.from_detail.value
         const baseURI = this.strUrl
         var uri
@@ -151,18 +153,42 @@
 
         // 포토폴리오 리스트 가져오기
         if (fromDetail === 'detail') {
-          if (from === 'menu') {
-            this.portfoliosGetAmount = this.portfoliosSetAmount
-          } else {
-            this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
-            this.portfoliosGetAmount = this.portfoliosGetAmount === 0 ? this.portfoliosSetAmount : this.portfoliosGetAmount
-          }
+          // if (from === 'menu') {
+          //   this.portfoliosGetAmount = this.portfoliosSetAmount
+          // } else {
+          //   this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
+          //   this.portfoliosGetAmount = this.portfoliosGetAmount === 0 ? this.portfoliosSetAmount : this.portfoliosGetAmount
+          // }
+        } else if (fromDetail === '') {
+          // this.portfoliosGetAmount = currPortfolioDisplayTotal + this.portfoliosDisplayTotal
+          // this.portfoliosGetAmount = this.portfoliosGetAmount === 0 ? this.portfoliosSetAmount : this.portfoliosGetAmount
         } else {
-          this.portfoliosGetAmount = this.portfoliosSetAmount
+          // this.portfoliosGetAmount = this.portfoliosSetAmount
         }
+
+        // console.log(k)
+        if (k === 'more') {
+          var _clickCount = parseInt(this.$cookies.get('click-count-more')) + 1
+          this.$cookies.set('click-count-more', _clickCount)
+          this.$cookies.set('pid', 9999999999)
+          this.portfoliosGetAmount = this.portfoliosDisplayPerPage
+          this.portfoliosDisplayTotal = (parseInt(this.$cookies.get('click-count-more')) - 1) * this.portfoliosDisplayPerPage
+        } else if (k === 'prev-click') {
+          this.$cookies.set('click-count-more', this.$cookies.get('click-count-more'))
+          this.portfoliosGetAmount = parseInt(this.$cookies.get('click-count-more')) * this.portfoliosDisplayPerPage
+          this.portfoliosDisplayTotal = this.portfoliosDisplayTotal
+        } else {
+          this.$cookies.set('click-count-more', 1)
+          this.$cookies.set('pid', 0)
+          this.portfoliosGetAmount = this.portfoliosDisplayPerPage
+          this.portfoliosDisplayTotal = (parseInt(this.$cookies.get('click-count-more')) - 1) * this.portfoliosDisplayPerPage
+        }
+
         var uri2 = baseURI + '/portfolios/api/portfolio/' + v + '/'
         uri2 += this.portfoliosDisplayTotal + '/' + this.portfoliosGetAmount + '/'
         obj.work.value = v
+
+        // console.log(uri2)
 
         this.$http.get(`${uri2}`).then((result) => {
           if (k !== 'more') { // for init
@@ -181,6 +207,11 @@
           console.log(e)
           // this.$refs.topProgress.fail()
         })
+
+        // document.location.hash = this.portfoliosDisplayTotal + 12
+        // console.log(this.portfoliosDisplayTotal)
+        // console.log(document.location.hash)
+        // document.location.hash = '98'
       },
       getPortfolioTotal () {
         var obj = document.myform
@@ -230,6 +261,18 @@
         var obj = document.myform
         obj.work.value = ''
         obj.portfolio_display_total.value = 0
+      },
+      scrollBehavior () {
+        var pid = parseInt(this.$cookies.get('pid'))
+
+        if (pid > 0) {
+          document.location.hash = pid
+          var hash = document.location.hash
+          // alert(document.location.hash)
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 500)
+        }
       }
     },
     created () {
@@ -245,12 +288,28 @@
         search = t
       }
 
+      var _click = this.$cookies.get('click-count-more')
+      var _k = ''
+      if (_click > 1) {
+        _k = 'prev-click'
+      } else {
+        _k = 'init'
+        this.$cookies.set('click-count-more', 1)
+      }
+
       this.gnb()
-      this.setListPortfolio('init', search, 'load')
+      this.setListPortfolio(_k, search, 'load')
       this.setBtn()
       this.setDefaultClickBtn(t)
       this.getPortfolioTotal()
       headerScroll.setScrollableHeader('header', {topOffset: 40})
+
+      // this.$cookies.set('count', 13)
+      // console.log(this.$cookies.get('count'))
+      // this.$cookies.set('click-count-more', 1)
+    },
+    updated () {
+      this.scrollBehavior()
     },
     watch: {
       portfoliosTotal () {

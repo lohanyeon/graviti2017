@@ -239,6 +239,8 @@
         const baseURI = this.strUrl
         var uri = baseURI + '/portfolios/api/portfolio/' + id
 
+        this.$cookies.set('pid', id)
+
         this.$refs.topProgress.start()
 
         this.$http.get(`${uri}`).then((result) => {

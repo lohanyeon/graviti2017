@@ -17,6 +17,9 @@ function closeGnb() {
 
 	form.work.value = 'all'
 	form.from_detail.value = 'menu'
+
+	this.$cookies.set('click-count-more', 1)
+	this.$cookies.set('pid', 0)
 }
 
 $(function(){

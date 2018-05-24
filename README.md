@@ -21,7 +21,6 @@ npm install --save gsap
 npm install --save vue-top-progress
 npm install --save desandro-classie
 npm install header-scroll-up --save
-
 ## Build Setup
 
 ``` bash

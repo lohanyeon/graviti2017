@@ -4,6 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import VueCookies from 'vue-cookies'
+// import vueScrollBehavior from 'vue-scroll-behavior'
+
+Vue.use(VueCookies)
+// Vue.use(vueScrollBehavior, {
+//   router: router,
+//   maxLength: 100,
+//   delay: 100
+// })
 
 Vue.config.productionTip = false
 
