@@ -352,6 +352,7 @@
   }
   .wrapper.work header .group li.on a, .wrapper.work header .group li.over a {color:#fff;}
   .wrapper.work header .group li.all {margin-left:100px;}
+  .wrapper.work header .group li.all a {background:url('/static/v2017/images/icon_group_all.png') 52px center no-repeat;}
   .wrapper.work header .group li.web a {background:url('/static/v2017/images/icon_group_web.png') 52px center no-repeat;}
   .wrapper.work header .group li.mobile a {background:url('/static/v2017/images/icon_group_mobile.png') 64px center no-repeat; padding-right:40px;}
   .wrapper.work header .group li.video01 a {background:url('/static/v2017/images/icon_group_video.png') 58px center no-repeat; padding-right:45px;}
