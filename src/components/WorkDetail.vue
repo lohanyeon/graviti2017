@@ -95,12 +95,15 @@
               <div v-if="index===0 && videoList.length===0" class="img pt0"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
                 <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
               </div>
+              <div v-else-if="index===0 && videoList.length>0" class="img"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
+                <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
+              </div>
               <div v-else class="img"><!-- 첫번째 img에 class=pt0 꼭 붙여주세요. -->
                 <img :src="strMediaUrl + obj.fields.sub_image" alt="서브이미지">
               </div>
             </li>
             <li class="l2" v-else><!-- li class=l2 : 텍스트+이미지 들어가는 li -->
-              <div class="txt" v-if="obj.fields.sub_image_explain_title !== ''">
+              <div class="txt" v-if="obj.fields.sub_image_explain_title !== ''" v-bind:class="{'pt0': hasVideoList}">
                 <dl class="t1">
                   <dt v-if="obj.fields.portfolio_title[0]!=='None'"><img :src="strMediaUrl + obj.fields.portfolio_title[1]" alt="설명아이콘"></dt>
                   <dd>{{obj.fields.sub_image_explain}}</dd>
@@ -192,6 +195,7 @@
         imagesList: [],
         videoList: [],
         hasBgClass: true,
+        hasVideoList: false,
         strUrl: 'http://new.graviti.co.kr',
         // strUrl: 'http://localhost:8000',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
@@ -253,6 +257,12 @@
           if (this.currPortfolio[0].fields.main_image !== '') {
             this.hasBgClass = false
           }
+
+          if (this.videoList.length === 0) {
+            this.hasVideoList = true
+          }
+          // console.log('===> ' + this.videoList.length)
+          // console.log('===> ' + this.hasVideoList)
 
           this.cPortfolio = this.portfolios[0]
           this.pPortfolio = this.portfolios[1]
@@ -369,6 +379,7 @@
   .portfolio-detail .img .tit dl dd {font-size:1.2vw; letter-spacing:-0.05em; margin-top:5%;}
   .portfolio-detail .img.img2 {padding-bottom:115px;}
   .portfolio-detail .txt {padding-top:115px; margin:0 14.28%;}
+  .portfolio-detail .txt.pt0 {padding-top:0; margin:0 14.28%;}
   .portfolio-detail .txt dl:after {content:""; display:block; clear:both;}
   .portfolio-detail .txt dl dt {float:left; width:33%;}
   .portfolio-detail .txt dl dt img {max-width:100%;}

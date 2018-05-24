@@ -179,6 +179,7 @@
           this.portfoliosDisplayTotal = this.portfoliosDisplayTotal
         } else {
           this.$cookies.set('click-count-more', 1)
+          document.location.hash = ''
           this.$cookies.set('pid', 0)
           this.portfoliosGetAmount = this.portfoliosDisplayPerPage
           this.portfoliosDisplayTotal = (parseInt(this.$cookies.get('click-count-more')) - 1) * this.portfoliosDisplayPerPage
