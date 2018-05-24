@@ -151,7 +151,7 @@
 
 <style>
   .section-contact article {margin:0 60px;}
-  .section-contact article .map {width:100%; height:404px; background-color:#00a1e9;}
+  .section-contact article .map {width:100%; height:623px; background-color:#00a1e9;}
   .section-contact .detail {background-color:#f4f7f9; padding:40px 0; margin-bottom:60px;}
   .section-contact .detail:after {content:""; display:block; clear:both;}
   .section-contact .detail .box-left {float:left; width:48%; font-family:'Rajdhani'; text-align:center; padding:0 1%;}

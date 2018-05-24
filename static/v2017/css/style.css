@@ -76,6 +76,9 @@
 
 
 @media all and (max-width:1600px) {
+  #mainVisual .ment-text .barcode {display:none;}
+  #mainVisual .ment-text .title {width:100%;}
+  #mainVisual .ment-text .title .more {position:absolute; top:auto; left:0; bottom:-50px;}
   .work-list-wrap #graviti-w-list li .thum-wrap .tit, .work-list-wrap #graviti-w-list li .dim .tit {font-size:16px;}
 }
 
@@ -86,12 +89,11 @@
 /* tablet */
 @media all and (max-width:1024px) {
   #mainVisual .ment-text li {width:60%;}
-  #mainVisual .ment-text .barcode {display:none;}
   #mainVisual .ment-text .title {float:none; width:100%; max-width:100%; margin-left:0;}
   #mainVisual .ment-text .title dl {margin-bottom:40px;}
   #mainVisual .ment-text .title dl dt {font-size:55px;}
   #mainVisual .ment-text .title dl dt span {display:inline;}
-  #mainVisual .ment-text .title .more {position:relative;}
+  #mainVisual .ment-text .title .more {position:relative; bottom:0;}
   #gnb {top:50%; margin-top:-120px;}
   #gnb li a {font-size:55px;}
   .sub_cont .contR {display:none;}
