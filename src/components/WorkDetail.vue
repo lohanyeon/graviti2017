@@ -196,6 +196,7 @@
         videoList: [],
         hasBgClass: true,
         hasVideoList: false,
+        countUpdate: 0,
         strUrl: 'http://new.graviti.co.kr',
         // strUrl: 'http://localhost:8000',
         strMediaUrl: 'http://new.graviti.co.kr/media/'
@@ -298,8 +299,17 @@
       },
       videoPlay () {
         $(document).ready(function () {
+          console.log('videoPlay')
           var v = document.getElementById('video01')
+          v.load()
           v.play()
+        })
+      },
+      videoPause () {
+        $(document).ready(function () {
+          console.log('videoPause')
+          var v = document.getElementById('video01')
+          v.pause()
         })
       },
       goList () {
@@ -322,6 +332,17 @@
     },
     updated () {
       // this.videoPlay()
+      console.log('updated')
+      this.countUpdate++
+      console.log(this.countUpdate, $('#video01 source').attr('src'))
+      if (this.countUpdate === 4) {
+        var src = $('#video01 source').attr('src')
+        console.log('src : ' + src)
+        // $('#video01 source').remove()
+        // $('#video01').append('<source/>')
+        this.videoPlay()
+        this.countUpdate = 0
+      }
     },
     watch: {
       '$route.params.id' (newId, oldId) {
@@ -329,7 +350,6 @@
         this.setPortfolioSub('url', newId)
         this.setPortfolioSub('images', newId)
         this.setPortfolioSub('video', newId)
-
         // console.log(newId)
         // console.log(oldId)
       }
