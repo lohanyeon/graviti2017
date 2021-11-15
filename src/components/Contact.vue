@@ -26,6 +26,7 @@
             <gmap-map
               :center="center"
               :zoom="14"
+              map-type-id="hybrid"
               style="width: 100%; height: 100%"
             >
               <gmap-marker
@@ -54,7 +55,7 @@
             <div class="box-left">
               <dl>
                 <dt class="tit fc-blue">ADDRESS</dt>
-                <dd><strong>(주) 그라비티 인터렉티브</strong> 서울특별시 마포구 동교로 107, 302호</dd>
+                <dd><strong>(주) 그라비티 인터렉티브</strong> 서울시 송파구 정의로7길 13, 오피스1002호</dd>
               </dl>
             </div>
             <div class="box-right">
@@ -115,9 +116,9 @@
     data: function () {
       return {
         portfolio: [],
-        center: {lat: 37.554974, lng: 126.913835},
+        center: {lat: 37.48526028818, lng: 127.11524474809303},
         markers: [{
-          position: {lat: 37.554974, lng: 126.913835}
+          position: {lat: 37.48526028818, lng: 127.11524474809303}
         }]
       }
     },
