@@ -63,8 +63,8 @@
                 <dt class="tit fc-blue">CONTACT US</dt>
                 <dd>
                   <strong>TEL.</strong> <a href="tel:02-333-9230">02.333.9230</a>
-                  <span class="ml5"><strong>FAX.</strong> 02.333.8893</span>
-                  <span class="ml5 m"><strong>e-mail.</strong> <a href="mainto:contact@graviti.co.kr">contact@graviti.co.kr</a></span>
+                  <span class="ml5"><strong>FAX.</strong> 02.6919.2699</span>
+                  <span class="ml5 m"><strong>e-mail.</strong> <a href="mainto:jacky@graviti.co.kr">jacky@graviti.co.kr</a></span>
                 </dd>
               </dl>
               <!-- <p class="qr-code"><img src="/static/v2017/images/icon_qr-code.jpg" alt="그라비티인터랙티브 QR 코드"></p> -->
