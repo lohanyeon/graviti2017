@@ -73,8 +73,8 @@
   						<ul>
   							<li>TEL. 02.333.9230</li>
   							<li>CELL. 010.5090.9788</li>
-  							<li>FAX. 02.333.8893</li>
-  							<li>서울시 마포구 양화로8길 32-17, 3층(서교동, 누가빌딩)</li>
+  							<li>FAX. 02.6919.2699</li>
+  							<li>서울시 송파구 정의로7길 13, 오피스1002호</li>
   						</ul>
   					</div>
   				</div>
@@ -84,7 +84,7 @@
   							<li>&nbsp;</li>
   							<li>&nbsp;</li>
   							<li><a href="#"><img src="/static/v2017/images/arrow_top.png" alt=""></a></li>
-  							<li>@COPYRIGHT2017<span><a href="#"><img src="/static/v2017/images/arrow_bottom.png" alt=""></a></span></li>
+  							<li>@COPYRIGHT2023<span><a href="#"><img src="/static/v2017/images/arrow_bottom.png" alt=""></a></span></li>
   						</ul>
   					</div>
   				</div>

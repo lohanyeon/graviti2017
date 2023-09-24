@@ -23,7 +23,7 @@
         Fax. 02.333.8893
       </address>
       <p>서울시 송파구 정의로7길 13, 오피스1002호</p>
-      <p class="copyright"><a href="#" v-on:click="visual('pause')" style="color:#FFF">© Copyright</a> <a href="#" v-on:click="visual('resume')" style="color:#FFF">2017</a></p>
+      <p class="copyright"><a href="#" v-on:click="visual('pause')" style="color:#FFF">© Copyright</a> <a href="#" v-on:click="visual('resume')" style="color:#FFF">2023</a></p>
       <ul class="arrow">
         <li class="arr_up"><a href="#" v-on:click="visual('up')"><img src="/static/v2017/images/arr_up.png" alt="이전"><img src="/static/v2017/images/arr_up_black.png" alt="이전" class="mobile"></a></li>
         <li class="arr_down"><a href="#" v-on:click="visual('down')"><img src="/static/v2017/images/arr_down.png" alt="다음"><img src="/static/v2017/images/arr_down_black.png" alt="다음" class="mobile"></a></li>

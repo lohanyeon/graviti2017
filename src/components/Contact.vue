@@ -9,6 +9,10 @@
         </router-link>
       </h1>
       <h2 class="title01">CONTACT</h2>
+      <a href="https://www.youtube.com/@GRAVITIinteractive" target="_blank" id="youtube" class="youtube">
+        <img src="/static/v2017/images/youtube.png" alt="youtube" style="width:42px;height:42px;">
+        <img src="/static/v2017/images/youtube.png" alt="youtube" class="mobile" style="width:42px;height:42px;">
+      </a>
       <a href="#" id="showRightPush" class="gnb_menu">
         <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
         <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">

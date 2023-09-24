@@ -9,6 +9,10 @@
         </router-link>
       </h1>
       <h2 class="title01">ABOUT</h2>
+      <a href="https://www.youtube.com/@GRAVITIinteractive" target="_blank" id="youtube" class="youtube">
+        <img src="/static/v2017/images/youtube.png" alt="youtube" style="width:42px;height:42px;">
+        <img src="/static/v2017/images/youtube.png" alt="youtube" class="mobile" style="width:42px;height:42px;">
+      </a>
       <a href="#" id="showRightPush" class="gnb_menu">
         <img src="/static/v2017/images/gnb_menu_black.png" alt="메뉴">
         <img src="/static/v2017/images/gnb_menu_black_m.png" alt="메뉴" class="mobile">
@@ -25,8 +29,8 @@
           <dl class="summary">
             <dt>신뢰와 크리에이티브를 최우선으로 생각하는 기업!</dt>
             <dd>
-              2005년 11월 3일에 설립된 그라비티인터랙티브는 웹사이트, 모바일 웹, 앱 제작/운영, 홍보영상 등 디지털 콘텐츠를 제작·관리하는 웹에이전시입니다. <br>
-              그라비티인터랙티브는 젊음과 열정이 있는 회사입니다. 빠른 변화를 요구하는 디지털 시대에 높은 퀄리티와 안정된 실력으로 최고의 웹사이트를 만들어 가고 있습니다.
+              2005년 설립된 그라비티인터랙티브는 기업 홍보영상, 브랜드 영상, 전시 영 상 등을 전문적으로 제작하고 있습니다. <br>
+              디지털 미디어 시대에 맞춘 높은 퀄리티와 뛰어난 실력으로 많은 고객사와 함께 하고 있습니다.
             </dd>
           </dl>
     			<ul class="a-list">
@@ -35,12 +39,12 @@
               <p class="txt">세련된 맨파워, 강력한 팀워크, <span>완숙한 경험과 식견이 출중한 리더들을</span> <span>중심으로 양질의 결과물을 도출합니다.</span></p>
             </li>
     			  <li>
-              <p class="tit">Integrated e-Biz <br>Services<span>통합 e-Biz 서비스</span></p>
-              <p class="txt">정확한 커뮤니케이션, 전문적 기술, <span>체계적이고 크리에이티브한 접근으로</span> <span>시너지와 융합을 극대화합니다.</span></p>
+              <p class="tit">QUALITY &<br>TRUST<span>품질에 대한 신뢰</span></p>
+              <p class="txt">높은 영상 퀄리티, 정확한 커뮤니케이션, <span>체계적인 제작 프로세스로 고객에게</span> <span>높은 신뢰를 얻고 있습니다.</span></p>
             </li>
     			  <li>
               <p class="tit">Ongoing <br>partnerships<span>지속적 파트너 관계</span></p>
-              <p class="txt">최적의 디지털 아이덴티티부터 <span>서비스 플랫폼까지… 지난 10여 년 간</span> <span>많은 기업들의 인정을 받고 있습니다.</span></p>
+              <p class="txt">온.오프라인을 아우르는 최적의 <span>디지털 영상 콘텐츠로 많은 기업들과</span> <span>지속적 파트너 관계를 유지하고 있습니다.</span></p>
             </li>
     			</ul>
       	</article>
